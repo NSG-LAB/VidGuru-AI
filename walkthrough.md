@@ -9,10 +9,11 @@ VidGuru AI is an intelligent, human-like AI educator that transforms textbooks, 
 ### 1. Pedagogical AI Teaching Brain (Not a Chatbot)
 - **Cognitive Science Foundations**: Implements structured curriculum progression based on Bloom's taxonomy (Intuition $\rightarrow$ Mental Models $\rightarrow$ Visual Breakdown $\rightarrow$ Formative Checkpoint $\rightarrow$ Misconception Diagnosis $\rightarrow$ Adaptive Remediation $\rightarrow$ Synthesis).
 - **Misconception Diagnosis & Socratic Scaffolding**: Detects when a student has a cognitive flaw (e.g. confusing velocity with acceleration, string distances with embedding dot-products, reference with value types) and dynamically adapts by presenting targeted real-world analogies and step-down scaffolds.
-- **Multilingual Code-Switching**: English, Hindi, Hinglish (mix of Hindi and English), and Spanish.
+- **Multilingual Code-Switching**: English, Hindi, Hinglish (mix of Hindi and English), and Spanish with localized pedagogical voice matching.
 
 ### 2. Interactive Video Classroom Studio
-- **Animated AI Teacher Avatar**: Dynamic talking head with real-time lip-sync waveforms, emotion states, neural audio synthesis playback, and personality presets (**Dr. Nova**, **Prof. Aryan**, **Maya**, **Alex**).
+- **Animated AI Teacher Avatar**: Dynamic talking head with real-time lip-sync waveforms, natural blinking cycles, emotional states (`explaining`, `thinking`, `celebrating`, `empathizing`, `inquiring`), neural audio synthesis playback with 1-click browser gesture unlock and automatic Web Speech fallback, adjustable playback speed (0.75x to 1.5x), Picture-in-Picture (PiP) mini mode, and live persona presets (**Dr. Nova**, **Prof. Aryan**, **Maya**, **Alex**).
+- **Full Lecture Video Recording & Export**: Integrated browser-native `MediaRecorder` video capture engine enabling one-click recording and download of the complete video masterclass (.webm/.mp4) with synchronized teacher speech and animated whiteboard.
 - **Synchronized Smart Blackboard**: Dynamic canvas rendering:
   - **LaTeX Mathematical Formulas** (rendered via KaTeX)
   - **Mermaid Architecture Diagrams & Flowcharts** (rendered client-side)
@@ -24,11 +25,18 @@ VidGuru AI is an intelligent, human-like AI educator that transforms textbooks, 
 - **Adaptive Remediation Pivot Alert**: Distinct visual alert displaying the diagnosed misconception, why students make the mistake, the tailored analogy, and a scaffolded follow-up question.
 - **Curriculum Roadmap Timeline**: Progress tracker with completion badges and step navigation.
 
-### 3. Document Ingestion & RAG Engine
+### 3. High-Impact Landing Page & Showcase
+- **Animated Hero & Particle Canvas**: Gradient headline with typewriter cursor effect, floating ambient glow orbs, and live feature badge.
+- **Interactive Stats Counter**: Live count-up animations for preset masterclasses, teacher personas, languages, and core features.
+- **Feature Showcase Grid**: 6 color-coded cards with shimmer sweep effects and staggered entrance animations.
+- **4-Step Workflow Pipeline**: Visual roadmap (`01 Upload` $\rightarrow$ `02 Profile` $\rightarrow$ `03 Classroom` $\rightarrow$ `04 Report`) with animated connector lines.
+- **Live Classroom Mockup Preview**: Stylized interactive preview with feature overlay pills.
+
+### 4. Document Ingestion & RAG Engine
 - Fast text extraction from PDF, Markdown, TXT, and Code files.
 - Hierarchical semantic chunking and BM25 hybrid vector retrieval.
 
-### 4. Summative Assessment & Spaced Repetition Analytics
+### 5. Summative Assessment & Spaced Repetition Analytics
 - **Adaptive Final Quiz**: 5-question mastery assessment with instant reasoning explanations.
 - **Mastery Learning Report**:
   - Overall Mastery score & tier (**Novice**, **Developing**, **Proficient**, **Master**).

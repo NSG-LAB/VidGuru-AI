@@ -7,13 +7,13 @@ from app.services.tts_engine import tts_engine
 
 router = APIRouter(prefix="/voice", tags=["Voice TTS & STT"])
 
-@router.get("/audio/{filename}")
+@router.api_route("/audio/{filename}", methods=["GET", "HEAD"])
 async def get_audio_file(filename: str):
     """Streams generated audio mp3 file for frontend teacher playback."""
     file_path = settings.AUDIO_DIR / filename
     if not file_path.exists():
         raise HTTPException(status_code=404, detail="Audio file not found")
-    return FileResponse(file_path, media_type="audio/mpeg")
+    return FileResponse(file_path, media_type="audio/mpeg", headers={"Accept-Ranges": "bytes", "Cache-Control": "public, max-age=3600"})
 
 @router.post("/tts")
 async def generate_speech(
