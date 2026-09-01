@@ -1,60 +1,125 @@
 # 🎓 VidGuru AI — Human-Like AI Educator That Teaches Through Video
 
-> **VidGuru AI** is an intelligent, human-like AI educator that transforms textbooks, PDFs, lecture notes, research papers, or any topic into a personalized, adaptive, interactive video-based classroom experience.
+> **VidGuru AI** is an intelligent, human-like AI educator that transforms textbooks, PDFs, lecture notes, slides, research papers, or any topic into a personalized, adaptive, interactive video-based classroom experience.
 
-Unlike static chatbots that merely answer questions, **VidGuru AI behaves like a world-class 1-on-1 teacher**: it breaks concepts down step-by-step from first principles, dynamically illustrates ideas with synchronized blackboard visuals (LaTeX equations, Mermaid architecture diagrams, live code snippets, and real-world analogies), asks thought-provoking formative checkpoint questions, diagnoses cognitive misconceptions, adapts explanations in real-time with tailored remedial analogies, and provides a comprehensive learning report with a spaced repetition retention schedule.
+Unlike static chatbots that merely answer questions, **VidGuru AI behaves like a world-class 1-on-1 teacher**: it breaks concepts down step-by-step from first principles, dynamically illustrates ideas with synchronized blackboard visuals (LaTeX equations, Mermaid architecture diagrams, live code playgrounds, and real-world analogies), asks thought-provoking formative checkpoint questions, diagnoses cognitive misconceptions, adapts explanations in real-time with tailored remedial analogies, and provides a comprehensive learning report with a spaced repetition retention schedule.
 
 ---
 
-## 🌟 Key Features
+## 🌟 Key Features & Capabilities
 
-1. **Pedagogical AI Teacher (Not Just a Chatbot)**:
-   - Follows cognitive science principles (Bloom's Taxonomy & Socratic Inquiry).
-   - Explains one cohesive mental model at a time with progressive cognitive load.
-   - Diagnoses exact misconceptions (e.g. confusing velocity with acceleration, reference vs value types, correlation vs causation).
-   - Automatically pivots with tailored real-world analogies and scaffolding before progressing.
+### 1. Pedagogical AI Teacher (Not Just a Chatbot)
+- **Cognitive Science Foundations**: Implements structured curriculum progression based on Bloom's taxonomy (Intuition $\rightarrow$ Mental Models $\rightarrow$ Visual Breakdown $\rightarrow$ Formative Checkpoint $\rightarrow$ Misconception Diagnosis $\rightarrow$ Adaptive Remediation $\rightarrow$ Synthesis).
+- **Misconception Diagnosis & Socratic Scaffolding**: Detects when a student has a cognitive flaw (e.g. confusing velocity with acceleration, string distances with embedding dot-products, reference with value types) and dynamically adapts by presenting targeted real-world analogies and step-down scaffolds.
+- **Formative Checkpoint Questions**: Embedded within every lesson step with Voice (STT) or Text student response evaluation.
 
-2. **Interactive Video & AI Avatar Classroom**:
-   - Animated AI Teacher Avatar with dynamic speaking lip-sync waveforms and personality presets (Dr. Nova, Prof. Aryan, Maya, Alex).
-   - Synchronized dynamic blackboard with real-time LaTeX math formula rendering, Mermaid diagrams, and code snippets.
-   - High-fidelity neural voice synthesis with multilingual speech support.
+### 2. Interactive Video Classroom Studio & Talking Avatar
+- **Emotion-Aware AI Teacher Avatar**: Dynamic animated avatar with 5 real-time emotion states (`explaining`, `thinking`, `celebrating`, `empathizing`, `inquiring`), natural blinking cycles, mouth lip-sync animations, and adjustable playback speeds ($0.75\times$ to $1.5\times$).
+- **4 Teacher Personas**:
+  - 🔬 **Dr. Nova**: Intuitive & concept-first educator (Analogy specialist).
+  - 🏛️ **Prof. Aryan**: Deep Socratic & first-principles guide.
+  - ⚡ **Maya**: Energetic & visual master instructor.
+  - 💻 **Alex**: Hands-on systems & code architect.
+- **Mini Picture-in-Picture (PiP) Mode**: Float the teacher avatar anywhere on screen while reviewing complex diagrams.
+- **Full Lecture Video Recording & Export**: Built-in `MediaRecorder` video capture engine enabling one-click recording and download of the complete video masterclass (`.webm` / `.mp4`).
 
-3. **Multilingual & Code-Switching Support**:
-   - Supports **English, Hindi (हिन्दी), Hinglish (conversational mix of Hindi and English), and Spanish**.
-   - Natural pedagogical code-switching suitable for Indian and global classrooms.
+### 3. Synchronized Smart Blackboard
+- **LaTeX Mathematical Formulas**: Rendered dynamically with KaTeX.
+- **Mermaid Architecture Diagrams & Flowcharts**: Client-side interactive rendering.
+- **Code Playgrounds**: Multi-language code snippets with one-click copy and syntax formatting.
+- **Intuitive Analogy Cards & Key Takeaway Summaries**: Color-coded pedagogical visual cards.
 
-4. **Personalized Learner Profiles**:
-   - **Grade Levels**: Middle School (EL5), High School, Undergraduate, Advanced / Pro.
-   - **Learning Goals**: Deep Conceptual Understanding, Exam Cram & Derivations, Quick Revision, Practical Coding.
-   - **Time Budgets**: 5 min Micro-lesson, 15 min Standard Masterclass, 30 min Deep Dive.
+### 4. High-Impact Animated Landing Page
+- **Hero Particle & Glow Canvas**: Gradient headline with typewriter cursor effect and floating ambient glow orbs.
+- **Live Stats Counters**: Animated count-up metrics for preset masterclasses, teacher personas, languages, and core features.
+- **Feature Showcase Grid**: 6 color-coded cards with shimmer sweep effects and staggered entrance animations.
+- **4-Step Workflow Pipeline**: Visual roadmap (`01 Upload` $\rightarrow$ `02 Profile` $\rightarrow$ `03 Classroom` $\rightarrow$ `04 Report`) with animated connector lines.
+- **Live Classroom Mockup Preview**: Stylized interactive preview with feature overlay pills.
 
-5. **Document Ingestion & RAG (Retrieval-Augmented Generation)**:
-   - Drag-and-drop ingestion of PDFs, lecture slides, research papers, and notes.
-   - Hierarchical semantic chunking and BM25/hybrid retrieval.
+### 5. Multilingual & Code-Switching Support
+- Supports **English, Hindi (हिन्दी), Hinglish (conversational mix of Hindi and English), and Spanish**.
+- Localized pedagogical voice matching via neural speech synthesis.
 
-6. **Summative Assessment & Spaced Repetition Retention**:
-   - Adaptive final mastery quiz with instant Socratic reasoning feedback.
-   - Comprehensive Learning Report: Mastery Level (Novice -> Master), Cognitive Misconception Resolution Matrix, Strengths & Growth Areas, Spaced Repetition Schedule (Day 1, Day 3, Day 7), and Downloadable Study Notes in Markdown.
+### 6. Document Ingestion & RAG (Retrieval-Augmented Generation)
+- Drag-and-drop ingestion of PDFs, Markdown notes, TXT files, and raw course syllabi.
+- Hierarchical semantic chunking and BM25 hybrid similarity search for grounded teaching.
+
+### 7. Summative Assessment & Spaced Repetition Analytics
+- **Adaptive Final Mastery Quiz**: 5-question mastery assessment with instant Socratic reasoning feedback.
+- **Comprehensive Learning Report**:
+  - Overall Mastery score & tier (**Novice**, **Developing**, **Proficient**, **Master**).
+  - **Cognitive Misconceptions Log**: Matrix of misconceptions identified and resolved during class.
+  - **Spaced Repetition Schedule**: Day 1, Day 3, Day 7 retention plan based on the Ebbinghaus forgetting curve.
+  - **Downloadable Study Notes**: Full markdown study notes summary ready for export.
+
+---
+
+## 📋 Assessment Checklist (12/12 Features Verified)
+
+| # | Feature Requirement | Status | Implementation Details |
+|---|---|:---:|---|
+| 1 | **Learning from Uploaded Material** | ✅ | PDF, TXT, MD parser with semantic chunking & RAG |
+| 2 | **Topic-Based Teaching** | ✅ | Instant masterclass generator for any custom topic |
+| 3 | **AI-Generated Lesson Structure** | ✅ | Time-budgeted cognitive roadmap based on Bloom's taxonomy |
+| 4 | **Personalized Teaching** | ✅ | Grade levels, goals, languages, and teacher personas |
+| 5 | **Human-Like Teaching Interaction** | ✅ | Conversational lecture turns, analogies, and Socratic hints |
+| 6 | **Video-Based AI Presentation** | ✅ | Full video classroom + downloadable video masterclass export |
+| 7 | **AI Voice** | ✅ | Multilingual neural Edge-TTS with 1-click browser unlock |
+| 8 | **Human-Like AI Avatar** | ✅ | 5 emotion states, lip-sync, blinking, and PiP mode |
+| 9 | **Multilingual Capability** | ✅ | English, Hindi, Hinglish, and Spanish |
+| 10 | **Student Questioning & Assessment** | ✅ | Formative checkpoint questions + 5-question final quiz |
+| 11 | **Adaptive Response to Performance** | ✅ | Misconception diagnosis engine + remedial analogies |
+| 12 | **Working Prototype** | ✅ | Full-stack FastAPI + Next.js 14 application |
 
 ---
 
 ## 🏗️ Architecture & Technology Stack
 
 ```
-VidGuru AI Architecture
-├── Frontend (Next.js 14 + Tailwind CSS + Lucide + KaTeX + Mermaid)
-│   ├── Interactive AI Teacher Avatar & Audio Waveform Player
-│   ├── Synchronized Dynamic Blackboard (LaTeX, Mermaid, Code, Analogy Cards)
-│   ├── Socratic Interaction Console (Voice STT / Text / Live Doubts)
-│   ├── Adaptive Misconception Remediation Banner
-│   └── Summative Quiz Engine & Learning Analytics Dashboard
+VidGuru AI
+├── frontend/ (Next.js 14 + Tailwind CSS + KaTeX + Mermaid)
+│   ├── app/
+│   │   ├── page.tsx                  # Animated Landing Page & Showcase
+│   │   ├── classroom/page.tsx        # Video Classroom Studio
+│   │   ├── report/page.tsx           # Learning Analytics Dashboard
+│   │   └── globals.css               # Dark glassmorphism & custom keyframes
+│   ├── components/
+│   │   ├── classroom/
+│   │   │   ├── TeacherAvatar.tsx     # Animated talking AI avatar with 5 emotions
+│   │   │   ├── SmartWhiteboard.tsx   # LaTeX, Mermaid, Code blackboard
+│   │   │   ├── InteractionPanel.tsx  # Voice/Text Socratic console & STT
+│   │   │   ├── RemediationAlert.tsx  # Misconception diagnostic banner
+│   │   │   ├── LectureVideoRecorder.tsx # MediaRecorder video export
+│   │   │   └── LessonTimeline.tsx    # Curriculum roadmap
+│   │   ├── onboarding/
+│   │   │   ├── DocumentUploader.tsx  # Drag-and-drop ingestion & presets
+│   │   │   └── PersonaSelector.tsx   # Learner personalization
+│   │   └── assessment/
+│   │       ├── QuizEngine.tsx        # Summative adaptive quiz
+│   │       └── LearningReportView.tsx# Mastery report & Spaced Repetition
+│   └── lib/
+│       ├── api.ts                    # Typed API client with audio routing
+│       └── types.ts                  # TypeScript interfaces
 │
-└── Backend (FastAPI + Python + RAG + Neural TTS)
-    ├── RAG Engine (PDF Extraction, Semantic Chunking, Hybrid Retrieval)
-    ├── Pedagogical Teaching State Machine & Socratic Agent
-    ├── Cognitive Misconception Diagnosis Engine
-    ├── Multilingual Neural Voice Engine (Edge-TTS)
-    └── Assessment & Spaced Repetition Generator
+└── backend/ (FastAPI + Python + RAG + Neural TTS)
+    ├── app/
+    │   ├── api/
+    │   │   ├── classroom.py          # Teaching turns, Socratic evaluation, doubts
+    │   │   ├── documents.py          # PDF / notes upload & RAG indexing
+    │   │   ├── lesson_plan.py        # Adaptive syllabus generator
+    │   │   ├── voice.py              # Edge-TTS audio streaming & STT
+    │   │   ├── assessment.py         # Quiz & learning report generation
+    │   │   └── health.py             # Service health & provider detection
+    │   ├── core/
+    │   │   └── config.py             # Application configuration & CORS
+    │   ├── services/
+    │   │   ├── pedagogical_agent.py  # Socratic AI teacher engine
+    │   │   ├── rag_engine.py         # Document parser, chunker & hybrid retrieval
+    │   │   ├── llm_service.py        # Multi-provider LLM (Gemini, OpenAI, Fallbacks)
+    │   │   └── tts_engine.py         # Multilingual neural speech synthesis
+    │   └── main.py                   # FastAPI entrypoint
+    ├── test_integration.py           # 7-step automated test suite
+    └── requirements.txt
 ```
 
 ---
@@ -65,37 +130,47 @@ VidGuru AI Architecture
 - Python 3.10+
 - Node.js 18+
 
-### 1. Start Backend
+### One-Command Start
 ```bash
-cd backend
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-
-# (Optional) Add your Gemini or OpenAI API Key in .env
-cp .env.example .env
-
-# Run FastAPI server
-uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+./start.sh
 ```
-*Backend API docs available at `http://localhost:8000/docs`.*
+This boots both the FastAPI backend (port `8005`) and the Next.js frontend (port `3000`).
 
-### 2. Start Frontend
+---
+
+### Manual Startup
+
+#### 1. Start Backend (Port 8005)
 ```bash
-cd frontend
-npm install
-npm run dev
+./run_backend.sh
+```
+*Backend API docs available at `http://localhost:8005/docs`.*
+
+#### 2. Start Frontend (Port 3000)
+```bash
+./run_frontend.sh
 ```
 *Classroom interface available at `http://localhost:3000`.*
 
 ---
 
-## 🧪 Pedagogical Cycle Walkthrough
+## 🧪 Automated Testing
 
-1. **Material Ingestion**: Upload a textbook PDF or choose a topic (e.g. *Transformer Architecture*, *Quantum Superposition*, *CRISPR-Cas9*).
-2. **Persona Customization**: Select Undergraduate level, Hinglish, 15 min masterclass, and Dr. Nova persona.
-3. **Step 1 Teaching**: Teacher introduces the mental model with spoken neural voice and renders a dynamic Mermaid diagram.
-4. **Formative Checkpoint**: Student submits answer via Voice (STT) or Text.
-5. **Adaptive Pivot**: If the student has a misconception, the AI teacher flags the exact cognitive trap, gives a fresh real-world analogy, and presents a scaffolding check.
-6. **Mastery Quiz**: Final 5-question assessment testing depth and edge cases.
-7. **Learning Report**: Review resolved misconceptions, spaced repetition plan, and download full masterclass notes.
+Run the complete 7-step end-to-end integration test suite:
+```bash
+python backend/test_integration.py
+```
+
+**Verification Steps Covered:**
+1. Health check & provider detection.
+2. PDF / Document parsing and semantic chunking.
+3. Personalized lesson plan generation.
+4. Spoken lecture turn execution, LaTeX/Mermaid visuals, and audio generation.
+5. Socratic misconception diagnosis and remedial trigger.
+6. Progressive difficulty final mastery quiz generation.
+7. Comprehensive learning report and Day 1/3/7 spaced repetition plan generation.
+
+---
+
+## 📜 License
+MIT License • Built for the Round 2 Technical Assessment.
