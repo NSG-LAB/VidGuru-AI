@@ -1,9 +1,8 @@
-import os
 import re
-import math
 from typing import List, Dict, Any, Optional
 from pathlib import Path
 from pypdf import PdfReader
+from app.core.persistence import load_json_state, save_json_state
 
 class Chunk:
     def __init__(self, chunk_id: str, text: str, metadata: Dict[str, Any]):
@@ -16,6 +15,43 @@ class RAGEngine:
         # In-memory document storage: doc_id -> list of Chunks
         self.documents: Dict[str, List[Chunk]] = {}
         self.doc_summaries: Dict[str, Dict[str, Any]] = {}
+        self._load_state()
+
+    def _save_state(self) -> None:
+        payload = {
+            "documents": {
+                doc_id: [
+                    {
+                        "chunk_id": c.chunk_id,
+                        "text": c.text,
+                        "metadata": c.metadata
+                    }
+                    for c in chunks
+                ]
+                for doc_id, chunks in self.documents.items()
+            },
+            "doc_summaries": self.doc_summaries,
+        }
+        save_json_state("rag_state.json", payload)
+
+    def _load_state(self) -> None:
+        payload = load_json_state("rag_state.json")
+        raw_docs = payload.get("documents", {})
+        parsed_docs: Dict[str, List[Chunk]] = {}
+        for doc_id, chunks in raw_docs.items():
+            parsed_docs[doc_id] = []
+            for idx, chunk_data in enumerate(chunks):
+                if not isinstance(chunk_data, dict):
+                    continue
+                parsed_docs[doc_id].append(
+                    Chunk(
+                        chunk_id=chunk_data.get("chunk_id", f"{doc_id}_{idx}"),
+                        text=chunk_data.get("text", ""),
+                        metadata=chunk_data.get("metadata", {})
+                    )
+                )
+        self.documents = parsed_docs
+        self.doc_summaries = payload.get("doc_summaries", {})
 
     def extract_text_from_pdf(self, file_path: str) -> str:
         """Extracts text from a PDF file."""
@@ -119,6 +155,7 @@ class RAGEngine:
             "preview": content[:400] + ("..." if len(content) > 400 else "")
         }
         self.doc_summaries[doc_id] = summary_meta
+        self._save_state()
         return summary_meta
 
     def _calculate_bm25_sim(self, query_terms: List[str], text: str) -> float:

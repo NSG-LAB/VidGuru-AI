@@ -16,11 +16,14 @@ app = FastAPI(
     version="1.0.0"
 )
 
+# CORS safety: wildcard cannot be combined with credentials
+allow_credentials = "*" not in settings.CORS_ORIGINS
+
 # CORS middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.CORS_ORIGINS,
-    allow_credentials=True,
+    allow_credentials=allow_credentials,
     allow_methods=["*"],
     allow_headers=["*"],
 )

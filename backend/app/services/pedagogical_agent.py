@@ -19,6 +19,7 @@ from app.models.schemas import (
 from app.services.llm_service import llm_service
 from app.services.rag_engine import rag_engine
 from app.services.tts_engine import tts_engine
+from app.core.persistence import load_json_state, save_json_state
 
 logger = logging.getLogger("PedagogicalAgent")
 
@@ -26,6 +27,43 @@ class PedagogicalAgent:
     def __init__(self):
         self.active_plans: Dict[str, LessonPlan] = {}
         self.misconception_history: Dict[str, List[MisconceptionLog]] = {}
+        self._load_state()
+
+    def _save_state(self) -> None:
+        save_json_state(
+            "pedagogical_state.json",
+            {
+                "active_plans": {
+                    key: value.model_dump(mode="json")
+                    for key, value in self.active_plans.items()
+                },
+                "misconception_history": {
+                    key: [item.model_dump(mode="json") for item in values]
+                    for key, values in self.misconception_history.items()
+                },
+            },
+        )
+
+    def _load_state(self) -> None:
+        payload = load_json_state("pedagogical_state.json")
+        active_plans: Dict[str, LessonPlan] = {}
+        for key, value in payload.get("active_plans", {}).items():
+            try:
+                active_plans[key] = LessonPlan.model_validate(value)
+            except Exception:
+                logger.warning("Skipping invalid saved lesson plan state for key=%s", key)
+        self.active_plans = active_plans
+
+        misconception_history: Dict[str, List[MisconceptionLog]] = {}
+        for key, values in payload.get("misconception_history", {}).items():
+            parsed_items: List[MisconceptionLog] = []
+            for item in values:
+                try:
+                    parsed_items.append(MisconceptionLog.model_validate(item))
+                except Exception:
+                    logger.warning("Skipping invalid misconception entry for key=%s", key)
+            misconception_history[key] = parsed_items
+        self.misconception_history = misconception_history
 
     def create_lesson_plan(
         self,
@@ -154,6 +192,7 @@ JSON Format Example:
 
         self.active_plans[plan_id] = lesson_plan
         self.misconception_history[plan_id] = []
+        self._save_state()
         return lesson_plan
 
     async def execute_teaching_step(
@@ -249,16 +288,21 @@ Generate JSON with:
         teacher_script = response_data.get("teacher_script", f"Welcome to this step on {step.title}. Let us explore the core intuition together!")
 
         # Generate Audio with TTS Engine
-        audio_url = await tts_engine.generate_speech_file(
-            text=teacher_script,
-            persona=plan.student_profile.teacher_persona,
-            language=plan.student_profile.language
-        )
+        audio_url = None
+        try:
+            audio_url = await tts_engine.generate_speech_file(
+                text=teacher_script,
+                persona=plan.student_profile.teacher_persona,
+                language=plan.student_profile.language
+            )
+        except Exception:
+            logger.warning("TTS unavailable for plan_id=%s step_id=%s", plan_id, step_id)
 
         step.teacher_script = teacher_script
         step.visuals = visuals
         step.formative_question = formative_q
         step.audio_url = audio_url
+        self._save_state()
 
         return step
 
@@ -371,7 +415,7 @@ Return JSON matching this exact structure:
                 follow_up_question=follow_up_q
             )
 
-        return PedagogicalEvaluation(
+        evaluation = PedagogicalEvaluation(
             is_correct=is_correct,
             confidence_score=eval_data.get("confidence_score", 0.8),
             socratic_feedback=eval_data.get("socratic_feedback", "Great effort! Let's examine this carefully."),
@@ -381,6 +425,8 @@ Return JSON matching this exact structure:
             encouragement_note=eval_data.get("encouragement_note", "Keep asking questions and exploring!"),
             next_action=eval_data.get("next_action", "proceed_next_step" if is_correct else "trigger_remediation")
         )
+        self._save_state()
+        return evaluation
 
     def generate_final_assessment(self, plan_id: str) -> FinalQuiz:
         """Generates an adaptive final quiz testing all taught concepts and diagnosed weak spots."""

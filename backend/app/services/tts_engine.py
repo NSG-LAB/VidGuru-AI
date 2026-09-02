@@ -68,6 +68,6 @@ class TTSEngine:
             return f"/api/v1/voice/audio/{file_id}"
         except Exception as e:
             logger.error(f"Edge-TTS generation failed: {e}")
-            return ""
+            raise RuntimeError("Speech generation failed") from e
 
 tts_engine = TTSEngine()

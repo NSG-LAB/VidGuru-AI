@@ -1,7 +1,0 @@
-
-    # Deep Learning & Attention Mechanism
-    In traditional RNNs, information is compressed into a single hidden vector, causing information bottlenecks.
-    Self-Attention solves this by computing similarity between Query (Q) and Key (K) vectors:
-    Attention(Q, K, V) = softmax(Q K^T / sqrt(d_k)) V
-    Multi-head attention enables the model to jointly attend to information from different representation subspaces.
-    

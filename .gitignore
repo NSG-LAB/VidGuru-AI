@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+backend/venv/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Runtime generated data
+backend/data/audio/*
+!backend/data/audio/.gitkeep
+backend/data/uploads/*
+!backend/data/uploads/.gitkeep
+backend/data/state/*
+!backend/data/state/.gitkeep
+
+# Node/Next
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# OS/editor
+.DS_Store
+*.swp

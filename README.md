@@ -77,29 +77,15 @@ Unlike static chatbots that merely answer questions, **VidGuru AI behaves like a
 
 ```
 VidGuru AI
-├── frontend/ (Next.js 14 + Tailwind CSS + KaTeX + Mermaid)
-│   ├── app/
-│   │   ├── page.tsx                  # Animated Landing Page & Showcase
-│   │   ├── classroom/page.tsx        # Video Classroom Studio
-│   │   ├── report/page.tsx           # Learning Analytics Dashboard
-│   │   └── globals.css               # Dark glassmorphism & custom keyframes
-│   ├── components/
-│   │   ├── classroom/
-│   │   │   ├── TeacherAvatar.tsx     # Animated talking AI avatar with 5 emotions
-│   │   │   ├── SmartWhiteboard.tsx   # LaTeX, Mermaid, Code blackboard
-│   │   │   ├── InteractionPanel.tsx  # Voice/Text Socratic console & STT
-│   │   │   ├── RemediationAlert.tsx  # Misconception diagnostic banner
-│   │   │   ├── LectureVideoRecorder.tsx # MediaRecorder video export
-│   │   │   └── LessonTimeline.tsx    # Curriculum roadmap
-│   │   ├── onboarding/
-│   │   │   ├── DocumentUploader.tsx  # Drag-and-drop ingestion & presets
-│   │   │   └── PersonaSelector.tsx   # Learner personalization
-│   │   └── assessment/
-│   │       ├── QuizEngine.tsx        # Summative adaptive quiz
-│   │       └── LearningReportView.tsx# Mastery report & Spaced Repetition
-│   └── lib/
-│       ├── api.ts                    # Typed API client with audio routing
-│       └── types.ts                  # TypeScript interfaces
+├── frontend/ (Next.js + Tailwind CSS)
+│   ├── src/app/
+│   │   ├── page.tsx                  # Onboarding + lesson creation
+│   │   ├── classroom/page.tsx        # Teaching step + answer evaluation
+│   │   ├── report/page.tsx           # Learning report dashboard
+│   │   └── globals.css
+│   └── src/lib/
+│       ├── api.ts                    # Frontend API integration helpers
+│       └── types.ts                  # Shared TypeScript types
 │
 └── backend/ (FastAPI + Python + RAG + Neural TTS)
     ├── app/
@@ -107,7 +93,7 @@ VidGuru AI
     │   │   ├── classroom.py          # Teaching turns, Socratic evaluation, doubts
     │   │   ├── documents.py          # PDF / notes upload & RAG indexing
     │   │   ├── lesson_plan.py        # Adaptive syllabus generator
-    │   │   ├── voice.py              # Edge-TTS audio streaming & STT
+    │   │   ├── voice.py              # Edge-TTS audio + OpenAI Whisper STT fallback
     │   │   ├── assessment.py         # Quiz & learning report generation
     │   │   └── health.py             # Service health & provider detection
     │   ├── core/

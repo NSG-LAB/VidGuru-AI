@@ -1,12 +1,12 @@
+import logging
 from typing import Optional
-from fastapi import APIRouter, HTTPException, Body
+from fastapi import APIRouter, HTTPException, Body, Depends
 from app.models.schemas import LessonPlan, StudentProfile
 from app.services.pedagogical_agent import pedagogical_agent
+from app.core.security import enforce_generation_guard
 
 router = APIRouter(prefix="/lesson-plan", tags=["Lesson Plan"])
-
-class CreatePlanRequest:
-    pass
+logger = logging.getLogger("LessonPlanAPI")
 
 @router.post("/create", response_model=LessonPlan)
 async def create_lesson_plan(
@@ -14,6 +14,7 @@ async def create_lesson_plan(
     student_profile: StudentProfile = Body(...),
     doc_id: Optional[str] = Body(None, embed=True),
     raw_notes: Optional[str] = Body(None, embed=True),
+    _guard: None = Depends(enforce_generation_guard),
 ):
     """Generates an adaptive, personalized lesson plan tailored to student profile and material."""
     try:
@@ -24,8 +25,9 @@ async def create_lesson_plan(
             raw_notes=raw_notes or ""
         )
         return plan
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Failed to create lesson plan: {str(e)}")
+    except Exception:
+        logger.exception("Failed to create lesson plan for topic=%s", topic)
+        raise HTTPException(status_code=500, detail="Failed to create lesson plan.")
 
 @router.get("/{plan_id}", response_model=LessonPlan)
 async def get_lesson_plan(plan_id: str):
