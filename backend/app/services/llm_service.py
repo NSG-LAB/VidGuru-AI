@@ -16,18 +16,20 @@ class LLMService:
         self.gemini_client = None
         if self.gemini_key:
             try:
-                from google import genai
+                import importlib
+                genai = importlib.import_module("google.genai")
                 self.gemini_client = genai.Client(api_key=self.gemini_key)
-            except Exception as e:
-                logger.warning(f"Failed to initialize Google GenAI client: {e}")
+            except Exception:
+                self.gemini_client = None
 
         self.openai_client = None
         if self.openai_key:
             try:
-                from openai import OpenAI
-                self.openai_client = OpenAI(api_key=self.openai_key)
-            except Exception as e:
-                logger.warning(f"Failed to initialize OpenAI client: {e}")
+                import importlib
+                openai_mod = importlib.import_module("openai")
+                self.openai_client = openai_mod.OpenAI(api_key=self.openai_key)
+            except Exception:
+                self.openai_client = None
 
     def generate_text(self, system_prompt: str, user_prompt: str, temperature: float = 0.7) -> str:
         """Generates text from available LLM provider with fallback handling."""
@@ -74,20 +76,45 @@ class LLMService:
                 logger.error(f"Gemini REST error: {e}")
 
         # 2. Try OpenAI
-        if self.openai_client:
+        if self.openai_key:
+            if self.openai_client:
+                try:
+                    response = self.openai_client.chat.completions.create(
+                        model=settings.OPENAI_MODEL,
+                        messages=[
+                            {"role": "system", "content": system_prompt},
+                            {"role": "user", "content": user_prompt},
+                        ],
+                        temperature=temperature,
+                    )
+                    if response.choices and response.choices[0].message.content:
+                        return response.choices[0].message.content
+                except Exception as e:
+                    logger.error(f"OpenAI client generation error: {e}")
+
+            # Direct HTTP REST Fallback for OpenAI
             try:
-                response = self.openai_client.chat.completions.create(
-                    model=settings.OPENAI_MODEL,
-                    messages=[
+                import requests
+                headers = {
+                    "Content-Type": "application/json",
+                    "Authorization": f"Bearer {self.openai_key}"
+                }
+                payload = {
+                    "model": settings.OPENAI_MODEL,
+                    "messages": [
                         {"role": "system", "content": system_prompt},
                         {"role": "user", "content": user_prompt},
                     ],
-                    temperature=temperature,
-                )
-                if response.choices and response.choices[0].message.content:
-                    return response.choices[0].message.content
+                    "temperature": temperature
+                }
+                res = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload, timeout=45)
+                if res.status_code == 200:
+                    data = res.json()
+                    choices = data.get("choices", [])
+                    if choices:
+                        return choices[0].get("message", {}).get("content", "")
             except Exception as e:
-                logger.error(f"OpenAI generation error: {e}")
+                logger.error(f"OpenAI REST error: {e}")
 
         # 3. Fallback educational response generator
         return self._generate_intelligent_fallback(system_prompt, user_prompt)
