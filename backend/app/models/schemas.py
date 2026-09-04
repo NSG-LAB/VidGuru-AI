@@ -1,5 +1,5 @@
 from typing import List, Optional, Dict, Any, Literal
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 import uuid
 
 # ----------------------------------------------------
@@ -128,7 +128,19 @@ class PedagogicalEvaluation(BaseModel):
     needs_remediation: bool = False
     remediation_package: Optional[AdaptiveRemediation] = None
     encouragement_note: str
-    next_action: Literal["proceed_next_step", "trigger_remediation", "give_hint", "retry"]
+    next_action: Literal["proceed_next_step", "trigger_remediation", "give_hint", "retry"] = "proceed_next_step"
+
+    @field_validator("next_action", mode="before")
+    @classmethod
+    def normalize_next_action(cls, v: Any) -> str:
+        s = str(v).lower()
+        if "remediat" in s or "clarif" in s or "wrong" in s:
+            return "trigger_remediation"
+        if "hint" in s:
+            return "give_hint"
+        if "retry" in s or "retest" in s:
+            return "retry"
+        return "proceed_next_step"
 
 # ----------------------------------------------------
 # Final Assessment & Learning Report
@@ -140,7 +152,17 @@ class QuizQuestion(BaseModel):
     correct_option_index: int
     explanation: str
     concept_tested: str
-    difficulty: Literal["easy", "medium", "hard"]
+    difficulty: Literal["easy", "medium", "hard"] = "medium"
+
+    @field_validator("difficulty", mode="before")
+    @classmethod
+    def normalize_difficulty(cls, v: Any) -> str:
+        s = str(v).lower()
+        if "easy" in s or "basic" in s:
+            return "easy"
+        if "hard" in s or "advanced" in s or "difficult" in s:
+            return "hard"
+        return "medium"
 
 class FinalQuiz(BaseModel):
     quiz_id: str = Field(default_factory=lambda: str(uuid.uuid4()))
