@@ -65,9 +65,16 @@ class TTSEngine:
         try:
             communicate = edge_tts.Communicate(clean_text, voice, rate="+0%", pitch="+0Hz")
             await communicate.save(str(output_path))
-            return f"/api/v1/voice/audio/{file_id}"
+            if output_path.exists() and output_path.stat().st_size > 0:
+                return f"/api/v1/voice/audio/{file_id}"
+            else:
+                if output_path.exists():
+                    output_path.unlink(missing_ok=True)
+                return ""
         except Exception as e:
             logger.error(f"Edge-TTS generation failed: {e}")
+            if output_path.exists():
+                output_path.unlink(missing_ok=True)
             return ""
 
 tts_engine = TTSEngine()

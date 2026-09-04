@@ -11,8 +11,8 @@ router = APIRouter(prefix="/voice", tags=["Voice TTS & STT"])
 async def get_audio_file(filename: str):
     """Streams generated audio mp3 file for frontend teacher playback."""
     file_path = settings.AUDIO_DIR / filename
-    if not file_path.exists():
-        raise HTTPException(status_code=404, detail="Audio file not found")
+    if not file_path.exists() or file_path.stat().st_size == 0:
+        raise HTTPException(status_code=404, detail="Audio file not found or empty")
     return FileResponse(file_path, media_type="audio/mpeg", headers={"Accept-Ranges": "bytes", "Cache-Control": "public, max-age=3600"})
 
 @router.post("/tts")
