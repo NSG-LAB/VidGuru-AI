@@ -1,0 +1,73 @@
+{
+  "plan_id": "893e1525-c2b9-4c5f-9511-1fc3ddf78e59",
+  "topic_title": "Superposition and Entanglement in Quantum Computing",
+  "overview": "Interactive masterclass on Superposition and Entanglement in Quantum Computing",
+  "student_profile": {
+    "grade_level": "Undergraduate",
+    "language": "English",
+    "learning_goal": "deep_conceptual",
+    "time_budget_mins": 15,
+    "learning_style": "visual",
+    "teacher_persona": "Dr. Nova (Intuitive & Warm)"
+  },
+  "total_estimated_mins": 15,
+  "modules": [
+    {
+      "module_id": 1,
+      "title": "Foundations",
+      "description": "Core concepts",
+      "steps": [
+        {
+          "step_id": 1,
+          "step_type": "introduction",
+          "title": "Introduction to Superposition and Entanglement in Quantum Computing",
+          "concept_summary": "Intuition and foundations",
+          "estimated_duration_seconds": 120,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 2,
+          "step_type": "checkpoint",
+          "title": "Core Checkpoint Challenge",
+          "concept_summary": "Testing understanding",
+          "estimated_duration_seconds": 120,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    }
+  ],
+  "all_steps_flattened": [
+    {
+      "step_id": 1,
+      "step_type": "introduction",
+      "title": "Introduction to Superposition and Entanglement in Quantum Computing",
+      "concept_summary": "Intuition and foundations",
+      "estimated_duration_seconds": 120,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 2,
+      "step_type": "checkpoint",
+      "title": "Core Checkpoint Challenge",
+      "concept_summary": "Testing understanding",
+      "estimated_duration_seconds": 120,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    }
+  ]
+}

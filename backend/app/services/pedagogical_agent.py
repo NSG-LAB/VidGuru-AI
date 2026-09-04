@@ -16,6 +16,7 @@ from app.models.schemas import (
     LearningReport,
     MisconceptionLog
 )
+from app.core.config import settings
 from app.services.llm_service import llm_service
 from app.services.rag_engine import rag_engine
 from app.services.tts_engine import tts_engine
@@ -24,8 +25,33 @@ logger = logging.getLogger("PedagogicalAgent")
 
 class PedagogicalAgent:
     def __init__(self):
-        self.active_plans: Dict[str, LessonPlan] = {}
+        self._active_plans: Dict[str, LessonPlan] = {}
         self.misconception_history: Dict[str, List[MisconceptionLog]] = {}
+        self.plans_dir = settings.DATA_DIR / "plans"
+        self.plans_dir.mkdir(parents=True, exist_ok=True)
+
+    @property
+    def active_plans(self) -> Dict[str, LessonPlan]:
+        """Dynamically provides active plans from memory and disk storage."""
+        if hasattr(self, "plans_dir") and self.plans_dir.exists():
+            for p in self.plans_dir.glob("*.json"):
+                pid = p.stem
+                if pid not in self._active_plans:
+                    try:
+                        self._active_plans[pid] = LessonPlan.model_validate_json(p.read_text(encoding="utf-8"))
+                    except Exception:
+                        pass
+        return self._active_plans
+
+    def save_plan(self, plan: LessonPlan):
+        """Persists lesson plan in memory and on disk."""
+        self._active_plans[plan.plan_id] = plan
+        try:
+            plan_file = self.plans_dir / f"{plan.plan_id}.json"
+            plan_file.write_text(plan.model_dump_json(indent=2), encoding="utf-8")
+        except Exception as e:
+            logger.warning(f"Failed to persist lesson plan to disk: {e}")
+
 
     def create_lesson_plan(
         self,
@@ -152,7 +178,7 @@ JSON Format Example:
             all_steps_flattened=flattened_steps
         )
 
-        self.active_plans[plan_id] = lesson_plan
+        self.save_plan(lesson_plan)
         self.misconception_history[plan_id] = []
         return lesson_plan
 
@@ -260,6 +286,7 @@ Generate JSON with:
         step.formative_question = formative_q
         step.audio_url = audio_url
 
+        self.save_plan(plan)
         return step
 
     async def evaluate_student_response(

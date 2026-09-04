@@ -57,6 +57,25 @@ class VisualContent(BaseModel):
     explanation: Optional[str] = None
     language: Optional[str] = None  # for code: python, javascript, etc.
 
+    @field_validator("type", mode="before")
+    @classmethod
+    def normalize_visual_type(cls, v: Any) -> str:
+        val = str(v).lower().strip()
+        if val in ["diagram", "flowchart", "graph", "mermaid"]:
+            return "mermaid"
+        elif val in ["latex", "formula", "equation", "math", "formula_card"]:
+            return "latex"
+        elif val in ["code", "script", "snippet"]:
+            return "code"
+        elif val in ["analogy", "analogy_box"]:
+            return "analogy_box"
+        elif val in ["key_takeaways", "takeaways", "bullets", "points"]:
+            return "key_takeaways"
+        elif val in ["chart_data", "chart", "plot"]:
+            return "chart_data"
+        return "concept_card"
+
+
 # ----------------------------------------------------
 # Formative Checkpoint Question
 # ----------------------------------------------------

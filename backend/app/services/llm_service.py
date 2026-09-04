@@ -45,12 +45,15 @@ class LLMService:
                         return response.text
                 except Exception as e:
                     logger.error(f"Gemini client generation error: {e}")
+                    if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
+                        logger.warning("Gemini daily free-tier quota exhausted. Switching immediately to intelligent domain fallback.")
+                        return self._generate_intelligent_fallback(system_prompt, user_prompt)
 
             # Direct HTTP REST Fallback for Gemini
             try:
                 import requests
                 headers = {"Content-Type": "application/json", "X-goog-api-key": self.gemini_key}
-                models_to_try = [settings.GEMINI_MODEL, "gemini-3.6-flash", "gemini-flash-latest"]
+                models_to_try = [settings.GEMINI_MODEL, "gemini-2.5-flash", "gemini-flash-latest"]
                 payload = {
                     "contents": [
                         {"parts": [{"text": f"Instructions:\n{system_prompt}\n\nTask:\n{user_prompt}"}]}
@@ -60,7 +63,7 @@ class LLMService:
                 for model in models_to_try:
                     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
                     try:
-                        res = requests.post(url, headers=headers, json=payload, timeout=45)
+                        res = requests.post(url, headers=headers, json=payload, timeout=8)
                         if res.status_code == 200:
                             data = res.json()
                             candidates = data.get("candidates", [])
@@ -68,6 +71,9 @@ class LLMService:
                                 parts = candidates[0].get("content", {}).get("parts", [])
                                 if parts:
                                     return parts[0].get("text", "")
+                        elif res.status_code == 429:
+                            logger.warning(f"Gemini {model} returned HTTP 429 Quota Exceeded. Breaking retry loop.")
+                            break
                         else:
                             logger.warning(f"Gemini {model} returned HTTP {res.status_code}: {res.text[:120]}")
                     except Exception as model_err:
@@ -167,7 +173,7 @@ class LLMService:
                 "teacher_script": f"Welcome to our deep dive into {title}. Let us break down this concept from first principles. When we look at how this system operates, notice the fundamental relationship between each interacting component. Take a moment to inspect the visual breakdown on your whiteboard, and then we will test our intuition together.",
                 "visuals": [
                     {
-                        "type": "diagram",
+                        "type": "mermaid",
                         "title": f"Structural Flow: {title}",
                         "content": "graph TD\n  A[Input / Problem Definition] --> B[Processing & Transformation]\n  B --> C[Optimization & Validation]\n  C --> D[Target Solution Output]",
                         "explanation": f"Visualizing the end-to-end mechanism behind {title}."
@@ -179,7 +185,7 @@ class LLMService:
                         "explanation": "Anchoring complex mechanics into everyday intuitive models."
                     },
                     {
-                        "type": "formula_card",
+                        "type": "latex",
                         "title": "Core Formula & Invariant",
                         "content": "E(x) = \\sum_{i=1}^n w_i \\cdot f(x_i) + b",
                         "explanation": "The fundamental mathematical relationship governing this process."
