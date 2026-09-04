@@ -40,21 +40,13 @@ Unlike static chatbots that merely answer questions, **VidGuru AI behaves like a
 - Supports **English, Hindi (हिन्दी), Hinglish (conversational mix of Hindi and English), and Spanish**.
 - Localized pedagogical voice matching via neural speech synthesis.
 
-### 6. Document Ingestion & RAG (Retrieval-Augmented Generation)
+### 8. Document Ingestion & RAG (Retrieval-Augmented Generation)
 - Drag-and-drop ingestion of PDFs, Markdown notes, TXT files, and raw course syllabi.
 - Hierarchical semantic chunking and BM25 hybrid similarity search for grounded teaching.
 
-### 7. Summative Assessment & Spaced Repetition Analytics
-- **Adaptive Final Mastery Quiz**: 5-question mastery assessment with instant Socratic reasoning feedback.
-- **Comprehensive Learning Report**:
-  - Overall Mastery score & tier (**Novice**, **Developing**, **Proficient**, **Master**).
-  - **Cognitive Misconceptions Log**: Matrix of misconceptions identified and resolved during class.
-  - **Spaced Repetition Schedule**: Day 1, Day 3, Day 7 retention plan based on the Ebbinghaus forgetting curve.
-  - **Downloadable Study Notes**: Full markdown study notes summary ready for export.
-
 ---
 
-## 📋 Assessment Checklist (12/12 Features Verified)
+## 📋 Assessment Checklist (12/12 Features Verified + Supercharged)
 
 | # | Feature Requirement | Status | Implementation Details |
 |---|---|:---:|---|
@@ -70,6 +62,7 @@ Unlike static chatbots that merely answer questions, **VidGuru AI behaves like a
 | 10 | **Student Questioning & Assessment** | ✅ | Formative checkpoint questions + 5-question final quiz |
 | 11 | **Adaptive Response to Performance** | ✅ | Misconception diagnosis engine + remedial analogies |
 | 12 | **Working Prototype** | ✅ | Full-stack FastAPI + Next.js 14 application |
+| ⚡ | **Live Code Execution & Math Grapher** | 🌟 | Pyodide-style JS/Python code sandbox + 2D parameter plotter |
 
 ---
 
@@ -87,6 +80,9 @@ VidGuru AI
 │   │   ├── classroom/
 │   │   │   ├── TeacherAvatar.tsx     # Animated talking AI avatar with 5 emotions
 │   │   │   ├── SmartWhiteboard.tsx   # LaTeX, Mermaid, Code blackboard
+│   │   │   ├── CodePlayground.tsx    # In-browser live editable code sandbox
+│   │   │   ├── InteractiveMathPlotter.tsx # 2D function parameter grapher
+│   │   │   ├── WhiteboardCanvas.tsx  # Freehand chalk drawing & notes
 │   │   │   ├── InteractionPanel.tsx  # Voice/Text Socratic console & STT
 │   │   │   ├── RemediationAlert.tsx  # Misconception diagnostic banner
 │   │   │   ├── LectureVideoRecorder.tsx # MediaRecorder video export
