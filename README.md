@@ -158,6 +158,14 @@ docker compose down
 
 ---
 
+### 🚀 Production Deployment & CI/CD Pipeline
+
+* **GitHub Actions CI/CD**: Automated end-to-end testing, frontend compilation, and GHCR container publishing via [`.github/workflows/ci-cd.yml`](file:///home/nsg/Projects/VidGuru%20AI/.github/workflows/ci-cd.yml).
+* **Instant Cloud Deployment**: Pull pre-built images without local compiling using [`docker-compose.prod.yml`](file:///home/nsg/Projects/VidGuru%20AI/docker-compose.prod.yml).
+* **Comprehensive Deployment Guide**: See [`DEPLOYMENT.md`](file:///home/nsg/Projects/VidGuru%20AI/DEPLOYMENT.md) for VPS setup, Nginx reverse proxy, and Let's Encrypt SSL.
+
+---
+
 ### Manual Startup
 
 #### 1. Start Backend (Port 8005)

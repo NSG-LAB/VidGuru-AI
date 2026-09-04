@@ -1,0 +1,48 @@
+services:
+  backend:
+    image: ghcr.io/nsg-lab/vidguru-ai-backend:latest
+    container_name: vidguru-backend-prod
+    restart: always
+    ports:
+      - "${BACKEND_PORT:-8005}:8005"
+    env_file:
+      - path: .env
+        required: false
+      - path: ./backend/.env
+        required: false
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - GROQ_API_KEY=${GROQ_API_KEY:-}
+      - GEMINI_MODEL=${GEMINI_MODEL:-gemini-3.6-flash}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4o-mini}
+    volumes:
+      - ./backend/data:/app/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8005/api/v1/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    networks:
+      - vidguru-prod-net
+
+  frontend:
+    image: ghcr.io/nsg-lab/vidguru-ai-frontend:latest
+    container_name: vidguru-frontend-prod
+    restart: always
+    ports:
+      - "${FRONTEND_PORT:-3000}:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+      - NEXT_PUBLIC_API_BASE=${NEXT_PUBLIC_API_BASE:-http://localhost:8005/api/v1}
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - vidguru-prod-net
+
+networks:
+  vidguru-prod-net:
+    driver: bridge
