@@ -51,30 +51,44 @@ class TTSEngine:
             return "en-US-JennyNeural"
 
     async def generate_speech_file(self, text: str, persona: str = "Dr. Nova (Intuitive & Warm)", language: str = "English") -> str:
-        """Generates an MP3 file using Edge-TTS and returns the relative path or filename."""
+        """Generates an MP3 file using Edge-TTS with fallback voices and retries."""
         import edge_tts
 
-        voice = self._get_voice_for_persona(persona, language)
-        clean_text = text.replace("*", "").replace("#", "").replace("`", "").strip()
+        clean_text = text.replace("*", "").replace("#", "").replace("`", "").replace("_", "").strip()
+        if not clean_text:
+            clean_text = "Let's explore this concept together."
+        
         # Limit spoken text to avoid extreme lengths in a single turn
         clean_text = clean_text[:2000]
 
         file_id = f"speech_{uuid.uuid4().hex[:12]}.mp3"
         output_path = self.audio_dir / file_id
 
-        try:
-            communicate = edge_tts.Communicate(clean_text, voice, rate="+0%", pitch="+0Hz")
-            await communicate.save(str(output_path))
-            if output_path.exists() and output_path.stat().st_size > 0:
-                return f"/api/v1/voice/audio/{file_id}"
-            else:
+        primary_voice = self._get_voice_for_persona(persona, language)
+        fallback_voices = [primary_voice, "en-US-JennyNeural", "en-US-GuyNeural"]
+        
+        # Deduplicate while preserving order
+        voices_to_try = []
+        for v in fallback_voices:
+            if v not in voices_to_try:
+                voices_to_try.append(v)
+
+        for attempt, voice in enumerate(voices_to_try):
+            try:
+                communicate = edge_tts.Communicate(clean_text, voice, rate="+0%", pitch="+0Hz")
+                await communicate.save(str(output_path))
+                if output_path.exists() and output_path.stat().st_size > 100:
+                    return f"/api/v1/voice/audio/{file_id}"
+                else:
+                    if output_path.exists():
+                        output_path.unlink(missing_ok=True)
+            except Exception as e:
+                logger.warning(f"TTS attempt {attempt + 1} with voice '{voice}' failed: {e}")
                 if output_path.exists():
                     output_path.unlink(missing_ok=True)
-                return ""
-        except Exception as e:
-            logger.error(f"Edge-TTS generation failed: {e}")
-            if output_path.exists():
-                output_path.unlink(missing_ok=True)
-            return ""
+        
+        logger.error("All Edge-TTS voice attempts failed.")
+        return ""
 
 tts_engine = TTSEngine()
+

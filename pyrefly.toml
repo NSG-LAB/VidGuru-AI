@@ -1,0 +1,16 @@
+project-includes = ["backend/app"]
+project-excludes = [
+    "**/__pyrefly_virtual__/**",
+    "**/inmemory/**",
+    "**/venv/**",
+    "**/node_modules/**"
+]
+python-interpreter-path = "backend/venv/bin/python"
+site-package-path = ["backend/venv/lib/python3.14/site-packages"]
+search-path = [
+    "backend",
+    "backend/app",
+    "backend/venv/lib/python3.14/site-packages"
+]
+infer-with-first-use = false
+permissive-ignores = true

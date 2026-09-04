@@ -2,12 +2,11 @@
   "venvPath": "backend",
   "venv": "venv",
   "include": [
-    "backend"
+    "backend/app"
   ],
   "extraPaths": [
     "backend",
     "backend/app",
-    "backend/venv/lib/python3.14/site-packages",
-    "~/.local/lib/python3.14/site-packages"
+    "backend/venv/lib/python3.14/site-packages"
   ]
 }
