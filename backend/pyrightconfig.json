@@ -1,0 +1,10 @@
+{
+  "venvPath": ".",
+  "venv": "venv",
+  "extraPaths": [
+    ".",
+    "app",
+    "venv/lib/python3.14/site-packages",
+    "~/.local/lib/python3.14/site-packages"
+  ]
+}
