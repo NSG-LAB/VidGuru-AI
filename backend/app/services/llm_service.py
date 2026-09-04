@@ -32,16 +32,46 @@ class LLMService:
     def generate_text(self, system_prompt: str, user_prompt: str, temperature: float = 0.7) -> str:
         """Generates text from available LLM provider with fallback handling."""
         # 1. Try Gemini
-        if self.gemini_client:
+        if self.gemini_key:
+            if self.gemini_client:
+                try:
+                    response = self.gemini_client.models.generate_content(
+                        model=settings.GEMINI_MODEL,
+                        contents=f"System: {system_prompt}\n\nUser: {user_prompt}",
+                    )
+                    if response and response.text:
+                        return response.text
+                except Exception as e:
+                    logger.error(f"Gemini client generation error: {e}")
+
+            # Direct HTTP REST Fallback for Gemini
             try:
-                response = self.gemini_client.models.generate_content(
-                    model=settings.GEMINI_MODEL,
-                    contents=f"System: {system_prompt}\n\nUser: {user_prompt}",
-                )
-                if response and response.text:
-                    return response.text
+                import requests
+                headers = {"Content-Type": "application/json", "X-goog-api-key": self.gemini_key}
+                models_to_try = [settings.GEMINI_MODEL, "gemini-3.6-flash", "gemini-flash-latest"]
+                payload = {
+                    "contents": [
+                        {"parts": [{"text": f"Instructions:\n{system_prompt}\n\nTask:\n{user_prompt}"}]}
+                    ],
+                    "generationConfig": {"temperature": temperature}
+                }
+                for model in models_to_try:
+                    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+                    try:
+                        res = requests.post(url, headers=headers, json=payload, timeout=45)
+                        if res.status_code == 200:
+                            data = res.json()
+                            candidates = data.get("candidates", [])
+                            if candidates:
+                                parts = candidates[0].get("content", {}).get("parts", [])
+                                if parts:
+                                    return parts[0].get("text", "")
+                        else:
+                            logger.warning(f"Gemini {model} returned HTTP {res.status_code}: {res.text[:120]}")
+                    except Exception as model_err:
+                        logger.warning(f"Gemini model {model} attempt error: {model_err}")
             except Exception as e:
-                logger.error(f"Gemini generation error: {e}")
+                logger.error(f"Gemini REST error: {e}")
 
         # 2. Try OpenAI
         if self.openai_client:

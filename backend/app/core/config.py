@@ -10,15 +10,26 @@ class Settings:
     DATA_DIR: Path = BASE_DIR / "data"
     UPLOADS_DIR: Path = DATA_DIR / "uploads"
     AUDIO_DIR: Path = DATA_DIR / "audio"
-    
-    # LLM API Keys (Supports Gemini, OpenAI, Groq)
-    GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")
-    OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
-    GROQ_API_KEY: str = os.getenv("GROQ_API_KEY", "")
-    
-    # LLM Models
-    GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
-    OPENAI_MODEL: str = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+
+    def __init__(self):
+        # Auto-load .env from base directory or parent
+        for env_path in [self.BASE_DIR / ".env", self.BASE_DIR.parent / ".env"]:
+            if env_path.exists():
+                with open(env_path, "r", encoding="utf-8") as f:
+                    for line in f:
+                        line = line.strip()
+                        if line and not line.startswith("#") and "=" in line:
+                            k, v = line.split("=", 1)
+                            k = k.strip()
+                            v = v.strip().strip("'\"")
+                            if k not in os.environ:
+                                os.environ[k] = v
+
+        self.GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+        self.OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+        self.GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
+        self.GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.6-flash")
+        self.OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
     
     # TTS Voices
     VOICE_EN_FEMALE: str = "en-US-JennyNeural"
