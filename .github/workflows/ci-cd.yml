@@ -16,10 +16,9 @@ jobs:
     name: 🐍 Backend Tests & Verification
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code with Submodules
+      - name: Checkout Code
         uses: actions/checkout@v4
         with:
-          submodules: recursive
           fetch-depth: 0
 
       - name: Set up Python 3.11
@@ -46,10 +45,9 @@ jobs:
     name: ⚛️ Frontend Build & Type Validation
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code with Submodules
+      - name: Checkout Code
         uses: actions/checkout@v4
         with:
-          submodules: recursive
           fetch-depth: 0
 
       - name: Set up Node.js 20
@@ -76,10 +74,9 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code with Submodules
+      - name: Checkout Code
         uses: actions/checkout@v4
         with:
-          submodules: recursive
           fetch-depth: 0
 
       - name: Set up QEMU
