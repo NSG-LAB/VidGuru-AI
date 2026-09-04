@@ -1,0 +1,409 @@
+{
+  "plan_id": "eaa76ba5-42ce-4864-b7ef-0e857da03a4a",
+  "topic_title": "Transformer Architecture & Self-Attention",
+  "overview": "In this 15‑minute sprint, Prof. Aryan guides you from the intuition behind attention to the full multi‑head mechanism using vivid visual analogies. Each module builds on the last, ending with a hands‑on synthesis that cements the concept.",
+  "student_profile": {
+    "grade_level": "undergraduate",
+    "language": "English",
+    "learning_goal": "deep_conceptual",
+    "time_budget_mins": 15,
+    "learning_style": "visual_analogies",
+    "teacher_persona": "Prof. Aryan (Deep & Socratic)"
+  },
+  "total_estimated_mins": 15,
+  "modules": [
+    {
+      "module_id": 1,
+      "title": "Foundations of Attention",
+      "description": "Establish the mental model of why attention is needed and introduce the core Q‑K‑V trio.",
+      "steps": [
+        {
+          "step_id": 1,
+          "step_type": "introduction",
+          "title": "Why Attention? The Spotlight Analogy",
+          "concept_summary": "Imagine reading a paragraph with a moving spotlight; the model decides where to shine next, focusing computational resources on the most relevant words.",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": "Hey there! Imagine you're reading a story, and you have a magical spotlight that can shine on any word you think is important. As you move through the paragraph, the spotlight shifts, highlighting the most relevant words to understand the current context. That's exactly what attention does in a Transformer. Instead of processing every word equally, the model decides where to focus its computational energy, just like you decide where to shine your spotlight. This dynamic focusing lets the model capture long-range dependencies without getting lost in the noise. Think of each word as a character on stage; attention tells the model which characters are speaking to each other at any moment. By doing this, the model builds richer representations, leading to better translations, summaries, and more. So, why attention? Because it lets the model allocate its 'mental bandwidth' efficiently, ensuring the most pertinent information gets the spotlight it deserves.",
+          "visuals": [
+            {
+              "type": "concept_card",
+              "title": "Concept Visual",
+              "content": "",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": "A detailed illustration of a paragraph of text with a moving spotlight highlighting individual words sequentially, showing arrows indicating the spotlight's movement and a small brain icon representing the Transformer model's attention mechanism."
+            },
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "Spotlight Analogy: The model is like a director with a spotlight, choosing which actors (words) to illuminate based on the scene (sentence) to convey the story effectively.",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            },
+            {
+              "type": "latex",
+              "title": "Concept Visual",
+              "content": "a_{ij}=\\frac{\\exp(e_{ij})}{\\sum_{k=1}^{n}\\exp(e_{ik})},\\quad e_{ij}=\\frac{(W_q h_i)\\cdot (W_k h_j)}{\\sqrt{d_k}}",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "• Attention lets the model focus on relevant words, reducing uniform processing.\n• It captures long-range dependencies efficiently.\n• The spotlight analogy helps visualize dynamic weighting of word importance.",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            }
+          ],
+          "formative_question": {
+            "id": "5bd44ff1",
+            "prompt": "In your own words, explain how the spotlight analogy helps you understand why attention mechanisms are beneficial in language models.",
+            "options": null,
+            "correct_answer": "The analogy shows that, like a spotlight highlighting important words, attention allows the model to allocate more resources to relevant tokens, improving context capture and efficiency.",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Understand",
+            "hints": [
+              "Think about what happens when you focus on a few key words versus reading everything equally.",
+              "Consider how this selective focus impacts the model's ability to capture relationships."
+            ],
+            "common_misconceptions": [
+              "Believing attention processes only one word at a time.",
+              "Assuming attention completely ignores non‑highlighted words."
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_e4188650024b.mp3"
+        },
+        {
+          "step_id": 2,
+          "step_type": "concept_breakdown",
+          "title": "Query, Key, Value: The Library Catalog Metaphor",
+          "concept_summary": "A query is a search request, keys are catalog entries, and values are the actual books; matching query to key yields a relevance score that weights the corresponding value.",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": "Hey there! Today we're diving into the heart of the Transformer – the Query, Key, and Value mechanism – using a library catalog metaphor. Imagine you walk into a massive library looking for a specific piece of information. Your *query* is like the search request you type into the computer: \"Find me books about renewable energy.\" The *keys* are the catalog entries for every book – titles, subjects, authors – essentially the metadata that tells you what each book is about. The *values* are the actual books themselves, the full content you’ll read once you’ve found the right match. The system compares your query to each key, computes a relevance score (think of it as how well the catalog entry matches your search), and then uses that score to weight the corresponding value. Higher scores mean the book’s content will have a bigger influence on the final representation. This weighted sum is what we call the self‑attention output. By the end of this step, you’ll see how this simple library analogy captures the magic behind attention in Transformers.",
+          "visuals": [
+            {
+              "type": "concept_card",
+              "title": "Concept Visual",
+              "content": "",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": "A detailed illustration of a modern library interior showing a computer terminal where a user types a search query, shelves labeled with catalog cards representing keys, and highlighted books representing values. Arrows depict the flow from query to matching keys to selected books, with a soft glow indicating relevance scores."
+            },
+            {
+              "type": "latex",
+              "title": "Concept Visual",
+              "content": "\\text{Attention}(Q, K, V) = \\text{softmax}\\left(\\frac{QK^T}{\\sqrt{d_k}}\\right) V",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            },
+            {
+              "type": "mermaid",
+              "title": "Concept Visual",
+              "content": "graph TD\\n  Q[Query] -->|dot product| K[Key]\\n  K -->|softmax| Scores\\n  Scores -->|weight| V[Value]\\n  V --> Output",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            },
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "Query = Your search request; Key = Catalog entries (metadata); Value = The actual books (content). Relevance score = How well the catalog entry matches your request, deciding how much of the book’s content influences the answer.",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "• Query, Key, and Value are three linear projections of the same input.\n• The dot product of Query and Key gives a relevance score that is normalized by softmax.\n• These scores weight the Values, producing the self‑attention output.",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            }
+          ],
+          "formative_question": {
+            "id": "ccb7bf3d",
+            "prompt": "Explain how the relevance score between a query and a key influences the weighting of the corresponding value in self‑attention.",
+            "options": null,
+            "correct_answer": "The relevance score, obtained by the dot product of the query and key (and scaled), measures similarity. After applying softmax, it becomes a probability distribution that determines how much each value contributes to the final output – higher scores give larger weights to their values, while lower scores diminish their influence.",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Understand",
+            "hints": [
+              "Think about what softmax does to a set of raw similarity scores.",
+              "Consider the weighted sum formula in the attention equation."
+            ],
+            "common_misconceptions": [
+              "Believing the score directly replaces the value instead of weighting it.",
+              "Assuming the highest‑scoring value completely overwrites all others."
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_603d68cfa2b5.mp3"
+        }
+      ]
+    },
+    {
+      "module_id": 2,
+      "title": "Mechanics of Self‑Attention",
+      "description": "Dive into the matrix operations that turn Q‑K‑V into attention scores and contextual vectors.",
+      "steps": [
+        {
+          "step_id": 3,
+          "step_type": "visual_deep_dive",
+          "title": "Matrix Multiplication as Heatmap",
+          "concept_summary": "Visualize the Q·Kᵀ product as a heatmap where brighter cells indicate stronger similarity, then see softmax turn it into a probability distribution.",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 4,
+          "step_type": "checkpoint",
+          "title": "Quick Reasoning Check: Compute Attention Scores",
+          "concept_summary": "Given tiny Q, K vectors, Prof. Aryan asks you to calculate the raw scores, apply softmax, and retrieve the weighted sum—reinforcing the step‑by‑step flow.",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    },
+    {
+      "module_id": 3,
+      "title": "Scaling with Multi‑Head Attention",
+      "description": "Connect single‑head intuition to the full transformer block using an orchestra analogy and a brief coding demo.",
+      "steps": [
+        {
+          "step_id": 5,
+          "step_type": "practical_demo",
+          "title": "Hands‑on: Build a Tiny Self‑Attention in Python",
+          "concept_summary": "Write 10 lines of NumPy code that creates Q, K, V, computes attention, and prints the output, observing how changing heads alters the representation.",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 6,
+          "step_type": "synthesis",
+          "title": "From Single Head to Multi‑Head: The Orchestra Analogy",
+          "concept_summary": "Each head is an instrument playing its own melody (sub‑space); together they produce a rich symphony, enabling the transformer to capture diverse relationships.",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    }
+  ],
+  "all_steps_flattened": [
+    {
+      "step_id": 1,
+      "step_type": "introduction",
+      "title": "Why Attention? The Spotlight Analogy",
+      "concept_summary": "Imagine reading a paragraph with a moving spotlight; the model decides where to shine next, focusing computational resources on the most relevant words.",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": "Hey there! Imagine you're reading a story, and you have a magical spotlight that can shine on any word you think is important. As you move through the paragraph, the spotlight shifts, highlighting the most relevant words to understand the current context. That's exactly what attention does in a Transformer. Instead of processing every word equally, the model decides where to focus its computational energy, just like you decide where to shine your spotlight. This dynamic focusing lets the model capture long-range dependencies without getting lost in the noise. Think of each word as a character on stage; attention tells the model which characters are speaking to each other at any moment. By doing this, the model builds richer representations, leading to better translations, summaries, and more. So, why attention? Because it lets the model allocate its 'mental bandwidth' efficiently, ensuring the most pertinent information gets the spotlight it deserves.",
+      "visuals": [
+        {
+          "type": "concept_card",
+          "title": "Concept Visual",
+          "content": "",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": "A detailed illustration of a paragraph of text with a moving spotlight highlighting individual words sequentially, showing arrows indicating the spotlight's movement and a small brain icon representing the Transformer model's attention mechanism."
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "Spotlight Analogy: The model is like a director with a spotlight, choosing which actors (words) to illuminate based on the scene (sentence) to convey the story effectively.",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        },
+        {
+          "type": "latex",
+          "title": "Concept Visual",
+          "content": "a_{ij}=\\frac{\\exp(e_{ij})}{\\sum_{k=1}^{n}\\exp(e_{ik})},\\quad e_{ij}=\\frac{(W_q h_i)\\cdot (W_k h_j)}{\\sqrt{d_k}}",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "• Attention lets the model focus on relevant words, reducing uniform processing.\n• It captures long-range dependencies efficiently.\n• The spotlight analogy helps visualize dynamic weighting of word importance.",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        }
+      ],
+      "formative_question": {
+        "id": "5bd44ff1",
+        "prompt": "In your own words, explain how the spotlight analogy helps you understand why attention mechanisms are beneficial in language models.",
+        "options": null,
+        "correct_answer": "The analogy shows that, like a spotlight highlighting important words, attention allows the model to allocate more resources to relevant tokens, improving context capture and efficiency.",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Understand",
+        "hints": [
+          "Think about what happens when you focus on a few key words versus reading everything equally.",
+          "Consider how this selective focus impacts the model's ability to capture relationships."
+        ],
+        "common_misconceptions": [
+          "Believing attention processes only one word at a time.",
+          "Assuming attention completely ignores non‑highlighted words."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_e4188650024b.mp3"
+    },
+    {
+      "step_id": 2,
+      "step_type": "concept_breakdown",
+      "title": "Query, Key, Value: The Library Catalog Metaphor",
+      "concept_summary": "A query is a search request, keys are catalog entries, and values are the actual books; matching query to key yields a relevance score that weights the corresponding value.",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": "Hey there! Today we're diving into the heart of the Transformer – the Query, Key, and Value mechanism – using a library catalog metaphor. Imagine you walk into a massive library looking for a specific piece of information. Your *query* is like the search request you type into the computer: \"Find me books about renewable energy.\" The *keys* are the catalog entries for every book – titles, subjects, authors – essentially the metadata that tells you what each book is about. The *values* are the actual books themselves, the full content you’ll read once you’ve found the right match. The system compares your query to each key, computes a relevance score (think of it as how well the catalog entry matches your search), and then uses that score to weight the corresponding value. Higher scores mean the book’s content will have a bigger influence on the final representation. This weighted sum is what we call the self‑attention output. By the end of this step, you’ll see how this simple library analogy captures the magic behind attention in Transformers.",
+      "visuals": [
+        {
+          "type": "concept_card",
+          "title": "Concept Visual",
+          "content": "",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": "A detailed illustration of a modern library interior showing a computer terminal where a user types a search query, shelves labeled with catalog cards representing keys, and highlighted books representing values. Arrows depict the flow from query to matching keys to selected books, with a soft glow indicating relevance scores."
+        },
+        {
+          "type": "latex",
+          "title": "Concept Visual",
+          "content": "\\text{Attention}(Q, K, V) = \\text{softmax}\\left(\\frac{QK^T}{\\sqrt{d_k}}\\right) V",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        },
+        {
+          "type": "mermaid",
+          "title": "Concept Visual",
+          "content": "graph TD\\n  Q[Query] -->|dot product| K[Key]\\n  K -->|softmax| Scores\\n  Scores -->|weight| V[Value]\\n  V --> Output",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "Query = Your search request; Key = Catalog entries (metadata); Value = The actual books (content). Relevance score = How well the catalog entry matches your request, deciding how much of the book’s content influences the answer.",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "• Query, Key, and Value are three linear projections of the same input.\n• The dot product of Query and Key gives a relevance score that is normalized by softmax.\n• These scores weight the Values, producing the self‑attention output.",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        }
+      ],
+      "formative_question": {
+        "id": "ccb7bf3d",
+        "prompt": "Explain how the relevance score between a query and a key influences the weighting of the corresponding value in self‑attention.",
+        "options": null,
+        "correct_answer": "The relevance score, obtained by the dot product of the query and key (and scaled), measures similarity. After applying softmax, it becomes a probability distribution that determines how much each value contributes to the final output – higher scores give larger weights to their values, while lower scores diminish their influence.",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Understand",
+        "hints": [
+          "Think about what softmax does to a set of raw similarity scores.",
+          "Consider the weighted sum formula in the attention equation."
+        ],
+        "common_misconceptions": [
+          "Believing the score directly replaces the value instead of weighting it.",
+          "Assuming the highest‑scoring value completely overwrites all others."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_603d68cfa2b5.mp3"
+    },
+    {
+      "step_id": 3,
+      "step_type": "visual_deep_dive",
+      "title": "Matrix Multiplication as Heatmap",
+      "concept_summary": "Visualize the Q·Kᵀ product as a heatmap where brighter cells indicate stronger similarity, then see softmax turn it into a probability distribution.",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 4,
+      "step_type": "checkpoint",
+      "title": "Quick Reasoning Check: Compute Attention Scores",
+      "concept_summary": "Given tiny Q, K vectors, Prof. Aryan asks you to calculate the raw scores, apply softmax, and retrieve the weighted sum—reinforcing the step‑by‑step flow.",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 5,
+      "step_type": "practical_demo",
+      "title": "Hands‑on: Build a Tiny Self‑Attention in Python",
+      "concept_summary": "Write 10 lines of NumPy code that creates Q, K, V, computes attention, and prints the output, observing how changing heads alters the representation.",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 6,
+      "step_type": "synthesis",
+      "title": "From Single Head to Multi‑Head: The Orchestra Analogy",
+      "concept_summary": "Each head is an instrument playing its own melody (sub‑space); together they produce a rich symphony, enabling the transformer to capture diverse relationships.",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    }
+  ]
+}

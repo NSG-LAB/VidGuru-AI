@@ -1,0 +1,287 @@
+{
+  "plan_id": "070b67e8-3aa7-483a-ba62-31e9f59ffd34",
+  "topic_title": "Photosynthesis & Light Reactions",
+  "overview": "In this 15‑minute sprint, you’ll build a vivid mental model of how plants turn sunlight into chemical energy, then follow the electron flow that powers ATP formation, and finally link those light reactions to the Calvin cycle that makes sugar. Visual analogies guide each step, ensuring deep intuition.",
+  "student_profile": {
+    "grade_level": "undergraduate",
+    "language": "English",
+    "learning_goal": "deep_conceptual",
+    "time_budget_mins": 15,
+    "learning_style": "visual_analogies",
+    "teacher_persona": "Dr. Nova (Intuitive & Warm)"
+  },
+  "total_estimated_mins": 15,
+  "modules": [
+    {
+      "module_id": 1,
+      "title": "Visual Foundations of Photosynthesis",
+      "description": "Create a concrete picture of the chloroplast and the overall purpose of photosynthesis.",
+      "steps": [
+        {
+          "step_id": 1,
+          "step_type": "introduction",
+          "title": "What is Photosynthesis?",
+          "concept_summary": "Defines photosynthesis as the process that captures solar energy and stores it in chemical bonds, framing the chloroplast as the plant’s solar panel.",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": "Hey there! Let’s dive into the heart of plant life – photosynthesis. Imagine a solar panel on your roof, capturing sunlight and turning it into electricity. In plants, the chloroplast is that solar panel, but instead of electricity, it stores energy in chemical bonds. In simple terms, photosynthesis is the process where plants, algae, and some bacteria take sunlight, carbon dioxide, and water, and convert them into glucose – a sugar that fuels growth – and oxygen, which we all breathe. Think of it as nature’s way of turning light into food. The magic happens in two stages: the light‑dependent reactions that harvest the sun’s energy, and the Calvin cycle that stitches that energy into glucose. So, whenever you see a green leaf basking in the sun, remember it’s a tiny factory, turning photons into the building blocks of life. Ready to explore how those light reactions kick‑start this amazing transformation?",
+          "visuals": [
+            {
+              "type": "concept_card",
+              "title": "Concept Visual",
+              "content": "",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": "A detailed, labeled illustration of a plant leaf cross‑section showing chloroplasts with thylakoid membranes, stroma, and the overall leaf anatomy, highlighting sunlight entering the leaf and arrows indicating CO2 and water entry, with a caption 'Chloroplast: the plant’s solar panel'."
+            },
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "Photosynthesis is like a solar‑powered bakery: sunlight is the electricity, water and CO₂ are the raw ingredients, and glucose is the freshly baked bread that fuels the plant.",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            },
+            {
+              "type": "latex",
+              "title": "Concept Visual",
+              "content": "",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            }
+          ],
+          "formative_question": {
+            "id": "0ba2078e",
+            "prompt": "In your own words, explain why we compare a chloroplast to a solar panel. What are the inputs and outputs of this 'solar panel'?",
+            "options": null,
+            "correct_answer": "A chloroplast is likened to a solar panel because it captures sunlight (the energy input) along with CO₂ and H₂O (raw material inputs) and converts them into chemical energy stored in glucose (output) while releasing O₂ as a by‑product.",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Understand",
+            "hints": [
+              "Think about what a solar panel does with light.",
+              "Identify the three main inputs and the two main outputs of photosynthesis."
+            ],
+            "common_misconceptions": [
+              "Believing that plants only need sunlight, ignoring CO₂ and water.",
+              "Thinking oxygen is a product of the light reactions only, rather than a by‑product of the whole process."
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_5bf7db087944.mp3"
+        },
+        {
+          "step_id": 2,
+          "step_type": "visual_deep_dive",
+          "title": "Chloroplast as a Solar Power Plant",
+          "concept_summary": "Uses a factory‑layout diagram to map thylakoid stacks, stroma, and pigment antennas, turning abstract organelle parts into familiar machinery.",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    },
+    {
+      "module_id": 2,
+      "title": "Light Reactions Unpacked",
+      "description": "Follow the photon‑driven electron journey from PSII to ATP synthesis.",
+      "steps": [
+        {
+          "step_id": 3,
+          "step_type": "concept_breakdown",
+          "title": "Photosystem II & Electron Flow",
+          "concept_summary": "Breaks down how PSII captures light, splits water, and launches electrons onto the transport chain, using a step‑by‑step storyboard.",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 4,
+          "step_type": "visual_deep_dive",
+          "title": "Electron Transport Chain as a Conveyor Belt",
+          "concept_summary": "Visualizes the chain as a moving belt with energy‑dropping stations, illustrating proton pumping, ATP synthase rotation, and NADPH formation.",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    },
+    {
+      "module_id": 3,
+      "title": "From Light to Sugar",
+      "description": "Integrate the light‑reaction outputs with the Calvin cycle to complete carbon fixation.",
+      "steps": [
+        {
+          "step_id": 5,
+          "step_type": "checkpoint",
+          "title": "Quick Recall Quiz",
+          "concept_summary": "A 3‑question visual quiz that asks students to label PSII, ATP synthase, and the direction of electron flow, reinforcing the mental model.",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 6,
+          "step_type": "synthesis",
+          "title": "Connecting Light Reactions to the Calvin Cycle",
+          "concept_summary": "Synthesizes the story: ATP and NADPH from the light stage fuel the Calvin cycle, depicted as a production line that converts CO₂ into glucose.",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    }
+  ],
+  "all_steps_flattened": [
+    {
+      "step_id": 1,
+      "step_type": "introduction",
+      "title": "What is Photosynthesis?",
+      "concept_summary": "Defines photosynthesis as the process that captures solar energy and stores it in chemical bonds, framing the chloroplast as the plant’s solar panel.",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": "Hey there! Let’s dive into the heart of plant life – photosynthesis. Imagine a solar panel on your roof, capturing sunlight and turning it into electricity. In plants, the chloroplast is that solar panel, but instead of electricity, it stores energy in chemical bonds. In simple terms, photosynthesis is the process where plants, algae, and some bacteria take sunlight, carbon dioxide, and water, and convert them into glucose – a sugar that fuels growth – and oxygen, which we all breathe. Think of it as nature’s way of turning light into food. The magic happens in two stages: the light‑dependent reactions that harvest the sun’s energy, and the Calvin cycle that stitches that energy into glucose. So, whenever you see a green leaf basking in the sun, remember it’s a tiny factory, turning photons into the building blocks of life. Ready to explore how those light reactions kick‑start this amazing transformation?",
+      "visuals": [
+        {
+          "type": "concept_card",
+          "title": "Concept Visual",
+          "content": "",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": "A detailed, labeled illustration of a plant leaf cross‑section showing chloroplasts with thylakoid membranes, stroma, and the overall leaf anatomy, highlighting sunlight entering the leaf and arrows indicating CO2 and water entry, with a caption 'Chloroplast: the plant’s solar panel'."
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "Photosynthesis is like a solar‑powered bakery: sunlight is the electricity, water and CO₂ are the raw ingredients, and glucose is the freshly baked bread that fuels the plant.",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        },
+        {
+          "type": "latex",
+          "title": "Concept Visual",
+          "content": "",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        }
+      ],
+      "formative_question": {
+        "id": "0ba2078e",
+        "prompt": "In your own words, explain why we compare a chloroplast to a solar panel. What are the inputs and outputs of this 'solar panel'?",
+        "options": null,
+        "correct_answer": "A chloroplast is likened to a solar panel because it captures sunlight (the energy input) along with CO₂ and H₂O (raw material inputs) and converts them into chemical energy stored in glucose (output) while releasing O₂ as a by‑product.",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Understand",
+        "hints": [
+          "Think about what a solar panel does with light.",
+          "Identify the three main inputs and the two main outputs of photosynthesis."
+        ],
+        "common_misconceptions": [
+          "Believing that plants only need sunlight, ignoring CO₂ and water.",
+          "Thinking oxygen is a product of the light reactions only, rather than a by‑product of the whole process."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_5bf7db087944.mp3"
+    },
+    {
+      "step_id": 2,
+      "step_type": "visual_deep_dive",
+      "title": "Chloroplast as a Solar Power Plant",
+      "concept_summary": "Uses a factory‑layout diagram to map thylakoid stacks, stroma, and pigment antennas, turning abstract organelle parts into familiar machinery.",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 3,
+      "step_type": "concept_breakdown",
+      "title": "Photosystem II & Electron Flow",
+      "concept_summary": "Breaks down how PSII captures light, splits water, and launches electrons onto the transport chain, using a step‑by‑step storyboard.",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 4,
+      "step_type": "visual_deep_dive",
+      "title": "Electron Transport Chain as a Conveyor Belt",
+      "concept_summary": "Visualizes the chain as a moving belt with energy‑dropping stations, illustrating proton pumping, ATP synthase rotation, and NADPH formation.",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 5,
+      "step_type": "checkpoint",
+      "title": "Quick Recall Quiz",
+      "concept_summary": "A 3‑question visual quiz that asks students to label PSII, ATP synthase, and the direction of electron flow, reinforcing the mental model.",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 6,
+      "step_type": "synthesis",
+      "title": "Connecting Light Reactions to the Calvin Cycle",
+      "concept_summary": "Synthesizes the story: ATP and NADPH from the light stage fuel the Calvin cycle, depicted as a production line that converts CO₂ into glucose.",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    }
+  ]
+}

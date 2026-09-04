@@ -1,0 +1,287 @@
+{
+  "plan_id": "3795d2ac-869d-464b-a262-92966cd32849",
+  "topic_title": "प्रकाश संश्लेषण एवं लाइट रिएक्शन",
+  "overview": "इस 15 मिनट के सत्र में आप प्रकाश संश्लेषण के लाइट रिएक्शन के मुख्य घटकों—फोटोसिस्टम II, इलेक्ट्रॉन ट्रांसपोर्ट चेन, ATP संश्लेषण—को दृश्य रूपकों के माध्यम से समझेंगे, और अंत में कैल्विन चक्र से उनका संबंध स्थापित करेंगे। डॉ. नोवा की सहज और गर्मजोशी भरी मार्गदर्शन में आप गहरी अवधारणात्मक समझ विकसित करेंगे।",
+  "student_profile": {
+    "grade_level": "undergraduate",
+    "language": "Hindi",
+    "learning_goal": "deep_conceptual",
+    "time_budget_mins": 15,
+    "learning_style": "visual_analogies",
+    "teacher_persona": "Dr. Nova (Intuitive & Warm)"
+  },
+  "total_estimated_mins": 15,
+  "modules": [
+    {
+      "module_id": 1,
+      "title": "बुनियादी अवधारणाएँ और परिचय",
+      "description": "प्रकाश संश्लेषण के लाइट रिएक्शन के मूल तत्वों का परिचय।",
+      "steps": [
+        {
+          "step_id": 1,
+          "step_type": "introduction",
+          "title": "प्रकाश संश्लेषण का सारांश",
+          "concept_summary": "प्रकाश संश्लेषण कैसे सूर्य के प्रकाश को रासायनिक ऊर्जा में बदलता है, इसका संक्षिप्त परिचय।",
+          "estimated_duration_seconds": 120,
+          "is_completed": false,
+          "teacher_script": "नमस्ते! आज हम प्रकाश संश्लेषण के सार में डुबकी लगाएंगे। कल्पना कीजिए कि पौधा एक छोटा कारखाना है, जो सूर्य की रोशनी को सीधे रासायनिक ऊर्जा में बदल देता है—बिल्कुल जैसे सौर पैनल बिजली बनाते हैं। इस प्रक्रिया को दो मुख्य चरणों में बाँटा जाता है: लाइट रिएक्शन और कैल्विन चक्र। लाइट रिएक्शन में क्लोरोफिल प्रकाश को पकड़ता है, इलेक्ट्रॉनों को उत्तेजित करता है, और पानी को तोड़कर ऑक्सीजन छोड़ता है, साथ ही एटीपी और NADPH बनाता है—जो ऊर्जा के बैटरी की तरह काम करते हैं। फिर ये ऊर्जा‑समृद्ध अणु कैल्विन चक्र में प्रवेश करते हैं, जहाँ कार्बन डाइऑक्साइड को ग्लूकोज़ में बदला जाता है। संक्षेप में, पौधा सूर्य की रोशनी, पानी और कार्बन डाइऑक्साइड को मिलाकर ग्लूकोज़ और ऑक्सीजन बनाता है—जो जीवन के लिए मूलभूत ऊर्जा स्रोत है। इस जादू को समझना न केवल बायोलॉजी में बल्कि पर्यावरण विज्ञान में भी महत्वपूर्ण है, क्योंकि यही प्रक्रिया पृथ्वी के ऑक्सीजन चक्र को चलाती है। चलिए अब इस प्रक्रिया को दृश्य रूप में देखते हैं और कुछ मुख्य बिंदुओं को याद रखते हैं।",
+          "visuals": [
+            {
+              "type": "concept_card",
+              "title": "Concept Visual",
+              "content": "",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": "एक विस्तृत चित्र जिसमें क्लोरोप्लास्ट की संरचना दिखायी गई है, जिसमें थायलाकोइड मेम्ब्रेन, ग्राना, स्टोमैटा और ल्यूमेन में लाइट रिएक्शन के चरण दिखाए गए हैं, प्रत्येक भाग पर लेबल के साथ, स्पष्ट रंगीन लेबल और तीरों के साथ"
+            },
+            {
+              "type": "latex",
+              "title": "Concept Visual",
+              "content": "6\\,CO_{2} + 6\\,H_{2}O + \\text{प्रकाश ऊर्जा} \\rightarrow C_{6}H_{12}O_{6} + 6\\,O_{2}",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            },
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "पौधे का क्लोरोप्लास्ट एक सौर पैनल की तरह है: सूर्य की रोशनी को पकड़ता है, उसे इलेक्ट्रिकल ऊर्जा (एटीपी) में बदलता है, और फिर इस ऊर्जा को कार्बन डाइऑक्साइड को इंधन (ग्लूकोज़) में बदलने के लिए उपयोग करता है।",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "• प्रकाश संश्लेषण दो चरणों में होता है: लाइट रिएक्शन (ऊर्जा संग्रह) और कैल्विन चक्र (कार्बन फिक्सेशन)।\n• लाइट रिएक्शन में पानी का फोटोलाइसिस होता है, जिससे ऑक्सीजन मुक्त होती है और एटीपी व NADPH बनते हैं।\n• कैल्विन चक्र में CO₂ को ग्लूकोज़ में बदला जाता है, जो पौधे की ऊर्जा का मुख्य स्रोत है।",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            }
+          ],
+          "formative_question": {
+            "id": "9b4cc5fc",
+            "prompt": "लाइट रिएक्शन के दौरान कौन‑से दो मुख्य ऊर्जा‑उत्पाद बनते हैं, और उनका क्या कार्य है?",
+            "options": null,
+            "correct_answer": "एटीपी और NADPH बनते हैं; एटीपी ऊर्जा की त्वरित मुद्रा है, जबकि NADPH इलेक्ट्रॉन (हाइड्रोजन) का वहनकर्ता है, दोनों कैल्विन चक्र में कार्बन डाइऑक्साइड को ग्लूकोज़ में बदलने के लिए उपयोग होते हैं।",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Understand",
+            "hints": [
+              "सोचें कि लाइट रिएक्शन में प्रकाश ऊर्जा को किस रूप में संग्रहित किया जाता है।",
+              "इन दो अणुओं में से एक ऊर्जा को सीधे उपयोगी रूप में रखता है, दूसरा इलेक्ट्रॉन को ले जाता है।"
+            ],
+            "common_misconceptions": [
+              "लाइट रिएक्शन में सीधे ग्लूकोज़ बनता है।",
+              "ऑक्सीजन लाइट रिएक्शन में उत्पन्न नहीं होती, बल्कि केवल श्वसन में उपयोग होती है।"
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_44b162c839c3.mp3"
+        },
+        {
+          "step_id": 2,
+          "step_type": "concept_breakdown",
+          "title": "फोटोसिस्टम II और इलेक्ट्रॉन प्रवाह",
+          "concept_summary": "फोटोसिस्टम II की संरचना, जल विभाजन, और इलेक्ट्रॉन की शुरुआती गति को चरण-दर-चरण समझें।",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    },
+    {
+      "module_id": 2,
+      "title": "दृश्य गहराई: लाइट रिएक्शन का प्रवाह",
+      "description": "इलेक्ट्रॉन ट्रांसपोर्ट चेन और ATP संश्लेषण को दृश्य रूपकों से देखेंगे।",
+      "steps": [
+        {
+          "step_id": 3,
+          "step_type": "visual_deep_dive",
+          "title": "इलेक्ट्रॉन ट्रांसपोर्ट चेन का एनिमेशन",
+          "concept_summary": "इलेक्ट्रॉन कैसे फोटोसिस्टम II से PSI तक यात्रा करता है, और प्रोटॉन ग्रेडिएंट बनाता है, इसका एनीमेटेड दृश्य।",
+          "estimated_duration_seconds": 180,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 4,
+          "step_type": "practical_demo",
+          "title": "ATP सिंथेज़ एंजाइम की कार्यप्रणाली",
+          "concept_summary": "प्रोटॉन ग्रेडिएंट से ATP कैसे बनता है, इसका सरल प्रयोगात्मक मॉडल (डायाफ्राम) दिखाया जाएगा।",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    },
+    {
+      "module_id": 3,
+      "title": "एकीकरण और संश्लेषण",
+      "description": "लाइट रिएक्शन को कैल्विन चक्र से जोड़कर समग्र समझ बनाएं।",
+      "steps": [
+        {
+          "step_id": 5,
+          "step_type": "checkpoint",
+          "title": "त्वरित प्रश्नोत्तर",
+          "concept_summary": "मुख्य बिंदुओं की पुनरावृत्ति के लिए त्वरित प्रश्नों के साथ समझ की जाँच।",
+          "estimated_duration_seconds": 120,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 6,
+          "step_type": "synthesis",
+          "title": "लाइट रिएक्शन से कैल्विन चक्र तक",
+          "concept_summary": "लाइट रिएक्शन द्वारा उत्पन्न ATP और NADPH कैसे कैल्विन चक्र में कार्बन स्थिरीकरण के लिए उपयोग होते हैं, इसका समग्र सार।",
+          "estimated_duration_seconds": 180,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    }
+  ],
+  "all_steps_flattened": [
+    {
+      "step_id": 1,
+      "step_type": "introduction",
+      "title": "प्रकाश संश्लेषण का सारांश",
+      "concept_summary": "प्रकाश संश्लेषण कैसे सूर्य के प्रकाश को रासायनिक ऊर्जा में बदलता है, इसका संक्षिप्त परिचय।",
+      "estimated_duration_seconds": 120,
+      "is_completed": false,
+      "teacher_script": "नमस्ते! आज हम प्रकाश संश्लेषण के सार में डुबकी लगाएंगे। कल्पना कीजिए कि पौधा एक छोटा कारखाना है, जो सूर्य की रोशनी को सीधे रासायनिक ऊर्जा में बदल देता है—बिल्कुल जैसे सौर पैनल बिजली बनाते हैं। इस प्रक्रिया को दो मुख्य चरणों में बाँटा जाता है: लाइट रिएक्शन और कैल्विन चक्र। लाइट रिएक्शन में क्लोरोफिल प्रकाश को पकड़ता है, इलेक्ट्रॉनों को उत्तेजित करता है, और पानी को तोड़कर ऑक्सीजन छोड़ता है, साथ ही एटीपी और NADPH बनाता है—जो ऊर्जा के बैटरी की तरह काम करते हैं। फिर ये ऊर्जा‑समृद्ध अणु कैल्विन चक्र में प्रवेश करते हैं, जहाँ कार्बन डाइऑक्साइड को ग्लूकोज़ में बदला जाता है। संक्षेप में, पौधा सूर्य की रोशनी, पानी और कार्बन डाइऑक्साइड को मिलाकर ग्लूकोज़ और ऑक्सीजन बनाता है—जो जीवन के लिए मूलभूत ऊर्जा स्रोत है। इस जादू को समझना न केवल बायोलॉजी में बल्कि पर्यावरण विज्ञान में भी महत्वपूर्ण है, क्योंकि यही प्रक्रिया पृथ्वी के ऑक्सीजन चक्र को चलाती है। चलिए अब इस प्रक्रिया को दृश्य रूप में देखते हैं और कुछ मुख्य बिंदुओं को याद रखते हैं।",
+      "visuals": [
+        {
+          "type": "concept_card",
+          "title": "Concept Visual",
+          "content": "",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": "एक विस्तृत चित्र जिसमें क्लोरोप्लास्ट की संरचना दिखायी गई है, जिसमें थायलाकोइड मेम्ब्रेन, ग्राना, स्टोमैटा और ल्यूमेन में लाइट रिएक्शन के चरण दिखाए गए हैं, प्रत्येक भाग पर लेबल के साथ, स्पष्ट रंगीन लेबल और तीरों के साथ"
+        },
+        {
+          "type": "latex",
+          "title": "Concept Visual",
+          "content": "6\\,CO_{2} + 6\\,H_{2}O + \\text{प्रकाश ऊर्जा} \\rightarrow C_{6}H_{12}O_{6} + 6\\,O_{2}",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "पौधे का क्लोरोप्लास्ट एक सौर पैनल की तरह है: सूर्य की रोशनी को पकड़ता है, उसे इलेक्ट्रिकल ऊर्जा (एटीपी) में बदलता है, और फिर इस ऊर्जा को कार्बन डाइऑक्साइड को इंधन (ग्लूकोज़) में बदलने के लिए उपयोग करता है।",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "• प्रकाश संश्लेषण दो चरणों में होता है: लाइट रिएक्शन (ऊर्जा संग्रह) और कैल्विन चक्र (कार्बन फिक्सेशन)।\n• लाइट रिएक्शन में पानी का फोटोलाइसिस होता है, जिससे ऑक्सीजन मुक्त होती है और एटीपी व NADPH बनते हैं।\n• कैल्विन चक्र में CO₂ को ग्लूकोज़ में बदला जाता है, जो पौधे की ऊर्जा का मुख्य स्रोत है।",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        }
+      ],
+      "formative_question": {
+        "id": "9b4cc5fc",
+        "prompt": "लाइट रिएक्शन के दौरान कौन‑से दो मुख्य ऊर्जा‑उत्पाद बनते हैं, और उनका क्या कार्य है?",
+        "options": null,
+        "correct_answer": "एटीपी और NADPH बनते हैं; एटीपी ऊर्जा की त्वरित मुद्रा है, जबकि NADPH इलेक्ट्रॉन (हाइड्रोजन) का वहनकर्ता है, दोनों कैल्विन चक्र में कार्बन डाइऑक्साइड को ग्लूकोज़ में बदलने के लिए उपयोग होते हैं।",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Understand",
+        "hints": [
+          "सोचें कि लाइट रिएक्शन में प्रकाश ऊर्जा को किस रूप में संग्रहित किया जाता है।",
+          "इन दो अणुओं में से एक ऊर्जा को सीधे उपयोगी रूप में रखता है, दूसरा इलेक्ट्रॉन को ले जाता है।"
+        ],
+        "common_misconceptions": [
+          "लाइट रिएक्शन में सीधे ग्लूकोज़ बनता है।",
+          "ऑक्सीजन लाइट रिएक्शन में उत्पन्न नहीं होती, बल्कि केवल श्वसन में उपयोग होती है।"
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_44b162c839c3.mp3"
+    },
+    {
+      "step_id": 2,
+      "step_type": "concept_breakdown",
+      "title": "फोटोसिस्टम II और इलेक्ट्रॉन प्रवाह",
+      "concept_summary": "फोटोसिस्टम II की संरचना, जल विभाजन, और इलेक्ट्रॉन की शुरुआती गति को चरण-दर-चरण समझें।",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 3,
+      "step_type": "visual_deep_dive",
+      "title": "इलेक्ट्रॉन ट्रांसपोर्ट चेन का एनिमेशन",
+      "concept_summary": "इलेक्ट्रॉन कैसे फोटोसिस्टम II से PSI तक यात्रा करता है, और प्रोटॉन ग्रेडिएंट बनाता है, इसका एनीमेटेड दृश्य।",
+      "estimated_duration_seconds": 180,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 4,
+      "step_type": "practical_demo",
+      "title": "ATP सिंथेज़ एंजाइम की कार्यप्रणाली",
+      "concept_summary": "प्रोटॉन ग्रेडिएंट से ATP कैसे बनता है, इसका सरल प्रयोगात्मक मॉडल (डायाफ्राम) दिखाया जाएगा।",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 5,
+      "step_type": "checkpoint",
+      "title": "त्वरित प्रश्नोत्तर",
+      "concept_summary": "मुख्य बिंदुओं की पुनरावृत्ति के लिए त्वरित प्रश्नों के साथ समझ की जाँच।",
+      "estimated_duration_seconds": 120,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 6,
+      "step_type": "synthesis",
+      "title": "लाइट रिएक्शन से कैल्विन चक्र तक",
+      "concept_summary": "लाइट रिएक्शन द्वारा उत्पन्न ATP और NADPH कैसे कैल्विन चक्र में कार्बन स्थिरीकरण के लिए उपयोग होते हैं, इसका समग्र सार।",
+      "estimated_duration_seconds": 180,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    }
+  ]
+}

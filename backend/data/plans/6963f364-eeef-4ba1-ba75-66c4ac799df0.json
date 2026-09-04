@@ -1,0 +1,450 @@
+{
+  "plan_id": "6963f364-eeef-4ba1-ba75-66c4ac799df0",
+  "topic_title": "Database Management Systems: Foundations & Visual Intuition",
+  "overview": "In five minutes Maya guides you through the essence of a DBMS using vivid visual analogies, then builds on that foundation to reveal how core concepts interlock. You’ll finish with a clear mental picture of how a query travels through the system.",
+  "student_profile": {
+    "grade_level": "undergraduate",
+    "language": "English",
+    "learning_goal": "deep_conceptual",
+    "time_budget_mins": 5,
+    "learning_style": "visual_analogies",
+    "teacher_persona": "Maya (Energetic & Visual)"
+  },
+  "total_estimated_mins": 5,
+  "modules": [
+    {
+      "module_id": 1,
+      "title": "Core Foundations & Mental Model",
+      "description": "Establish the big picture of what a DBMS does using visual analogies.",
+      "steps": [
+        {
+          "step_id": 1,
+          "step_type": "introduction",
+          "title": "What is a DBMS?",
+          "concept_summary": "Defines a DBMS as the orchestrator that stores, retrieves, and secures data, likened to a librarian managing books.",
+          "estimated_duration_seconds": 70,
+          "is_completed": false,
+          "teacher_script": "Hey there! Imagine walking into a massive library where every book, magazine, and newspaper is perfectly organized, and a friendly librarian knows exactly where each item lives, can fetch it for you in seconds, and makes sure no one steals or misplaces anything. That librarian is essentially what a Database Management System, or DBMS, does for digital data. It’s the software layer that sits between you—the user or application—and the raw data stored on disks. The DBMS handles storing new data, retrieving existing records, updating information, and deleting what’s no longer needed, all while enforcing rules that keep the data consistent and secure. Think of tables as shelves, rows as books, and columns as the book’s attributes like title or author. Just as a librarian enforces borrowing policies, a DBMS enforces constraints like primary keys and access permissions. So, whenever you query a database, you’re essentially asking the librarian to fetch a specific book for you, and the DBMS makes sure you get exactly what you need, quickly and safely.",
+          "visuals": [
+            {
+              "type": "concept_card",
+              "title": "Concept Visual",
+              "content": "",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": "A vibrant illustration of a modern library with a friendly librarian at a desk, surrounded by shelves labeled as 'Tables', books as 'Rows', and tags on books representing 'Columns'. The librarian holds a tablet showing a query screen, symbolizing a DBMS retrieving data."
+            },
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "DBMS : Librarian :: Database : Library Collection",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            }
+          ],
+          "formative_question": {
+            "id": "fd1992f4",
+            "prompt": "In your own words, explain how a DBMS is similar to a librarian managing a library. What are two specific responsibilities they share?",
+            "options": null,
+            "correct_answer": "Both act as intermediaries between users and stored items, locating and delivering requested items efficiently, and enforcing rules—like borrowing policies for librarians and integrity constraints/access controls for DBMS.",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Understand",
+            "hints": [
+              "Think about how a librarian finds a book and checks it out.",
+              "Consider the rules each must enforce to keep the collection orderly."
+            ],
+            "common_misconceptions": [
+              "Assuming the DBMS physically moves data like a librarian moves books.",
+              "Believing the DBMS only stores data without handling security or consistency."
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_7d01a217f6ea.mp3"
+        },
+        {
+          "step_id": 2,
+          "step_type": "visual_deep_dive",
+          "title": "Data as Organized Shelves",
+          "concept_summary": "Uses the analogy of library shelves, indexes as catalog cards, and queries as search requests to illustrate tables, indexes, and SQL.",
+          "estimated_duration_seconds": 80,
+          "is_completed": false,
+          "teacher_script": "Hey there! Imagine walking into a massive library. Each bookshelf you see? That's like a table in a database, neatly holding rows of books—our data records. Now, think about those little catalog cards you used to pull out to find a book quickly. Those are just like indexes: they point you straight to the right shelf and slot without you having to scan every single book. And when you walk up to the librarian and say, \"I need all mystery novels published after 2015,\" that's your query—specifically an SQL query—telling the system exactly what you want. The librarian (our DBMS) flips through the catalog cards (indexes) and fetches the matching books (rows) from the right shelves (tables). This analogy helps us see why proper organization—tables, indexes, and clear queries—makes data retrieval fast and reliable. So, as we dive deeper, remember: tables are our shelves, indexes are the catalog cards, and SQL queries are the search requests that bring the right information right to our fingertips.",
+          "visuals": [
+            {
+              "type": "concept_card",
+              "title": "Concept Visual",
+              "content": "",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": "A detailed illustration of a library interior showing rows of shelves labeled as tables, with catalog cards representing indexes, and a librarian processing a search request as a SQL query. Include clear labels, arrows indicating flow from query to index to table, and a warm, educational style."
+            },
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "Table = Shelf; Row = Book; Column = Book attribute (title, author); Index = Catalog card; SQL Query = Search request to librarian.",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "• Tables organize data like shelves hold books.\n• Indexes act as catalog cards, enabling fast look‑ups.\n• SQL queries are precise search requests that retrieve data efficiently.",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            },
+            {
+              "type": "latex",
+              "title": "Concept Visual",
+              "content": "SELECT \\ * \\ FROM Books WHERE Genre = 'Mystery' \\ AND Year > 2015;",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            }
+          ],
+          "formative_question": {
+            "id": "c4b88197",
+            "prompt": "In the library analogy, which component directly corresponds to a database index?",
+            "options": [
+              "A) The bookshelf",
+              "B) The catalog card",
+              "C) The librarian",
+              "D) The book title"
+            ],
+            "correct_answer": "B) The catalog card",
+            "question_type": "multiple_choice",
+            "bloom_level": "Understand",
+            "hints": [
+              "Think about what helps you locate a book quickly without scanning every shelf.",
+              "Indexes store pointers, not the actual data."
+            ],
+            "common_misconceptions": [
+              "Confusing the table (shelf) with the index (catalog card).",
+              "Believing the librarian (DBMS) is the index itself."
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_25e187a8bd39.mp3"
+        }
+      ]
+    },
+    {
+      "module_id": 2,
+      "title": "Key Concepts & Integration",
+      "description": "Dive into relational core concepts and synthesize understanding.",
+      "steps": [
+        {
+          "step_id": 3,
+          "step_type": "concept_breakdown",
+          "title": "Tables, Keys, and Relationships",
+          "concept_summary": "Breaks down tables as spreadsheets, primary keys as unique barcodes, foreign keys as cross‑references, showing one‑to‑many links.",
+          "estimated_duration_seconds": 80,
+          "is_completed": false,
+          "teacher_script": "Hey there! Imagine a spreadsheet—rows and columns, right? In a database, each spreadsheet is called a **table**. Think of the rows as individual records, like a single customer, and the columns as attributes, like name or email. Now, every record needs a unique identifier—just like every product in a store has a barcode. That’s our **primary key**. It guarantees we can pinpoint any row without ambiguity. Next, suppose we have another table, say **Orders**, where each order belongs to a customer. We don’t repeat the whole customer info; instead, we store the customer’s barcode in the Orders table. That’s a **foreign key**—a cross‑reference pointing back to the primary key of another table. This creates a **one‑to‑many relationship**: one customer can have many orders, but each order points to only one customer. Visualize it as two spreadsheets linked by a dotted line, with arrows showing the flow of reference. By the end of this step, you’ll see how these simple concepts power the whole relational database engine, keeping data organized, consistent, and easy to query. Ready to dive deeper?",
+          "visuals": [
+            {
+              "type": "concept_card",
+              "title": "Concept Visual",
+              "content": "",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": "A clear educational illustration showing two database tables side by side: 'Customers' with columns CustomerID (highlighted as primary key), Name, Email; and 'Orders' with columns OrderID (primary key), OrderDate, CustomerID (foreign key). An arrow connects Customers.CustomerID to Orders.CustomerID, labeled 'one-to-many relationship'. Include grid lines to mimic spreadsheet layout and a legend explaining primary key (PK) and foreign key (FK)."
+            },
+            {
+              "type": "latex",
+              "title": "Concept Visual",
+              "content": "R_{Customers}(CustomerID, Name, Email) \\quad R_{Orders}(OrderID, OrderDate, CustomerID) \\quad PK(CustomerID), PK(OrderID), FK(CustomerID \\rightarrow Customers.CustomerID)",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            },
+            {
+              "type": "mermaid",
+              "title": "Concept Visual",
+              "content": "erDiagram\n    CUSTOMERS ||--o{ ORDERS : places\n    CUSTOMERS {\n        int CustomerID PK\n        string Name\n        string Email\n    }\n    ORDERS {\n        int OrderID PK\n        date OrderDate\n        int CustomerID FK\n    }",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            },
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "Primary Key = Barcode on a product; Foreign Key = Scanning that barcode in a different department to link related info.",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "• Tables are like spreadsheets; rows are records, columns are attributes.\n• Primary keys uniquely identify each record—think barcodes.\n• Foreign keys reference primary keys in another table, forming one-to-many relationships.",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            }
+          ],
+          "formative_question": {
+            "id": "c140e535",
+            "prompt": "Explain how a foreign key creates a one-to-many relationship between the Customers and Orders tables, using the barcode analogy.",
+            "options": null,
+            "correct_answer": "A foreign key in the Orders table stores the CustomerID (the barcode) that matches the primary key in the Customers table. This means many order rows can point to the same CustomerID, linking multiple orders to a single customer—hence a one-to-many relationship.",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Understand",
+            "hints": [
+              "Recall what a primary key represents in the Customers table.",
+              "Think about how many orders can share the same CustomerID."
+            ],
+            "common_misconceptions": [
+              "Believing a foreign key must be unique in its own table.",
+              "Confusing one-to-many with many-to-many without a junction table."
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_f0da2643b65a.mp3"
+        },
+        {
+          "step_id": 4,
+          "step_type": "synthesis",
+          "title": "From Query to Result: The DBMS Workflow",
+          "concept_summary": "Integrates earlier analogies to walk through a SELECT query lifecycle—parsing, planning, execution—so the student visualizes the hidden engine.",
+          "estimated_duration_seconds": 70,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    }
+  ],
+  "all_steps_flattened": [
+    {
+      "step_id": 1,
+      "step_type": "introduction",
+      "title": "What is a DBMS?",
+      "concept_summary": "Defines a DBMS as the orchestrator that stores, retrieves, and secures data, likened to a librarian managing books.",
+      "estimated_duration_seconds": 70,
+      "is_completed": false,
+      "teacher_script": "Hey there! Imagine walking into a massive library where every book, magazine, and newspaper is perfectly organized, and a friendly librarian knows exactly where each item lives, can fetch it for you in seconds, and makes sure no one steals or misplaces anything. That librarian is essentially what a Database Management System, or DBMS, does for digital data. It’s the software layer that sits between you—the user or application—and the raw data stored on disks. The DBMS handles storing new data, retrieving existing records, updating information, and deleting what’s no longer needed, all while enforcing rules that keep the data consistent and secure. Think of tables as shelves, rows as books, and columns as the book’s attributes like title or author. Just as a librarian enforces borrowing policies, a DBMS enforces constraints like primary keys and access permissions. So, whenever you query a database, you’re essentially asking the librarian to fetch a specific book for you, and the DBMS makes sure you get exactly what you need, quickly and safely.",
+      "visuals": [
+        {
+          "type": "concept_card",
+          "title": "Concept Visual",
+          "content": "",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": "A vibrant illustration of a modern library with a friendly librarian at a desk, surrounded by shelves labeled as 'Tables', books as 'Rows', and tags on books representing 'Columns'. The librarian holds a tablet showing a query screen, symbolizing a DBMS retrieving data."
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "DBMS : Librarian :: Database : Library Collection",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        }
+      ],
+      "formative_question": {
+        "id": "fd1992f4",
+        "prompt": "In your own words, explain how a DBMS is similar to a librarian managing a library. What are two specific responsibilities they share?",
+        "options": null,
+        "correct_answer": "Both act as intermediaries between users and stored items, locating and delivering requested items efficiently, and enforcing rules—like borrowing policies for librarians and integrity constraints/access controls for DBMS.",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Understand",
+        "hints": [
+          "Think about how a librarian finds a book and checks it out.",
+          "Consider the rules each must enforce to keep the collection orderly."
+        ],
+        "common_misconceptions": [
+          "Assuming the DBMS physically moves data like a librarian moves books.",
+          "Believing the DBMS only stores data without handling security or consistency."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_7d01a217f6ea.mp3"
+    },
+    {
+      "step_id": 2,
+      "step_type": "visual_deep_dive",
+      "title": "Data as Organized Shelves",
+      "concept_summary": "Uses the analogy of library shelves, indexes as catalog cards, and queries as search requests to illustrate tables, indexes, and SQL.",
+      "estimated_duration_seconds": 80,
+      "is_completed": false,
+      "teacher_script": "Hey there! Imagine walking into a massive library. Each bookshelf you see? That's like a table in a database, neatly holding rows of books—our data records. Now, think about those little catalog cards you used to pull out to find a book quickly. Those are just like indexes: they point you straight to the right shelf and slot without you having to scan every single book. And when you walk up to the librarian and say, \"I need all mystery novels published after 2015,\" that's your query—specifically an SQL query—telling the system exactly what you want. The librarian (our DBMS) flips through the catalog cards (indexes) and fetches the matching books (rows) from the right shelves (tables). This analogy helps us see why proper organization—tables, indexes, and clear queries—makes data retrieval fast and reliable. So, as we dive deeper, remember: tables are our shelves, indexes are the catalog cards, and SQL queries are the search requests that bring the right information right to our fingertips.",
+      "visuals": [
+        {
+          "type": "concept_card",
+          "title": "Concept Visual",
+          "content": "",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": "A detailed illustration of a library interior showing rows of shelves labeled as tables, with catalog cards representing indexes, and a librarian processing a search request as a SQL query. Include clear labels, arrows indicating flow from query to index to table, and a warm, educational style."
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "Table = Shelf; Row = Book; Column = Book attribute (title, author); Index = Catalog card; SQL Query = Search request to librarian.",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "• Tables organize data like shelves hold books.\n• Indexes act as catalog cards, enabling fast look‑ups.\n• SQL queries are precise search requests that retrieve data efficiently.",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        },
+        {
+          "type": "latex",
+          "title": "Concept Visual",
+          "content": "SELECT \\ * \\ FROM Books WHERE Genre = 'Mystery' \\ AND Year > 2015;",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        }
+      ],
+      "formative_question": {
+        "id": "c4b88197",
+        "prompt": "In the library analogy, which component directly corresponds to a database index?",
+        "options": [
+          "A) The bookshelf",
+          "B) The catalog card",
+          "C) The librarian",
+          "D) The book title"
+        ],
+        "correct_answer": "B) The catalog card",
+        "question_type": "multiple_choice",
+        "bloom_level": "Understand",
+        "hints": [
+          "Think about what helps you locate a book quickly without scanning every shelf.",
+          "Indexes store pointers, not the actual data."
+        ],
+        "common_misconceptions": [
+          "Confusing the table (shelf) with the index (catalog card).",
+          "Believing the librarian (DBMS) is the index itself."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_25e187a8bd39.mp3"
+    },
+    {
+      "step_id": 3,
+      "step_type": "concept_breakdown",
+      "title": "Tables, Keys, and Relationships",
+      "concept_summary": "Breaks down tables as spreadsheets, primary keys as unique barcodes, foreign keys as cross‑references, showing one‑to‑many links.",
+      "estimated_duration_seconds": 80,
+      "is_completed": false,
+      "teacher_script": "Hey there! Imagine a spreadsheet—rows and columns, right? In a database, each spreadsheet is called a **table**. Think of the rows as individual records, like a single customer, and the columns as attributes, like name or email. Now, every record needs a unique identifier—just like every product in a store has a barcode. That’s our **primary key**. It guarantees we can pinpoint any row without ambiguity. Next, suppose we have another table, say **Orders**, where each order belongs to a customer. We don’t repeat the whole customer info; instead, we store the customer’s barcode in the Orders table. That’s a **foreign key**—a cross‑reference pointing back to the primary key of another table. This creates a **one‑to‑many relationship**: one customer can have many orders, but each order points to only one customer. Visualize it as two spreadsheets linked by a dotted line, with arrows showing the flow of reference. By the end of this step, you’ll see how these simple concepts power the whole relational database engine, keeping data organized, consistent, and easy to query. Ready to dive deeper?",
+      "visuals": [
+        {
+          "type": "concept_card",
+          "title": "Concept Visual",
+          "content": "",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": "A clear educational illustration showing two database tables side by side: 'Customers' with columns CustomerID (highlighted as primary key), Name, Email; and 'Orders' with columns OrderID (primary key), OrderDate, CustomerID (foreign key). An arrow connects Customers.CustomerID to Orders.CustomerID, labeled 'one-to-many relationship'. Include grid lines to mimic spreadsheet layout and a legend explaining primary key (PK) and foreign key (FK)."
+        },
+        {
+          "type": "latex",
+          "title": "Concept Visual",
+          "content": "R_{Customers}(CustomerID, Name, Email) \\quad R_{Orders}(OrderID, OrderDate, CustomerID) \\quad PK(CustomerID), PK(OrderID), FK(CustomerID \\rightarrow Customers.CustomerID)",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        },
+        {
+          "type": "mermaid",
+          "title": "Concept Visual",
+          "content": "erDiagram\n    CUSTOMERS ||--o{ ORDERS : places\n    CUSTOMERS {\n        int CustomerID PK\n        string Name\n        string Email\n    }\n    ORDERS {\n        int OrderID PK\n        date OrderDate\n        int CustomerID FK\n    }",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "Primary Key = Barcode on a product; Foreign Key = Scanning that barcode in a different department to link related info.",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "• Tables are like spreadsheets; rows are records, columns are attributes.\n• Primary keys uniquely identify each record—think barcodes.\n• Foreign keys reference primary keys in another table, forming one-to-many relationships.",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        }
+      ],
+      "formative_question": {
+        "id": "c140e535",
+        "prompt": "Explain how a foreign key creates a one-to-many relationship between the Customers and Orders tables, using the barcode analogy.",
+        "options": null,
+        "correct_answer": "A foreign key in the Orders table stores the CustomerID (the barcode) that matches the primary key in the Customers table. This means many order rows can point to the same CustomerID, linking multiple orders to a single customer—hence a one-to-many relationship.",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Understand",
+        "hints": [
+          "Recall what a primary key represents in the Customers table.",
+          "Think about how many orders can share the same CustomerID."
+        ],
+        "common_misconceptions": [
+          "Believing a foreign key must be unique in its own table.",
+          "Confusing one-to-many with many-to-many without a junction table."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_f0da2643b65a.mp3"
+    },
+    {
+      "step_id": 4,
+      "step_type": "synthesis",
+      "title": "From Query to Result: The DBMS Workflow",
+      "concept_summary": "Integrates earlier analogies to walk through a SELECT query lifecycle—parsing, planning, execution—so the student visualizes the hidden engine.",
+      "estimated_duration_seconds": 70,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    }
+  ]
+}
