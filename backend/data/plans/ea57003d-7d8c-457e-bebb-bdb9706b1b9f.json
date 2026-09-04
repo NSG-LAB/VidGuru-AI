@@ -1,0 +1,155 @@
+{
+  "plan_id": "ea57003d-7d8c-457e-bebb-bdb9706b1b9f",
+  "topic_title": "Self-Attention Mechanism in Transformers",
+  "overview": "Interactive masterclass on Self-Attention Mechanism in Transformers",
+  "student_profile": {
+    "grade_level": "undergraduate",
+    "language": "Hinglish",
+    "learning_goal": "deep_conceptual",
+    "time_budget_mins": 15,
+    "learning_style": "visual_analogies",
+    "teacher_persona": "Dr. Nova (Intuitive & Warm)"
+  },
+  "total_estimated_mins": 15,
+  "modules": [
+    {
+      "module_id": 1,
+      "title": "Foundations",
+      "description": "Core concepts",
+      "steps": [
+        {
+          "step_id": 1,
+          "step_type": "introduction",
+          "title": "Introduction to Self-Attention Mechanism in Transformers",
+          "concept_summary": "Intuition and foundations",
+          "estimated_duration_seconds": 120,
+          "is_completed": false,
+          "teacher_script": "Welcome to our deep dive into Step 1. Let us break down this concept from first principles. When we look at how this system operates, notice the fundamental relationship between each interacting component. Take a moment to inspect the visual breakdown on your whiteboard, and then we will test our intuition together.",
+          "visuals": [
+            {
+              "type": "mermaid",
+              "title": "Structural Flow: Step 1",
+              "content": "graph TD\n  A[Input / Problem Definition] --> B[Processing & Transformation]\n  B --> C[Optimization & Validation]\n  C --> D[Target Solution Output]",
+              "explanation": "Visualizing the end-to-end mechanism behind Step 1.",
+              "language": null
+            },
+            {
+              "type": "analogy_box",
+              "title": "Intuitive Analogy",
+              "content": "Think of this mechanism like a water purification system: raw data flows through multi-stage filters, where each stage isolates and transforms key properties until a pure, reliable result emerges.",
+              "explanation": "Anchoring complex mechanics into everyday intuitive models.",
+              "language": null
+            },
+            {
+              "type": "latex",
+              "title": "Core Formula & Invariant",
+              "content": "E(x) = \\sum_{i=1}^n w_i \\cdot f(x_i) + b",
+              "explanation": "The fundamental mathematical relationship governing this process.",
+              "language": null
+            }
+          ],
+          "formative_question": {
+            "id": "9baf2c73",
+            "prompt": "Based on the mechanism of Step 1, what would happen if the primary input rate exceeds the processing threshold?",
+            "options": [
+              "The system gracefully buffers or scales throughput accordingly",
+              "The entire pipeline immediately collapses with no recovery",
+              "The mathematical invariant reverses its sign completely",
+              "The process halts permanently until restarted manually"
+            ],
+            "correct_answer": "The system gracefully buffers or scales throughput accordingly",
+            "question_type": "multiple_choice",
+            "bloom_level": "Analyze",
+            "hints": [
+              "Think about standard engineering resilience mechanisms.",
+              "Consider how buffers absorb high transient loads."
+            ],
+            "common_misconceptions": [
+              "Assuming systems immediately hard-crash without boundary controls."
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_95ed98a6070e.mp3"
+        },
+        {
+          "step_id": 2,
+          "step_type": "checkpoint",
+          "title": "Core Checkpoint Challenge",
+          "concept_summary": "Testing understanding",
+          "estimated_duration_seconds": 120,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    }
+  ],
+  "all_steps_flattened": [
+    {
+      "step_id": 1,
+      "step_type": "introduction",
+      "title": "Introduction to Self-Attention Mechanism in Transformers",
+      "concept_summary": "Intuition and foundations",
+      "estimated_duration_seconds": 120,
+      "is_completed": false,
+      "teacher_script": "Welcome to our deep dive into Step 1. Let us break down this concept from first principles. When we look at how this system operates, notice the fundamental relationship between each interacting component. Take a moment to inspect the visual breakdown on your whiteboard, and then we will test our intuition together.",
+      "visuals": [
+        {
+          "type": "mermaid",
+          "title": "Structural Flow: Step 1",
+          "content": "graph TD\n  A[Input / Problem Definition] --> B[Processing & Transformation]\n  B --> C[Optimization & Validation]\n  C --> D[Target Solution Output]",
+          "explanation": "Visualizing the end-to-end mechanism behind Step 1.",
+          "language": null
+        },
+        {
+          "type": "analogy_box",
+          "title": "Intuitive Analogy",
+          "content": "Think of this mechanism like a water purification system: raw data flows through multi-stage filters, where each stage isolates and transforms key properties until a pure, reliable result emerges.",
+          "explanation": "Anchoring complex mechanics into everyday intuitive models.",
+          "language": null
+        },
+        {
+          "type": "latex",
+          "title": "Core Formula & Invariant",
+          "content": "E(x) = \\sum_{i=1}^n w_i \\cdot f(x_i) + b",
+          "explanation": "The fundamental mathematical relationship governing this process.",
+          "language": null
+        }
+      ],
+      "formative_question": {
+        "id": "9baf2c73",
+        "prompt": "Based on the mechanism of Step 1, what would happen if the primary input rate exceeds the processing threshold?",
+        "options": [
+          "The system gracefully buffers or scales throughput accordingly",
+          "The entire pipeline immediately collapses with no recovery",
+          "The mathematical invariant reverses its sign completely",
+          "The process halts permanently until restarted manually"
+        ],
+        "correct_answer": "The system gracefully buffers or scales throughput accordingly",
+        "question_type": "multiple_choice",
+        "bloom_level": "Analyze",
+        "hints": [
+          "Think about standard engineering resilience mechanisms.",
+          "Consider how buffers absorb high transient loads."
+        ],
+        "common_misconceptions": [
+          "Assuming systems immediately hard-crash without boundary controls."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_95ed98a6070e.mp3"
+    },
+    {
+      "step_id": 2,
+      "step_type": "checkpoint",
+      "title": "Core Checkpoint Challenge",
+      "concept_summary": "Testing understanding",
+      "estimated_duration_seconds": 120,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    }
+  ]
+}
