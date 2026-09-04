@@ -131,16 +131,31 @@ Ran full 7-step pedagogical test suite verifying:
 
 ---
 
-## 🚀 How to Run Locally
+### 3. GitHub Actions CI/CD & GHCR Publishing
+- **Pipeline Workflow**: [`.github/workflows/ci-cd.yml`](file:///home/nsg/Projects/VidGuru%20AI/.github/workflows/ci-cd.yml)
+- **Run Status**: **100% Succeeded** ([Run #33866213818](https://github.com/NSG-LAB/VidGuru-AI/actions/runs/33866213818))
+- **Images Published to GHCR**:
+  - `ghcr.io/nsg-lab/vidguru-ai-backend:latest`
+  - `ghcr.io/nsg-lab/vidguru-ai-frontend:latest`
+- **Docker Compose Production Pull**: Verified with `docker compose -f docker-compose.prod.yml pull`
 
+---
+
+## 🚀 How to Run
+
+### Option A: Local One-Command Run
 ```bash
-# 1. Start everything with one command:
 ./start.sh
-
-# Or start individually:
-# Backend on http://localhost:8005
-./run_backend.sh
-
-# Frontend on http://localhost:3000
-./run_frontend.sh
 ```
+
+### Option B: Local Docker Compose (Builds from source)
+```bash
+docker compose up -d --build
+```
+
+### Option C: Production Pre-Built Image Deployment (GHCR)
+```bash
+docker compose -f docker-compose.prod.yml pull
+docker compose -f docker-compose.prod.yml up -d
+```
+
