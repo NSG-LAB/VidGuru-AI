@@ -53,7 +53,7 @@ class LLMService:
             try:
                 import requests
                 headers = {"Content-Type": "application/json", "X-goog-api-key": self.gemini_key}
-                models_to_try = [settings.GEMINI_MODEL, "gemini-2.5-flash", "gemini-flash-latest"]
+                models_to_try = [settings.GEMINI_MODEL, "gemini-flash-latest"]
                 payload = {
                     "contents": [
                         {"parts": [{"text": f"Instructions:\n{system_prompt}\n\nTask:\n{user_prompt}"}]}
