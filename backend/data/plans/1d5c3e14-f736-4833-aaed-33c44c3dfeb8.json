@@ -1,0 +1,216 @@
+{
+  "plan_id": "1d5c3e14-f736-4833-aaed-33c44c3dfeb8",
+  "topic_title": "पौधों में प्रकाश संश्लेषण",
+  "overview": "इस पाँच मिनट के पाठ में आप प्रकाश संश्लेषण की मूल अवधारणा और उसकी दो मुख्य चरणों को समझेंगे। अंत में आप इसे दैनिक जीवन में क्यों महत्वपूर्ण है, इसका सारांश निकाल पाएँगे।",
+  "student_profile": {
+    "grade_level": "High School (Grades 9-12)",
+    "language": "Hindi",
+    "learning_goal": "Conceptual Masterclass",
+    "time_budget_mins": 5,
+    "learning_style": "Intuitive & Analogy-driven",
+    "teacher_persona": "Dr. Nova (Intuitive & Warm)"
+  },
+  "total_estimated_mins": 5,
+  "modules": [
+    {
+      "module_id": 1,
+      "title": "प्रकाश संश्लेषण का परिचय",
+      "description": "प्रकाश संश्लेषण की बुनियादी परिभाषा और आवश्यक घटकों का परिचय।",
+      "steps": [
+        {
+          "step_id": 1,
+          "step_type": "introduction",
+          "title": "प्रकाश संश्लेषण क्या है?",
+          "concept_summary": "पौधे सूर्य के प्रकाश को रासायनिक ऊर्जा में बदलते हैं, जिससे वे भोजन बनाते हैं।",
+          "estimated_duration_seconds": 60,
+          "is_completed": false,
+          "teacher_script": "नमस्ते! आज हम बात करेंगे प्रकाश संश्लेषण के बारे में – वह जादुई प्रक्रिया जिससे पौधे सूर्य की रोशनी को भोजन में बदलते हैं। कल्पना कीजिए, आपके घर की रसोई में सौर पैनल लगे हों और वह पैनल सीधे सूर्य की रोशनी को पकाने के लिए उपयोगी ऊर्जा में बदल दे। ठीक वैसी ही भूमिका क्लोरोप्लास्ट की होती है, जहाँ क्लोरोफिल नामक पिगमेंट प्रकाश को पकड़ता है। फिर यह ऊर्जा जल (H₂O) को तोड़ती है, जिससे ऑक्सीजन निकलती है और इलेक्ट्रॉन व प्रोटॉन बनते हैं, जो ATP और NADPH नामक ऊर्जा‑संचय अणुओं में संग्रहित होते हैं। इन अणुओं की मदद से कार्बन डाइऑक्साइड (CO₂) को स्थिर करके ग्लूकोज़ – पौधे का मुख्य भोजन – बनता है। इस पूरी प्रक्रिया का समीकरण है: 6CO₂ + 6H₂O + प्रकाश → C₆H₁₂O₆ + 6O₂। तो संक्षेप में, प्रकाश संश्लेषण दो मुख्य चरणों में बँटा है: प्रकाश‑निर्भर चरण और कार्बन‑स्थिरकरण (Calvin) चक्र। यह प्रक्रिया न केवल पौधे को ऊर्जा देती है, बल्कि हमारे लिए ऑक्सीजन भी उत्पन्न करती है। अब चलिए इसको एक सरल चित्र में देखते हैं।",
+          "visuals": [
+            {
+              "type": "latex",
+              "title": "Concept Visual",
+              "content": "6\\text{CO}_2 + 6\\text{H}_2\\text{O} \\xrightarrow{\\text{प्रकाश}} \\text{C}_6\\text{H}_{12}\\text{O}_6 + 6\\text{O}_2",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "mermaid",
+              "title": "Concept Visual",
+              "content": "graph TD\n  A[सूर्य का प्रकाश] --> B[क्लोरोप्लास्ट]\n  B --> C[जल का विघटन]\n  C --> D[ऑक्सीजन रिलीज]\n  B --> E[ATP & NADPH निर्माण]\n  E --> F[Calvin चक्र]\n  F --> G[ग्लूकोज़ निर्माण]",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "पौधा एक सौर पैनल वाले रसोईघर जैसा है: सूर्य की रोशनी को पकाने योग्य भोजन (ग्लूकोज़) में बदलता है, जबकि बचे हुए गैस (ऑक्सीजन) को बाहर निकाल देता है।",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "- प्रकाश संश्लेषण में प्रकाश, जल और CO₂ की आवश्यकता होती है।\n- क्लोरोफिल प्रकाश ऊर्जा को रासायनिक ऊर्जा (ATP, NADPH) में बदलता है।\n- अंतिम उत्पाद ग्लूकोज़ और ऑक्सीजन होते हैं, जो जीवन के लिए आवश्यक हैं।",
+              "explanation": "",
+              "language": null
+            }
+          ],
+          "formative_question": {
+            "id": "477e011a",
+            "prompt": "प्रकाश संश्लेषण के दो मुख्य चरणों के नाम बताइए और प्रत्येक का संक्षिप्त वर्णन कीजिए।",
+            "options": null,
+            "correct_answer": "प्रकाश‑निर्भर चरण (Light‑dependent reactions): क्लोरोफिल में प्रकाश ऊर्जा का उपयोग करके जल का विघटन, इलेक्ट्रॉन परिवहन और ATP व NADPH बनते हैं।\nCalvin चक्र (Light‑independent या कार्बन‑स्थिरकरण चरण): ATP और NADPH की ऊर्जा से CO₂ को स्थिर करके ग्लूकोज़ बनता है।",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Understand",
+            "hints": [
+              "पहला चरण केवल प्रकाश की उपस्थिति में होता है।",
+              "दूसरा चरण CO₂ को स्थिर करके ग्लूकोज़ बनाता है।"
+            ],
+            "common_misconceptions": [
+              "सभी प्रकाश संश्लेषण केवल प्रकाश में ही होता है, जबकि कार्बन‑स्थिरकरण चरण प्रकाश‑स्वतंत्र होता है।",
+              "ऑक्सीजन को ग्लूकोज़ के साथ मिलाकर बनता है, जबकि वास्तव में यह जल के विघटन से निकलती है।"
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_52dbcbf2f80c.mp3"
+        },
+        {
+          "step_id": 2,
+          "step_type": "concept_breakdown",
+          "title": "मुख्य घटक: क्लोरोफिल, प्रकाश, कार्बन डाइऑक्साइड, पानी",
+          "concept_summary": "क्लोरोफिल प्रकाश को पकड़ता है, पानी और CO2 से ग्लूकोज़ बनता है, और ऑक्सीजन निकलती है।",
+          "estimated_duration_seconds": 90,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    },
+    {
+      "module_id": 2,
+      "title": "प्रकाश संश्लेषण की प्रक्रिया",
+      "description": "प्रकाश संश्लेषण की दो चरणों की गहरी समझ और उनके वास्तविक‑world महत्व का सारांश।",
+      "steps": [
+        {
+          "step_id": 3,
+          "step_type": "visual_deep_dive",
+          "title": "प्रकाश‑निर्भर और प्रकाश‑स्वतंत्र चरण",
+          "concept_summary": "पहले चरण में प्रकाश ऊर्जा से ATP और NADPH बनते हैं; दूसरे चरण में इनका उपयोग करके कार्बन को ग्लूकोज़ में बदला जाता है।",
+          "estimated_duration_seconds": 80,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 4,
+          "step_type": "synthesis",
+          "title": "सारांश और दैनिक जीवन में महत्व",
+          "concept_summary": "समझें कि प्रकाश संश्लेषण पर्यावरण के लिए क्यों आवश्यक है और हम कैसे इसे बढ़ा सकते हैं।",
+          "estimated_duration_seconds": 70,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    }
+  ],
+  "all_steps_flattened": [
+    {
+      "step_id": 1,
+      "step_type": "introduction",
+      "title": "प्रकाश संश्लेषण क्या है?",
+      "concept_summary": "पौधे सूर्य के प्रकाश को रासायनिक ऊर्जा में बदलते हैं, जिससे वे भोजन बनाते हैं।",
+      "estimated_duration_seconds": 60,
+      "is_completed": false,
+      "teacher_script": "नमस्ते! आज हम बात करेंगे प्रकाश संश्लेषण के बारे में – वह जादुई प्रक्रिया जिससे पौधे सूर्य की रोशनी को भोजन में बदलते हैं। कल्पना कीजिए, आपके घर की रसोई में सौर पैनल लगे हों और वह पैनल सीधे सूर्य की रोशनी को पकाने के लिए उपयोगी ऊर्जा में बदल दे। ठीक वैसी ही भूमिका क्लोरोप्लास्ट की होती है, जहाँ क्लोरोफिल नामक पिगमेंट प्रकाश को पकड़ता है। फिर यह ऊर्जा जल (H₂O) को तोड़ती है, जिससे ऑक्सीजन निकलती है और इलेक्ट्रॉन व प्रोटॉन बनते हैं, जो ATP और NADPH नामक ऊर्जा‑संचय अणुओं में संग्रहित होते हैं। इन अणुओं की मदद से कार्बन डाइऑक्साइड (CO₂) को स्थिर करके ग्लूकोज़ – पौधे का मुख्य भोजन – बनता है। इस पूरी प्रक्रिया का समीकरण है: 6CO₂ + 6H₂O + प्रकाश → C₆H₁₂O₆ + 6O₂। तो संक्षेप में, प्रकाश संश्लेषण दो मुख्य चरणों में बँटा है: प्रकाश‑निर्भर चरण और कार्बन‑स्थिरकरण (Calvin) चक्र। यह प्रक्रिया न केवल पौधे को ऊर्जा देती है, बल्कि हमारे लिए ऑक्सीजन भी उत्पन्न करती है। अब चलिए इसको एक सरल चित्र में देखते हैं।",
+      "visuals": [
+        {
+          "type": "latex",
+          "title": "Concept Visual",
+          "content": "6\\text{CO}_2 + 6\\text{H}_2\\text{O} \\xrightarrow{\\text{प्रकाश}} \\text{C}_6\\text{H}_{12}\\text{O}_6 + 6\\text{O}_2",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "mermaid",
+          "title": "Concept Visual",
+          "content": "graph TD\n  A[सूर्य का प्रकाश] --> B[क्लोरोप्लास्ट]\n  B --> C[जल का विघटन]\n  C --> D[ऑक्सीजन रिलीज]\n  B --> E[ATP & NADPH निर्माण]\n  E --> F[Calvin चक्र]\n  F --> G[ग्लूकोज़ निर्माण]",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "पौधा एक सौर पैनल वाले रसोईघर जैसा है: सूर्य की रोशनी को पकाने योग्य भोजन (ग्लूकोज़) में बदलता है, जबकि बचे हुए गैस (ऑक्सीजन) को बाहर निकाल देता है।",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "- प्रकाश संश्लेषण में प्रकाश, जल और CO₂ की आवश्यकता होती है।\n- क्लोरोफिल प्रकाश ऊर्जा को रासायनिक ऊर्जा (ATP, NADPH) में बदलता है।\n- अंतिम उत्पाद ग्लूकोज़ और ऑक्सीजन होते हैं, जो जीवन के लिए आवश्यक हैं।",
+          "explanation": "",
+          "language": null
+        }
+      ],
+      "formative_question": {
+        "id": "477e011a",
+        "prompt": "प्रकाश संश्लेषण के दो मुख्य चरणों के नाम बताइए और प्रत्येक का संक्षिप्त वर्णन कीजिए।",
+        "options": null,
+        "correct_answer": "प्रकाश‑निर्भर चरण (Light‑dependent reactions): क्लोरोफिल में प्रकाश ऊर्जा का उपयोग करके जल का विघटन, इलेक्ट्रॉन परिवहन और ATP व NADPH बनते हैं।\nCalvin चक्र (Light‑independent या कार्बन‑स्थिरकरण चरण): ATP और NADPH की ऊर्जा से CO₂ को स्थिर करके ग्लूकोज़ बनता है।",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Understand",
+        "hints": [
+          "पहला चरण केवल प्रकाश की उपस्थिति में होता है।",
+          "दूसरा चरण CO₂ को स्थिर करके ग्लूकोज़ बनाता है।"
+        ],
+        "common_misconceptions": [
+          "सभी प्रकाश संश्लेषण केवल प्रकाश में ही होता है, जबकि कार्बन‑स्थिरकरण चरण प्रकाश‑स्वतंत्र होता है।",
+          "ऑक्सीजन को ग्लूकोज़ के साथ मिलाकर बनता है, जबकि वास्तव में यह जल के विघटन से निकलती है।"
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_52dbcbf2f80c.mp3"
+    },
+    {
+      "step_id": 2,
+      "step_type": "concept_breakdown",
+      "title": "मुख्य घटक: क्लोरोफिल, प्रकाश, कार्बन डाइऑक्साइड, पानी",
+      "concept_summary": "क्लोरोफिल प्रकाश को पकड़ता है, पानी और CO2 से ग्लूकोज़ बनता है, और ऑक्सीजन निकलती है।",
+      "estimated_duration_seconds": 90,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 3,
+      "step_type": "visual_deep_dive",
+      "title": "प्रकाश‑निर्भर और प्रकाश‑स्वतंत्र चरण",
+      "concept_summary": "पहले चरण में प्रकाश ऊर्जा से ATP और NADPH बनते हैं; दूसरे चरण में इनका उपयोग करके कार्बन को ग्लूकोज़ में बदला जाता है।",
+      "estimated_duration_seconds": 80,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 4,
+      "step_type": "synthesis",
+      "title": "सारांश और दैनिक जीवन में महत्व",
+      "concept_summary": "समझें कि प्रकाश संश्लेषण पर्यावरण के लिए क्यों आवश्यक है और हम कैसे इसे बढ़ा सकते हैं।",
+      "estimated_duration_seconds": 70,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    }
+  ]
+}

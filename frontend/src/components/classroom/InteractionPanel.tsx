@@ -20,6 +20,8 @@ interface InteractionPanelProps {
   onAskDoubt: (doubt: string) => void;
   isEvaluating: boolean;
   activeDoubtAnswer?: { teacher_answer: string; persona: string } | null;
+  language?: string;
+  isLoading?: boolean;
 }
 
 export const InteractionPanel: React.FC<InteractionPanelProps> = ({
@@ -28,6 +30,8 @@ export const InteractionPanel: React.FC<InteractionPanelProps> = ({
   onAskDoubt,
   isEvaluating,
   activeDoubtAnswer,
+  language = 'English',
+  isLoading = false,
 }) => {
   const [inputText, setInputText] = useState('');
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -44,7 +48,8 @@ export const InteractionPanel: React.FC<InteractionPanelProps> = ({
       recognition = new SpeechRecognition();
       recognition.continuous = false;
       recognition.interimResults = false;
-      recognition.lang = 'en-US';
+      const langLower = (language || 'English').toLowerCase();
+      recognition.lang = (langLower === 'hindi' || langLower === 'hinglish') ? 'hi-IN' : (langLower === 'spanish' ? 'es-ES' : 'en-US');
 
       recognition.onresult = (event: any) => {
         const transcript = event.results[0][0].transcript;
@@ -97,16 +102,22 @@ export const InteractionPanel: React.FC<InteractionPanelProps> = ({
     setDoubtText('');
   };
 
-  if (!question) {
+  if (isLoading || !question) {
     return (
       <div className="rounded-2xl glass-panel border border-white/10 p-5 shadow-xl flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="p-2 rounded-xl bg-blue-500/20 text-blue-400">
-            <Sparkles className="w-5 h-5 animate-pulse" />
+            <Sparkles className={`w-5 h-5 ${isLoading ? 'animate-spin text-cyan-400' : 'animate-pulse'}`} />
           </div>
           <div>
-            <h4 className="text-sm font-semibold text-white">Teacher is Explaining...</h4>
-            <p className="text-xs text-slate-400">A formative checkpoint challenge will appear once the concept is delivered.</p>
+            <h4 className="text-sm font-semibold text-white">
+              {isLoading ? 'AI Teacher is formulating checkpoint challenge...' : 'Teacher is Explaining...'}
+            </h4>
+            <p className="text-xs text-slate-400">
+              {isLoading
+                ? 'Synthesizing Socratic questions to test your intuition.'
+                : 'A formative checkpoint challenge will appear once the concept is delivered.'}
+            </p>
           </div>
         </div>
 

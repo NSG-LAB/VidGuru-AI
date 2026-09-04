@@ -1,0 +1,438 @@
+{
+  "plan_id": "2b6ca468-d8a7-4e31-ae25-0d9983910b4b",
+  "topic_title": "CRISPR-Cas9 Gene Editing Mechanism",
+  "overview": "Is short lesson mein aap CRISPR-Cas9 ka core mechanism samjhenge—guide RNA ka targeting, PAM ka role, aur DNA double-strand cut. Visual analogies ke through aapko intuition milegi ki ye system kaise kaam karta hai.",
+  "student_profile": {
+    "grade_level": "undergraduate",
+    "language": "Hinglish",
+    "learning_goal": "deep_conceptual",
+    "time_budget_mins": 5,
+    "learning_style": "visual_analogies",
+    "teacher_persona": "Dr. Nova (Intuitive & Warm)"
+  },
+  "total_estimated_mins": 5,
+  "modules": [
+    {
+      "module_id": 1,
+      "title": "Foundations & Intuition",
+      "description": "CRISPR ke basic components aur unke functions ka overview.",
+      "steps": [
+        {
+          "step_id": 1,
+          "step_type": "introduction",
+          "title": "CRISPR ka Overview",
+          "concept_summary": "CRISPR-Cas9 ek bacterial immune system hai jo DNA ko cut kar sakta hai; Cas9 protein aur guide RNA milke target sequence ko dhundte hain.",
+          "estimated_duration_seconds": 60,
+          "is_completed": false,
+          "teacher_script": "Namaste! Aaj hum CRISPR-Cas9 ka overview discuss karenge. Socho aapke paas ek smart security guard hai jo virus ke DNA ko pehchaan kar usko cut kar sakta hai – yahi kaam Cas9 protein karta hai. Lekin Cas9 ko target sequence dikhane ke liye ek guide RNA ki zaroorat hoti hai, jo ek GPS ki tarah kaam karta hai. Ye guide RNA ek 20-nucleotide ke sequence se bana hota hai jo exact match dhundta hai genome mein. Jab guide RNA aur Cas9 milte hain, to wo DNA double helix ko unwind karte hain, aur Cas9 scissors ki tarah cut lagata hai – usually at a specific PAM (Protospacer Adjacent Motif) site, jo ‘NGG’ hoti hai. Is cut ke baad cell apne DNA repair mechanisms, jaise NHEJ ya HDR, ko activate karta hai, jisse hum gene ko knock-out ya knock-in kar sakte hain. Ye system bacterial immunity se aaya hai, lekin ab hum ise precise genome editing ke liye use kar rahe hain. Samajh gaye? Ab aage chalke hum iske components aur workflow ko detail mein dekhenge.",
+          "visuals": [
+            {
+              "type": "mermaid",
+              "title": "Concept Visual",
+              "content": "graph TD\n  A[Guide RNA (20-nt)] -->|binds| B[Cas9 Protein]\n  B -->|searches for PAM (NGG)| C[Target DNA]\n  C -->|DNA unwinding| D[DNA cleavage]\n  D -->|Cell repair| E[Knock-out / Knock-in]",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "Cas9 ko socho ek pair of scissors, aur guide RNA ko ek GPS device. GPS batata hai ki kis address (DNA sequence) par scissors ko kaam karna hai.",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "• CRISPR-Cas9 bacterial immune system ka repurposed version hai.\n• Guide RNA (20-nt) Cas9 ko specific DNA target tak le jaata hai.\n• Cas9 DNA ko PAM (NGG) ke paas cut karta hai, jisse gene editing possible hoti hai.",
+              "explanation": "",
+              "language": null
+            }
+          ],
+          "formative_question": {
+            "id": "d5f4f9b1",
+            "prompt": "Agar aapke guide RNA ka sequence target DNA ke 3rd nucleotide se mismatch karta hai, to Cas9 cutting efficiency par kya effect padega?",
+            "options": null,
+            "correct_answer": "Mismatched nucleotides, especially near the PAM-proximal seed region, drastically reduce Cas9 binding and cutting efficiency, often preventing cleavage altogether.",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Understand",
+            "hints": [
+              "Guide RNA ka seed region PAM ke kareeb hota hai.",
+              "Mismatches ka impact position ke hisaab se vary karta hai."
+            ],
+            "common_misconceptions": [
+              "Mismatches anywhere have the same effect as a mismatch at the seed region.",
+              "Cas9 will still cut efficiently even with multiple mismatches."
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_6747a5b5d74b.mp3"
+        },
+        {
+          "step_id": 2,
+          "step_type": "concept_breakdown",
+          "title": "Guide RNA aur PAM ka Role",
+          "concept_summary": "Guide RNA target DNA ko base-pairing se bind karta hai, aur PAM (NGG) sequence Cas9 ko correct spot pe bind karne ka signal deti hai.",
+          "estimated_duration_seconds": 90,
+          "is_completed": false,
+          "teacher_script": "Namaste! Aaj hum CRISPR-Cas9 ke Step 2 pe focus karenge – Guide RNA aur PAM ka role. Socho tumhare paas ek GPS device hai, jo tumhe exact address tak le jaata hai. Yeh GPS hi hamara guide RNA hai – yeh 20 nucleotide ka sequence hota hai jo target DNA ke complementary region se base-pairing karta hai, bilkul ussi tarah jaise tumhara GPS map ko match karta hai. Lekin GPS ko exact destination pe stop karne ke liye ek landmark ki zaroorat hoti hai, right? CRISPR system mein woh landmark hai PAM, yaani 'Protospacer Adjacent Motif', jo har species ke liye thoda alag hota hai – bacteria *Streptococcus pyogenes* ke liye yeh 'NGG' hota hai. Cas9 enzyme sirf tab hi DNA ko cut karta hai jab usko guide RNA ke saath perfect match milta hai aur uske turant baad PAM sequence present hota hai. Agar PAM missing ho, Cas9 confused ho jata hai aur cut nahi karta, chahe guide RNA kitna bhi perfect ho. Is tarah PAM ek safety checkpoint ki tarah kaam karta hai, ensuring ki Cas9 sirf correct genomic location pe hi act kare. Samjhe? Ab socho, agar hum PAM ko mutate kar dein, toh kya hoga? Chaliye, aage ke steps ke liye is concept ko solidify karte hain.",
+          "visuals": [
+            {
+              "type": "mermaid",
+              "title": "Concept Visual",
+              "content": "graph LR\n    DNA[Target DNA] -->|PAM (NGG)| Cas9\n    Cas9 -->|Guide RNA base-pairing| DNA",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "latex",
+              "title": "Concept Visual",
+              "content": "\\text{PAM}=\\text{NGG}",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "Guide RNA is like a GPS route, PAM is the road sign that tells the car where to stop.",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "- Guide RNA finds the exact DNA sequence via complementarity.\n- PAM (NGG) is a short motif required for Cas9 binding.\n- Without PAM, Cas9 cannot cut even if guide matches.",
+              "explanation": "",
+              "language": null
+            }
+          ],
+          "formative_question": {
+            "id": "e022f0d5",
+            "prompt": "Explain why the presence of a PAM sequence is essential for Cas9 activity even when the guide RNA perfectly matches the target DNA.",
+            "options": null,
+            "correct_answer": "PAM acts as a required docking signal for Cas9; without it, Cas9 cannot undergo the conformational change needed to cleave DNA, so even a perfect guide‑RNA match is insufficient.",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Understand",
+            "hints": [
+              "Think about what Cas9 needs to recognize before it can cut.",
+              "Consider the role of PAM as a safety checkpoint."
+            ],
+            "common_misconceptions": [
+              "Believing that guide RNA alone is enough for Cas9 to cut.",
+              "Thinking that any NGG anywhere in the genome will trigger cutting."
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_6113c6ef402b.mp3"
+        }
+      ]
+    },
+    {
+      "module_id": 2,
+      "title": "Visual Deep Dive & Synthesis",
+      "description": "Visual analogy ke through mechanism ko detail mein dekhenge aur concept ko integrate karenge.",
+      "steps": [
+        {
+          "step_id": 3,
+          "step_type": "visual_deep_dive",
+          "title": "Molecular Scissors Analogy",
+          "concept_summary": "Socho Cas9 ek smart scissors hai aur guide RNA ek GPS hai; jab GPS correct address (target + PAM) pe pahunchti hai, scissors DNA ko do tukde kar dete hain.",
+          "estimated_duration_seconds": 90,
+          "is_completed": false,
+          "teacher_script": "Namaste! Aaj hum CRISPR-Cas9 ke molecular scissors analogy ko detail mein samjhenge. Socho Cas9 ek smart pair of scissors hai—bahut precise, lekin bina guide ke woh kahin bhi cut nahi kar sakta. Yeh guide RNA, ya gRNA, ek GPS ki tarah kaam karta hai. GPS ko ek exact address milta hai: wo DNA sequence jahan hum cut chahte hain, plus ek special flag called PAM (Protospacer Adjacent Motif). Jab gRNA apni complementary DNA strand se bind hoti hai, aur PAM site milti hai, tab Cas9 ko signal milta hai ki \"Cut here!\". Phir Cas9 dono DNA strands ko double‑strand break deta hai, bilkul scissors se do tukde karne jaisa. Yeh precision isliye hoti hai kyunki gRNA ka 20‑nucleotide guide sequence sirf exact match pe bind hota hai, aur PAM bina, Cas9 even try hi nahi karta. Is analogy se yaad rakho: GPS (gRNA) + landmark (PAM) = correct address, aur scissors (Cas9) = cut. Ab socho, agar GPS galat address pe ho ya landmark missing ho, toh scissors kaam hi nahi karenge—aur humari gene editing safe rahegi.",
+          "visuals": [
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "Cas9 = smart scissors; guide RNA = GPS; PAM = landmark flag. GPS + landmark = correct address → scissors cut DNA.",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "mermaid",
+              "title": "Concept Visual",
+              "content": "graph TD\n    A[Guide RNA (20-nt) + PAM] --> B[Binding to target DNA]\n    B --> C[Cas9 activation]\n    C --> D[Double‑strand break (cut)]",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "• gRNA provides sequence specificity (like GPS coordinates).\n• PAM is a mandatory short motif (landmark) required for Cas9 binding.\n• Cas9 cuts only when both gRNA matches and PAM are present, ensuring precision.",
+              "explanation": "",
+              "language": null
+            }
+          ],
+          "formative_question": {
+            "id": "189eeecf",
+            "prompt": "Explain how the guide RNA and the PAM sequence together ensure that Cas9 makes a cut at the correct DNA location.",
+            "options": null,
+            "correct_answer": "The guide RNA contains a 20‑nt sequence that is complementary to the target DNA, directing Cas9 to that exact site. However, Cas9 will only bind and cleave if the adjacent PAM motif (e.g., NGG for SpCas9) is present. Thus, both the sequence match (GPS) and the PAM landmark must be satisfied before the scissors are activated, guaranteeing specificity.",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Understand",
+            "hints": [
+              "Think about what each component (gRNA and PAM) contributes to the recognition process.",
+              "Recall why Cas9 does not cut DNA lacking the PAM even if the guide matches."
+            ],
+            "common_misconceptions": [
+              "Believing that the guide RNA alone is enough for Cas9 to cut.",
+              "Assuming PAM is part of the guide RNA sequence rather than a separate DNA motif."
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_50216c35821c.mp3"
+        },
+        {
+          "step_id": 4,
+          "step_type": "synthesis",
+          "title": "Mechanism ko Summarize karo",
+          "concept_summary": "Ab aap bata sakte hain ki guide RNA, PAM, aur Cas9 milke kaise precise double-strand break create karte hain, jo gene editing ke liye foundation hai.",
+          "estimated_duration_seconds": 60,
+          "is_completed": false,
+          "teacher_script": "Namaste! Aaj hum CRISPR-Cas9 ke core mechanism ko summarize karenge. Socho aapke paas ek GPS device (guide RNA) hai jo bilkul exact location pe point karta hai—yeh wahi DNA sequence hai jahan aap edit karna chahte hain. GPS ko kaam karne ke liye ek landmark chahiye, aur yahi PAM sequence hota hai—'NGG' motif jo Cas9 ko batata hai ki yeh DNA region accessible hai. Jab guide RNA apni complementary DNA strand se bind hoti hai, aur PAM present hota hai, tab Cas9 enzyme, jo ek molecular scissors ki tarah hai, dono DNA strands ko cut kar deta hai—specifically double-strand break (DSB) create hota hai. Yeh cut bilkul precise hota hai, kyunki guide RNA ki 20-nucleotide matching aur PAM ka presence dono milke specificity ensure karte hain. Ab yeh DSB cell ke natural repair pathways—non-homologous end joining (NHEJ) ya homology-directed repair (HDR)—ko trigger karta hai, jahan hum desired genetic change insert kar sakte hain. Is tarah, guide RNA, PAM, aur Cas9 milke ek powerful gene editing toolkit banate hain. Samjhe? Ab thoda sochiye ki yeh mechanism kaise disease models ya therapy me use ho sakta hai.",
+          "visuals": [
+            {
+              "type": "mermaid",
+              "title": "Concept Visual",
+              "content": "graph LR\n  DNA[Target DNA] -->|PAM (NGG)| Cas9[Cas9 Enzyme]\n  guideRNA[Guide RNA] -->|20-nt complementarity| DNA\n  Cas9 -->|Double-strand break| DNA",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "Guide RNA = GPS, PAM = street sign, Cas9 = scissors. GPS guides scissors to the exact street sign, then cuts the rope.",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "• Guide RNA provides sequence specificity (20-nt complementarity).\n• PAM (NGG) is required for Cas9 binding and cleavage.\n• Cas9 creates a precise double-strand break, enabling downstream repair.",
+              "explanation": "",
+              "language": null
+            }
+          ],
+          "formative_question": {
+            "id": "59dc3bf5",
+            "prompt": "Agar aapke target DNA me PAM sequence absent ho, to Cas9 ka behavior kya hoga aur kyun?",
+            "options": null,
+            "correct_answer": "Cas9 bind nahi karega kyunki PAM recognition Cas9 activation ke liye essential hai; bina PAM ke guide RNA DNA se bind ho sakti hai, lekin cleavage nahi hogi.",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Understand",
+            "hints": [
+              "PAM ka role Cas9 ko DNA ke surface pe dock karna hota hai.",
+              "Cas9 ke catalytic domains only activate after PAM detection."
+            ],
+            "common_misconceptions": [
+              "Guide RNA alone can trigger Cas9 cutting without PAM.",
+              "PAM sequence is part of the guide RNA."
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_c1121ff0ffe9.mp3"
+        }
+      ]
+    }
+  ],
+  "all_steps_flattened": [
+    {
+      "step_id": 1,
+      "step_type": "introduction",
+      "title": "CRISPR ka Overview",
+      "concept_summary": "CRISPR-Cas9 ek bacterial immune system hai jo DNA ko cut kar sakta hai; Cas9 protein aur guide RNA milke target sequence ko dhundte hain.",
+      "estimated_duration_seconds": 60,
+      "is_completed": false,
+      "teacher_script": "Namaste! Aaj hum CRISPR-Cas9 ka overview discuss karenge. Socho aapke paas ek smart security guard hai jo virus ke DNA ko pehchaan kar usko cut kar sakta hai – yahi kaam Cas9 protein karta hai. Lekin Cas9 ko target sequence dikhane ke liye ek guide RNA ki zaroorat hoti hai, jo ek GPS ki tarah kaam karta hai. Ye guide RNA ek 20-nucleotide ke sequence se bana hota hai jo exact match dhundta hai genome mein. Jab guide RNA aur Cas9 milte hain, to wo DNA double helix ko unwind karte hain, aur Cas9 scissors ki tarah cut lagata hai – usually at a specific PAM (Protospacer Adjacent Motif) site, jo ‘NGG’ hoti hai. Is cut ke baad cell apne DNA repair mechanisms, jaise NHEJ ya HDR, ko activate karta hai, jisse hum gene ko knock-out ya knock-in kar sakte hain. Ye system bacterial immunity se aaya hai, lekin ab hum ise precise genome editing ke liye use kar rahe hain. Samajh gaye? Ab aage chalke hum iske components aur workflow ko detail mein dekhenge.",
+      "visuals": [
+        {
+          "type": "mermaid",
+          "title": "Concept Visual",
+          "content": "graph TD\n  A[Guide RNA (20-nt)] -->|binds| B[Cas9 Protein]\n  B -->|searches for PAM (NGG)| C[Target DNA]\n  C -->|DNA unwinding| D[DNA cleavage]\n  D -->|Cell repair| E[Knock-out / Knock-in]",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "Cas9 ko socho ek pair of scissors, aur guide RNA ko ek GPS device. GPS batata hai ki kis address (DNA sequence) par scissors ko kaam karna hai.",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "• CRISPR-Cas9 bacterial immune system ka repurposed version hai.\n• Guide RNA (20-nt) Cas9 ko specific DNA target tak le jaata hai.\n• Cas9 DNA ko PAM (NGG) ke paas cut karta hai, jisse gene editing possible hoti hai.",
+          "explanation": "",
+          "language": null
+        }
+      ],
+      "formative_question": {
+        "id": "d5f4f9b1",
+        "prompt": "Agar aapke guide RNA ka sequence target DNA ke 3rd nucleotide se mismatch karta hai, to Cas9 cutting efficiency par kya effect padega?",
+        "options": null,
+        "correct_answer": "Mismatched nucleotides, especially near the PAM-proximal seed region, drastically reduce Cas9 binding and cutting efficiency, often preventing cleavage altogether.",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Understand",
+        "hints": [
+          "Guide RNA ka seed region PAM ke kareeb hota hai.",
+          "Mismatches ka impact position ke hisaab se vary karta hai."
+        ],
+        "common_misconceptions": [
+          "Mismatches anywhere have the same effect as a mismatch at the seed region.",
+          "Cas9 will still cut efficiently even with multiple mismatches."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_6747a5b5d74b.mp3"
+    },
+    {
+      "step_id": 2,
+      "step_type": "concept_breakdown",
+      "title": "Guide RNA aur PAM ka Role",
+      "concept_summary": "Guide RNA target DNA ko base-pairing se bind karta hai, aur PAM (NGG) sequence Cas9 ko correct spot pe bind karne ka signal deti hai.",
+      "estimated_duration_seconds": 90,
+      "is_completed": false,
+      "teacher_script": "Namaste! Aaj hum CRISPR-Cas9 ke Step 2 pe focus karenge – Guide RNA aur PAM ka role. Socho tumhare paas ek GPS device hai, jo tumhe exact address tak le jaata hai. Yeh GPS hi hamara guide RNA hai – yeh 20 nucleotide ka sequence hota hai jo target DNA ke complementary region se base-pairing karta hai, bilkul ussi tarah jaise tumhara GPS map ko match karta hai. Lekin GPS ko exact destination pe stop karne ke liye ek landmark ki zaroorat hoti hai, right? CRISPR system mein woh landmark hai PAM, yaani 'Protospacer Adjacent Motif', jo har species ke liye thoda alag hota hai – bacteria *Streptococcus pyogenes* ke liye yeh 'NGG' hota hai. Cas9 enzyme sirf tab hi DNA ko cut karta hai jab usko guide RNA ke saath perfect match milta hai aur uske turant baad PAM sequence present hota hai. Agar PAM missing ho, Cas9 confused ho jata hai aur cut nahi karta, chahe guide RNA kitna bhi perfect ho. Is tarah PAM ek safety checkpoint ki tarah kaam karta hai, ensuring ki Cas9 sirf correct genomic location pe hi act kare. Samjhe? Ab socho, agar hum PAM ko mutate kar dein, toh kya hoga? Chaliye, aage ke steps ke liye is concept ko solidify karte hain.",
+      "visuals": [
+        {
+          "type": "mermaid",
+          "title": "Concept Visual",
+          "content": "graph LR\n    DNA[Target DNA] -->|PAM (NGG)| Cas9\n    Cas9 -->|Guide RNA base-pairing| DNA",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "latex",
+          "title": "Concept Visual",
+          "content": "\\text{PAM}=\\text{NGG}",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "Guide RNA is like a GPS route, PAM is the road sign that tells the car where to stop.",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "- Guide RNA finds the exact DNA sequence via complementarity.\n- PAM (NGG) is a short motif required for Cas9 binding.\n- Without PAM, Cas9 cannot cut even if guide matches.",
+          "explanation": "",
+          "language": null
+        }
+      ],
+      "formative_question": {
+        "id": "e022f0d5",
+        "prompt": "Explain why the presence of a PAM sequence is essential for Cas9 activity even when the guide RNA perfectly matches the target DNA.",
+        "options": null,
+        "correct_answer": "PAM acts as a required docking signal for Cas9; without it, Cas9 cannot undergo the conformational change needed to cleave DNA, so even a perfect guide‑RNA match is insufficient.",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Understand",
+        "hints": [
+          "Think about what Cas9 needs to recognize before it can cut.",
+          "Consider the role of PAM as a safety checkpoint."
+        ],
+        "common_misconceptions": [
+          "Believing that guide RNA alone is enough for Cas9 to cut.",
+          "Thinking that any NGG anywhere in the genome will trigger cutting."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_6113c6ef402b.mp3"
+    },
+    {
+      "step_id": 3,
+      "step_type": "visual_deep_dive",
+      "title": "Molecular Scissors Analogy",
+      "concept_summary": "Socho Cas9 ek smart scissors hai aur guide RNA ek GPS hai; jab GPS correct address (target + PAM) pe pahunchti hai, scissors DNA ko do tukde kar dete hain.",
+      "estimated_duration_seconds": 90,
+      "is_completed": false,
+      "teacher_script": "Namaste! Aaj hum CRISPR-Cas9 ke molecular scissors analogy ko detail mein samjhenge. Socho Cas9 ek smart pair of scissors hai—bahut precise, lekin bina guide ke woh kahin bhi cut nahi kar sakta. Yeh guide RNA, ya gRNA, ek GPS ki tarah kaam karta hai. GPS ko ek exact address milta hai: wo DNA sequence jahan hum cut chahte hain, plus ek special flag called PAM (Protospacer Adjacent Motif). Jab gRNA apni complementary DNA strand se bind hoti hai, aur PAM site milti hai, tab Cas9 ko signal milta hai ki \"Cut here!\". Phir Cas9 dono DNA strands ko double‑strand break deta hai, bilkul scissors se do tukde karne jaisa. Yeh precision isliye hoti hai kyunki gRNA ka 20‑nucleotide guide sequence sirf exact match pe bind hota hai, aur PAM bina, Cas9 even try hi nahi karta. Is analogy se yaad rakho: GPS (gRNA) + landmark (PAM) = correct address, aur scissors (Cas9) = cut. Ab socho, agar GPS galat address pe ho ya landmark missing ho, toh scissors kaam hi nahi karenge—aur humari gene editing safe rahegi.",
+      "visuals": [
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "Cas9 = smart scissors; guide RNA = GPS; PAM = landmark flag. GPS + landmark = correct address → scissors cut DNA.",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "mermaid",
+          "title": "Concept Visual",
+          "content": "graph TD\n    A[Guide RNA (20-nt) + PAM] --> B[Binding to target DNA]\n    B --> C[Cas9 activation]\n    C --> D[Double‑strand break (cut)]",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "• gRNA provides sequence specificity (like GPS coordinates).\n• PAM is a mandatory short motif (landmark) required for Cas9 binding.\n• Cas9 cuts only when both gRNA matches and PAM are present, ensuring precision.",
+          "explanation": "",
+          "language": null
+        }
+      ],
+      "formative_question": {
+        "id": "189eeecf",
+        "prompt": "Explain how the guide RNA and the PAM sequence together ensure that Cas9 makes a cut at the correct DNA location.",
+        "options": null,
+        "correct_answer": "The guide RNA contains a 20‑nt sequence that is complementary to the target DNA, directing Cas9 to that exact site. However, Cas9 will only bind and cleave if the adjacent PAM motif (e.g., NGG for SpCas9) is present. Thus, both the sequence match (GPS) and the PAM landmark must be satisfied before the scissors are activated, guaranteeing specificity.",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Understand",
+        "hints": [
+          "Think about what each component (gRNA and PAM) contributes to the recognition process.",
+          "Recall why Cas9 does not cut DNA lacking the PAM even if the guide matches."
+        ],
+        "common_misconceptions": [
+          "Believing that the guide RNA alone is enough for Cas9 to cut.",
+          "Assuming PAM is part of the guide RNA sequence rather than a separate DNA motif."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_50216c35821c.mp3"
+    },
+    {
+      "step_id": 4,
+      "step_type": "synthesis",
+      "title": "Mechanism ko Summarize karo",
+      "concept_summary": "Ab aap bata sakte hain ki guide RNA, PAM, aur Cas9 milke kaise precise double-strand break create karte hain, jo gene editing ke liye foundation hai.",
+      "estimated_duration_seconds": 60,
+      "is_completed": false,
+      "teacher_script": "Namaste! Aaj hum CRISPR-Cas9 ke core mechanism ko summarize karenge. Socho aapke paas ek GPS device (guide RNA) hai jo bilkul exact location pe point karta hai—yeh wahi DNA sequence hai jahan aap edit karna chahte hain. GPS ko kaam karne ke liye ek landmark chahiye, aur yahi PAM sequence hota hai—'NGG' motif jo Cas9 ko batata hai ki yeh DNA region accessible hai. Jab guide RNA apni complementary DNA strand se bind hoti hai, aur PAM present hota hai, tab Cas9 enzyme, jo ek molecular scissors ki tarah hai, dono DNA strands ko cut kar deta hai—specifically double-strand break (DSB) create hota hai. Yeh cut bilkul precise hota hai, kyunki guide RNA ki 20-nucleotide matching aur PAM ka presence dono milke specificity ensure karte hain. Ab yeh DSB cell ke natural repair pathways—non-homologous end joining (NHEJ) ya homology-directed repair (HDR)—ko trigger karta hai, jahan hum desired genetic change insert kar sakte hain. Is tarah, guide RNA, PAM, aur Cas9 milke ek powerful gene editing toolkit banate hain. Samjhe? Ab thoda sochiye ki yeh mechanism kaise disease models ya therapy me use ho sakta hai.",
+      "visuals": [
+        {
+          "type": "mermaid",
+          "title": "Concept Visual",
+          "content": "graph LR\n  DNA[Target DNA] -->|PAM (NGG)| Cas9[Cas9 Enzyme]\n  guideRNA[Guide RNA] -->|20-nt complementarity| DNA\n  Cas9 -->|Double-strand break| DNA",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "Guide RNA = GPS, PAM = street sign, Cas9 = scissors. GPS guides scissors to the exact street sign, then cuts the rope.",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "• Guide RNA provides sequence specificity (20-nt complementarity).\n• PAM (NGG) is required for Cas9 binding and cleavage.\n• Cas9 creates a precise double-strand break, enabling downstream repair.",
+          "explanation": "",
+          "language": null
+        }
+      ],
+      "formative_question": {
+        "id": "59dc3bf5",
+        "prompt": "Agar aapke target DNA me PAM sequence absent ho, to Cas9 ka behavior kya hoga aur kyun?",
+        "options": null,
+        "correct_answer": "Cas9 bind nahi karega kyunki PAM recognition Cas9 activation ke liye essential hai; bina PAM ke guide RNA DNA se bind ho sakti hai, lekin cleavage nahi hogi.",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Understand",
+        "hints": [
+          "PAM ka role Cas9 ko DNA ke surface pe dock karna hota hai.",
+          "Cas9 ke catalytic domains only activate after PAM detection."
+        ],
+        "common_misconceptions": [
+          "Guide RNA alone can trigger Cas9 cutting without PAM.",
+          "PAM sequence is part of the guide RNA."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_c1121ff0ffe9.mp3"
+    }
+  ]
+}

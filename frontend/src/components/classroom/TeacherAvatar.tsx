@@ -23,6 +23,7 @@ interface TeacherAvatarProps {
   emotion?: AvatarEmotion;
   onAudioEnded?: () => void;
   onPersonaChange?: (newPersona: string) => void;
+  isLoading?: boolean;
 }
 
 export const TeacherAvatar: React.FC<TeacherAvatarProps> = ({
@@ -34,6 +35,7 @@ export const TeacherAvatar: React.FC<TeacherAvatarProps> = ({
   emotion = 'explaining',
   onAudioEnded,
   onPersonaChange,
+  isLoading = false,
 }) => {
   const [isMuted, setIsMuted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -118,30 +120,73 @@ export const TeacherAvatar: React.FC<TeacherAvatarProps> = ({
     return () => clearInterval(interval);
   }, [isPlaying, isSpeaking]);
 
-  // Browser Web Speech API fallback
+  // Preload and keep browser voices updated for TTS fallbacks
+  const [availableVoices, setAvailableVoices] = useState<SpeechSynthesisVoice[]>([]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      const updateVoices = () => {
+        const v = window.speechSynthesis.getVoices();
+        if (v && v.length > 0) setAvailableVoices(v);
+      };
+      updateVoices();
+      window.speechSynthesis.addEventListener('voiceschanged', updateVoices);
+      return () => {
+        window.speechSynthesis.removeEventListener('voiceschanged', updateVoices);
+      };
+    }
+  }, []);
+
+  // Browser Web Speech API fallback with robust Hindi/Hinglish voice selection
   const speakWithBrowserTTS = useCallback((text: string) => {
     if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
     try {
       window.speechSynthesis.cancel();
       const cleanText = text.replace(/[*#`_]/g, '').trim().slice(0, 2000);
+      if (!cleanText) return;
+
       const utterance = new SpeechSynthesisUtterance(cleanText);
       utterance.rate = playbackSpeed;
-      if (language.toLowerCase() === 'hindi' || language.toLowerCase() === 'hinglish') {
+
+      const langLower = (language || 'English').toLowerCase();
+      const voices = availableVoices.length > 0
+        ? availableVoices
+        : (typeof window !== 'undefined' && window.speechSynthesis ? window.speechSynthesis.getVoices() : []);
+
+      if (langLower === 'hindi' || langLower === 'hinglish') {
         utterance.lang = 'hi-IN';
-      } else if (language.toLowerCase() === 'spanish') {
+        if (voices.length > 0) {
+          const hiVoice = voices.find(v => {
+            const l = (v.lang || '').toLowerCase().replace('_', '-');
+            const n = (v.name || '').toLowerCase();
+            return l.startsWith('hi') || n.includes('hindi') || n.includes('swara') || n.includes('madhur');
+          });
+          if (hiVoice) utterance.voice = hiVoice;
+        }
+      } else if (langLower === 'spanish') {
         utterance.lang = 'es-ES';
+        if (voices.length > 0) {
+          const esVoice = voices.find(v => (v.lang || '').toLowerCase().startsWith('es'));
+          if (esVoice) utterance.voice = esVoice;
+        }
       } else {
         utterance.lang = 'en-US';
+        if (voices.length > 0) {
+          const enVoice = voices.find(v => (v.lang || '').toLowerCase().startsWith('en-us'));
+          if (enVoice) utterance.voice = enVoice;
+        }
       }
+
       utterance.onstart = () => setIsPlaying(true);
       utterance.onend = () => { setIsPlaying(false); onAudioEnded?.(); };
       utterance.onerror = () => setIsPlaying(false);
+
       window.speechSynthesis.speak(utterance);
       setIsPlaying(true);
     } catch (e) {
       console.warn("SpeechSynthesis error:", e);
     }
-  }, [language, playbackSpeed, onAudioEnded]);
+  }, [language, playbackSpeed, availableVoices, onAudioEnded]);
 
   // Preload audio when URL changes; auto-play if already unlocked
   useEffect(() => {
@@ -222,6 +267,9 @@ export const TeacherAvatar: React.FC<TeacherAvatarProps> = ({
 
     // 3. Start playback: Try Neural MP3 Audio first
     if (audio && audioUrl && !audioError) {
+      if (audio.ended || (audio.duration && audio.currentTime >= audio.duration)) {
+        audio.currentTime = 0;
+      }
       audio.muted = isMuted;
       audio.playbackRate = playbackSpeed;
       audio.play()
@@ -433,6 +481,14 @@ export const TeacherAvatar: React.FC<TeacherAvatarProps> = ({
           <p className="text-xs text-slate-400">{details.title}</p>
         </div>
       </div>
+
+      {/* Loading Speech Indicator */}
+      {isLoading && !teacherScript && (
+        <div className="mt-2 p-3 rounded-xl bg-blue-950/50 border border-blue-500/30 text-xs text-blue-200 flex items-center justify-center gap-2 animate-pulse">
+          <Sparkles className="w-4 h-4 text-cyan-400 animate-spin" />
+          <span className="font-medium">AI Teacher is preparing audio lecture...</span>
+        </div>
+      )}
 
       {/* Spoken Lecture Script Subtitle Box */}
       {teacherScript && (

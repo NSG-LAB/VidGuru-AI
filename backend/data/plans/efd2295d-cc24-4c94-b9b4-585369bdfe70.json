@@ -1,0 +1,369 @@
+{
+  "plan_id": "efd2299d-cc24-4c94-b9b4-585369bdf670",
+  "topic_title": "ट्रांसफ़ॉर्मर आर्किटेक्चर एवं सेल्फ‑अटेंशन",
+  "overview": "इस 15‑मिनट के पाठ में आप ट्रांसफ़ॉर्मर के मूल घटकों—क्वेरी, की, वैल्यू और मल्टी‑हेड अटेंशन—को प्रथम सिद्धांतों से समझेंगे। प्रोफ़ेसर आर्यन के मार्गदर्शन में दृश्यात्मक उपमाओं के माध्यम से गहरी अंतर्दृष्टि प्राप्त करेंगे।",
+  "student_profile": {
+    "grade_level": "undergraduate",
+    "language": "Hindi",
+    "learning_goal": "deep_conceptual",
+    "time_budget_mins": 15,
+    "learning_style": "visual_analogies",
+    "teacher_persona": "Prof. Aryan (Deep & Socratic)"
+  },
+  "total_estimated_mins": 15,
+  "modules": [
+    {
+      "module_id": 1,
+      "title": "बुनियादी अवधारणाएँ और प्रेरणा",
+      "description": "सेल्फ‑अटेंशन के पीछे की मूलभूत विचारधारा को स्थापित करना।",
+      "steps": [
+        {
+          "step_id": 1,
+          "step_type": "introduction",
+          "title": "ट्रांसफ़ॉर्मर का परिचय और प्रेरणा",
+          "concept_summary": "ट्रांसफ़ॉर्मर क्यों आया, रीकर्नेंट नेटवर्क की सीमाएँ और अटेंशन का विचार।",
+          "estimated_duration_seconds": 120,
+          "is_completed": false,
+          "teacher_script": "नमस्ते! आज हम ट्रांसफ़ॉर्मर आर्किटेक्चर के शुरुआती कदमों में डुबकी लगाएँगे। पहले सोचिए, जब हम भाषा को समझते हैं तो हमें शब्दों के बीच के रिश्ते को देखना पड़ता है, है ना? पहले के रीकर्नेंट नेटवर्क, जैसे LSTM, क्रमशः शब्दों को पढ़ते थे, लेकिन लंबी दूरी के संबंधों को पकड़ना उनके लिए कठिन था—जैसे एक लंबी कहानी के पहले पन्ने को याद रखना। यही कारण था कि हमें एक नया विचार चाहिए था, जिसे हम 'अटेंशन' कहते हैं। अटेंशन हमें हर शब्द को पूरे वाक्य के संदर्भ में देखना सिखाता है, जैसे आप एक बड़े चित्र को देख कर हर छोटे हिस्से को समझते हैं। इस सोच ने ट्रांसफ़ॉर्मर को जन्म दिया, जो पूरी अनुक्रम को एक साथ प्रोसेस करता है, बिना क्रमिक रीकर्न्स के। अब हम देखेंगे कि अटेंशन कैसे काम करता है और क्यों यह रीकर्नेंट नेटवर्क की सीमाओं को तोड़ता है। तैयार हैं? चलिए इस यात्रा की शुरुआत करते हैं!",
+          "visuals": [
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "अटेंशन = एक निर्देशक जो फिल्म के हर सीन को देख कर तय करता है कि कौन सा सीन अगले सीन को कैसे प्रभावित करेगा, जबकि RNN केवल क्रमिक रूप से एक-एक सीन देखता है।",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "latex",
+              "title": "Concept Visual",
+              "content": "\\text{Attention}(Q,K,V) = \\text{softmax}\\left(\\frac{QK^T}{\\sqrt{d_k}}\\right)V",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "mermaid",
+              "title": "Concept Visual",
+              "content": "graph LR\n    RNN[Recurrent Neural Network] -->|सीक्वेंशियल प्रोसेसिंग| Limitation[लॉन्ग-टर्म डिपेंडेंसी समस्या]\n    Transformer[Transformer] -->|Self-Attention| Solution[सभी टोकन एक साथ देखता है]\n    Limitation -->|समाधान नहीं| Transformer",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "- RNN क्रमिक रूप से डेटा प्रोसेस करता है, जिससे लंबी डिपेंडेंसी में कठिनाई होती है।\n- अटेंशन प्रत्येक टोकन को पूरे अनुक्रम के संदर्भ में देखता है।\n- ट्रांसफ़ॉर्मर पूरी अनुक्रम को समानांतर में प्रोसेस कर तेज़ और सटीक सीखता है।",
+              "explanation": "",
+              "language": null
+            }
+          ],
+          "formative_question": {
+            "id": "701b8efc",
+            "prompt": "क्यों ट्रांसफ़ॉर्मर में अटेंशन मैकेनिज़्म RNN की तुलना में लंबी डिपेंडेंसी को बेहतर ढंग से संभालता है?",
+            "options": null,
+            "correct_answer": "अटेंशन प्रत्येक शब्द को पूरे वाक्य के सभी शब्दों के साथ तुलना करता है, जिससे वह लंबी दूरी के संबंधों को सीधे गणना कर सकता है, जबकि RNN को क्रमिक रूप से जानकारी पास करनी पड़ती है, जिससे ग्रेडिएंट वैनिशिंग जैसी समस्याएँ आती हैं।",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Understand",
+            "hints": [
+              "अटेंशन सभी टोकन को एक साथ देखता है।",
+              "RNN में जानकारी क्रमिक रूप से आगे बढ़ती है।"
+            ],
+            "common_misconceptions": [
+              "अटेंशन केवल स्थानीय शब्दों को देखता है।",
+              "RNN हमेशा तेज़ और अधिक सटीक होता है।"
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_4707694f91d4.mp3"
+        },
+        {
+          "step_id": 2,
+          "step_type": "concept_breakdown",
+          "title": "क्वेरी, की, वैल्यू वेक्टर की संरचना",
+          "concept_summary": "इन तीन वेक्टरों का गणितीय अर्थ और इनपुट एम्बेडिंग से उनका निर्माण।",
+          "estimated_duration_seconds": 180,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    },
+    {
+      "module_id": 2,
+      "title": "दृश्यात्मक गहराई और व्यावहारिक प्रदर्शन",
+      "description": "अटेंशन मैकेनिज़्म को चित्रों और कोड के साथ देखना।",
+      "steps": [
+        {
+          "step_id": 3,
+          "step_type": "visual_deep_dive",
+          "title": "अटेंशन स्कोर और सॉफ्टमैक्स का विज़ुअलाइज़ेशन",
+          "concept_summary": "डॉट‑प्रोडक्ट स्कोर, स्केलिंग, सॉफ्टमैक्स द्वारा वज़नित औसत कैसे बनता है, इसका चित्रात्मक उदाहरण।",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 4,
+          "step_type": "practical_demo",
+          "title": "पायथन में मल्टी‑हेड अटेंशन का छोटा डेमो",
+          "concept_summary": "सरल कोड स्निपेट के साथ क्वेरी‑की‑वैल्यू मैट्रिक्स बनाकर कई हेड्स की गणना दिखाना।",
+          "estimated_duration_seconds": 180,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    },
+    {
+      "module_id": 3,
+      "title": "संकलन, जाँच और आगे की सोच",
+      "description": "सीखे हुए को सुदृढ़ करना और आगे के प्रश्नों की ओर अग्रसर होना।",
+      "steps": [
+        {
+          "step_id": 5,
+          "step_type": "checkpoint",
+          "title": "त्वरित प्रश्नोत्तर (चेकपॉइंट)",
+          "concept_summary": "क्वेरी‑की‑वैल्यू के संबंध, स्केलिंग फैक्टर, और मल्टी‑हेड के लाभ पर त्वरित प्रश्नों के साथ समझ की जाँच।",
+          "estimated_duration_seconds": 120,
+          "is_completed": false,
+          "teacher_script": "नमस्ते! आज हम क्वेरी‑की‑वैल्यू के संबंध, स्केलिंग फैक्टर, और मल्टी‑हेड अटेंशन के लाभों को त्वरित प्रश्नों के माध्यम से दोबारा देखेंगे। याद रखें, क्वेरी, की और वैल्यू सभी एक ही इनपुट एन्कोडर से रैखिक रूप से निकाले जाते हैं, पर प्रत्येक हेड के लिए अलग‑अलग पैरामीटर होते हैं। जब हम Q और K का डॉट‑प्रोडक्ट लेते हैं, तो उसका मान अक्सर बहुत बड़ा हो जाता है, जिससे सॉफ्टमैक्स में ग्रेडिएंट वैनिश हो सकता है। यही कारण है कि हम इसे \\(\\sqrt{d_k}\\) से स्केल करते हैं—ताकि मान स्थिर रहे और ग्रेडिएंट ठीक से प्रवाहित हो। अब मल्टी‑हेड अटेंशन की बात करें तो, यह कई हेड्स को एक साथ विभिन्न प्रतिनिधित्व स्थानों में सीखने देता है, जैसे एक ही तस्वीर को अलग‑अलग कोण से देखना। इस तरह मॉडल को richer context मिलता है और वह लंबी दूरी की निर्भरताओं को बेहतर समझ पाता है। अब चलिए, इन अवधारणाओं को दो‑तीन प्रश्नों से परखते हैं—ध्यान से सुनिए और अपने उत्तर तैयार कीजिए!",
+          "visuals": [
+            {
+              "type": "latex",
+              "title": "Concept Visual",
+              "content": "\\text{Attention}(Q,K,V)=\\text{softmax}\\left(\\frac{QK^T}{\\sqrt{d_k}}\\right)V",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "mermaid",
+              "title": "Concept Visual",
+              "content": "graph LR\n  Q[Query] -->|dot product| K[Key]\n  K -->|scaled| S[Scaled]\n  S -->|softmax| A[Attention Weights]\n  A -->|multiply| V[Value]\n  V --> O[Output]",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "जैसे एक शिक्षक कई छात्रों को अलग‑अलग प्रश्न पूछता है, फिर उनके उत्तरों को मिलाकर क्लास का सार निकालता है, वैसा ही मल्टी‑हेड अटेंशन कई ‘दृष्टिकोण’ (हेड) से जानकारी को देखता है।",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "- स्केलिंग फैक्टर \\(\\sqrt{d_k}\\) बड़े डॉट‑प्रोडक्ट को स्थिर रखता है।\\n- मल्टी‑हेड अटेंशन विभिन्न प्रतिनिधित्व स्थानों में समानांतर रूप से सीखता है।\\n- क्वेरी, की, वैल्यू एक ही इनपुट से रैखिक रूप से उत्पन्न होते हैं, पर अलग‑अलग हेड में अलग पैरामीटर होते हैं।",
+              "explanation": "",
+              "language": null
+            }
+          ],
+          "formative_question": {
+            "id": "bc5d4cb9",
+            "prompt": "स्केलिंग फैक्टर \\(\\sqrt{d_k}\\) का मुख्य उद्देश्य क्या है?",
+            "options": [
+              "कम्प्यूटेशन को तेज करना",
+              "डॉट‑प्रोडक्ट को स्थिर रखना",
+              "हेड्स की संख्या बढ़ाना",
+              "वैल्यू को नॉर्मलाइज़ करना"
+            ],
+            "correct_answer": "डॉट‑प्रोडक्ट को स्थिर रखना",
+            "question_type": "multiple_choice",
+            "bloom_level": "Understand",
+            "hints": [
+              "बड़े डॉट‑प्रोडक्ट के कारण सॉफ्टमैक्स में क्या हो सकता है?",
+              "स्केलिंग फैक्टर किस मान से विभाजित करता है?"
+            ],
+            "common_misconceptions": [
+              "इसे केवल मेमोरी बचाने के लिए माना जाता है।",
+              "इसे हेड्स की संख्या से जोड़ा जाता है।"
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_bd475b3a695c.mp3"
+        },
+        {
+          "step_id": 6,
+          "step_type": "synthesis",
+          "title": "समग्र सारांश और अनुप्रयोग दृष्टिकोण",
+          "concept_summary": "सेल्फ‑अटेंशन को बड़े मॉडल में कैसे एम्बेड किया जाता है और भविष्य के अध्ययन के लिए मार्गदर्शन।",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    }
+  ],
+  "all_steps_flattened": [
+    {
+      "step_id": 1,
+      "step_type": "introduction",
+      "title": "ट्रांसफ़ॉर्मर का परिचय और प्रेरणा",
+      "concept_summary": "ट्रांसफ़ॉर्मर क्यों आया, रीकर्नेंट नेटवर्क की सीमाएँ और अटेंशन का विचार।",
+      "estimated_duration_seconds": 120,
+      "is_completed": false,
+      "teacher_script": "नमस्ते! आज हम ट्रांसफ़ॉर्मर आर्किटेक्चर के शुरुआती कदमों में डुबकी लगाएँगे। पहले सोचिए, जब हम भाषा को समझते हैं तो हमें शब्दों के बीच के रिश्ते को देखना पड़ता है, है ना? पहले के रीकर्नेंट नेटवर्क, जैसे LSTM, क्रमशः शब्दों को पढ़ते थे, लेकिन लंबी दूरी के संबंधों को पकड़ना उनके लिए कठिन था—जैसे एक लंबी कहानी के पहले पन्ने को याद रखना। यही कारण था कि हमें एक नया विचार चाहिए था, जिसे हम 'अटेंशन' कहते हैं। अटेंशन हमें हर शब्द को पूरे वाक्य के संदर्भ में देखना सिखाता है, जैसे आप एक बड़े चित्र को देख कर हर छोटे हिस्से को समझते हैं। इस सोच ने ट्रांसफ़ॉर्मर को जन्म दिया, जो पूरी अनुक्रम को एक साथ प्रोसेस करता है, बिना क्रमिक रीकर्न्स के। अब हम देखेंगे कि अटेंशन कैसे काम करता है और क्यों यह रीकर्नेंट नेटवर्क की सीमाओं को तोड़ता है। तैयार हैं? चलिए इस यात्रा की शुरुआत करते हैं!",
+      "visuals": [
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "अटेंशन = एक निर्देशक जो फिल्म के हर सीन को देख कर तय करता है कि कौन सा सीन अगले सीन को कैसे प्रभावित करेगा, जबकि RNN केवल क्रमिक रूप से एक-एक सीन देखता है।",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "latex",
+          "title": "Concept Visual",
+          "content": "\\text{Attention}(Q,K,V) = \\text{softmax}\\left(\\frac{QK^T}{\\sqrt{d_k}}\\right)V",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "mermaid",
+          "title": "Concept Visual",
+          "content": "graph LR\n    RNN[Recurrent Neural Network] -->|सीक्वेंशियल प्रोसेसिंग| Limitation[लॉन्ग-टर्म डिपेंडेंसी समस्या]\n    Transformer[Transformer] -->|Self-Attention| Solution[सभी टोकन एक साथ देखता है]\n    Limitation -->|समाधान नहीं| Transformer",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "- RNN क्रमिक रूप से डेटा प्रोसेस करता है, जिससे लंबी डिपेंडेंसी में कठिनाई होती है।\n- अटेंशन प्रत्येक टोकन को पूरे अनुक्रम के संदर्भ में देखता है।\n- ट्रांसफ़ॉर्मर पूरी अनुक्रम को समानांतर में प्रोसेस कर तेज़ और सटीक सीखता है।",
+          "explanation": "",
+          "language": null
+        }
+      ],
+      "formative_question": {
+        "id": "701b8efc",
+        "prompt": "क्यों ट्रांसफ़ॉर्मर में अटेंशन मैकेनिज़्म RNN की तुलना में लंबी डिपेंडेंसी को बेहतर ढंग से संभालता है?",
+        "options": null,
+        "correct_answer": "अटेंशन प्रत्येक शब्द को पूरे वाक्य के सभी शब्दों के साथ तुलना करता है, जिससे वह लंबी दूरी के संबंधों को सीधे गणना कर सकता है, जबकि RNN को क्रमिक रूप से जानकारी पास करनी पड़ती है, जिससे ग्रेडिएंट वैनिशिंग जैसी समस्याएँ आती हैं।",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Understand",
+        "hints": [
+          "अटेंशन सभी टोकन को एक साथ देखता है।",
+          "RNN में जानकारी क्रमिक रूप से आगे बढ़ती है।"
+        ],
+        "common_misconceptions": [
+          "अटेंशन केवल स्थानीय शब्दों को देखता है।",
+          "RNN हमेशा तेज़ और अधिक सटीक होता है।"
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_4707694f91d4.mp3"
+    },
+    {
+      "step_id": 2,
+      "step_type": "concept_breakdown",
+      "title": "क्वेरी, की, वैल्यू वेक्टर की संरचना",
+      "concept_summary": "इन तीन वेक्टरों का गणितीय अर्थ और इनपुट एम्बेडिंग से उनका निर्माण।",
+      "estimated_duration_seconds": 180,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 3,
+      "step_type": "visual_deep_dive",
+      "title": "अटेंशन स्कोर और सॉफ्टमैक्स का विज़ुअलाइज़ेशन",
+      "concept_summary": "डॉट‑प्रोडक्ट स्कोर, स्केलिंग, सॉफ्टमैक्स द्वारा वज़नित औसत कैसे बनता है, इसका चित्रात्मक उदाहरण।",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 4,
+      "step_type": "practical_demo",
+      "title": "पायथन में मल्टी‑हेड अटेंशन का छोटा डेमो",
+      "concept_summary": "सरल कोड स्निपेट के साथ क्वेरी‑की‑वैल्यू मैट्रिक्स बनाकर कई हेड्स की गणना दिखाना।",
+      "estimated_duration_seconds": 180,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 5,
+      "step_type": "checkpoint",
+      "title": "त्वरित प्रश्नोत्तर (चेकपॉइंट)",
+      "concept_summary": "क्वेरी‑की‑वैल्यू के संबंध, स्केलिंग फैक्टर, और मल्टी‑हेड के लाभ पर त्वरित प्रश्नों के साथ समझ की जाँच।",
+      "estimated_duration_seconds": 120,
+      "is_completed": false,
+      "teacher_script": "नमस्ते! आज हम क्वेरी‑की‑वैल्यू के संबंध, स्केलिंग फैक्टर, और मल्टी‑हेड अटेंशन के लाभों को त्वरित प्रश्नों के माध्यम से दोबारा देखेंगे। याद रखें, क्वेरी, की और वैल्यू सभी एक ही इनपुट एन्कोडर से रैखिक रूप से निकाले जाते हैं, पर प्रत्येक हेड के लिए अलग‑अलग पैरामीटर होते हैं। जब हम Q और K का डॉट‑प्रोडक्ट लेते हैं, तो उसका मान अक्सर बहुत बड़ा हो जाता है, जिससे सॉफ्टमैक्स में ग्रेडिएंट वैनिश हो सकता है। यही कारण है कि हम इसे \\(\\sqrt{d_k}\\) से स्केल करते हैं—ताकि मान स्थिर रहे और ग्रेडिएंट ठीक से प्रवाहित हो। अब मल्टी‑हेड अटेंशन की बात करें तो, यह कई हेड्स को एक साथ विभिन्न प्रतिनिधित्व स्थानों में सीखने देता है, जैसे एक ही तस्वीर को अलग‑अलग कोण से देखना। इस तरह मॉडल को richer context मिलता है और वह लंबी दूरी की निर्भरताओं को बेहतर समझ पाता है। अब चलिए, इन अवधारणाओं को दो‑तीन प्रश्नों से परखते हैं—ध्यान से सुनिए और अपने उत्तर तैयार कीजिए!",
+      "visuals": [
+        {
+          "type": "latex",
+          "title": "Concept Visual",
+          "content": "\\text{Attention}(Q,K,V)=\\text{softmax}\\left(\\frac{QK^T}{\\sqrt{d_k}}\\right)V",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "mermaid",
+          "title": "Concept Visual",
+          "content": "graph LR\n  Q[Query] -->|dot product| K[Key]\n  K -->|scaled| S[Scaled]\n  S -->|softmax| A[Attention Weights]\n  A -->|multiply| V[Value]\n  V --> O[Output]",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "जैसे एक शिक्षक कई छात्रों को अलग‑अलग प्रश्न पूछता है, फिर उनके उत्तरों को मिलाकर क्लास का सार निकालता है, वैसा ही मल्टी‑हेड अटेंशन कई ‘दृष्टिकोण’ (हेड) से जानकारी को देखता है।",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "- स्केलिंग फैक्टर \\(\\sqrt{d_k}\\) बड़े डॉट‑प्रोडक्ट को स्थिर रखता है।\\n- मल्टी‑हेड अटेंशन विभिन्न प्रतिनिधित्व स्थानों में समानांतर रूप से सीखता है।\\n- क्वेरी, की, वैल्यू एक ही इनपुट से रैखिक रूप से उत्पन्न होते हैं, पर अलग‑अलग हेड में अलग पैरामीटर होते हैं।",
+          "explanation": "",
+          "language": null
+        }
+      ],
+      "formative_question": {
+        "id": "bc5d4cb9",
+        "prompt": "स्केलिंग फैक्टर \\(\\sqrt{d_k}\\) का मुख्य उद्देश्य क्या है?",
+        "options": [
+          "कम्प्यूटेशन को तेज करना",
+          "डॉट‑प्रोडक्ट को स्थिर रखना",
+          "हेड्स की संख्या बढ़ाना",
+          "वैल्यू को नॉर्मलाइज़ करना"
+        ],
+        "correct_answer": "डॉट‑प्रोडक्ट को स्थिर रखना",
+        "question_type": "multiple_choice",
+        "bloom_level": "Understand",
+        "hints": [
+          "बड़े डॉट‑प्रोडक्ट के कारण सॉफ्टमैक्स में क्या हो सकता है?",
+          "स्केलिंग फैक्टर किस मान से विभाजित करता है?"
+        ],
+        "common_misconceptions": [
+          "इसे केवल मेमोरी बचाने के लिए माना जाता है।",
+          "इसे हेड्स की संख्या से जोड़ा जाता है।"
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_bd475b3a695c.mp3"
+    },
+    {
+      "step_id": 6,
+      "step_type": "synthesis",
+      "title": "समग्र सारांश और अनुप्रयोग दृष्टिकोण",
+      "concept_summary": "सेल्फ‑अटेंशन को बड़े मॉडल में कैसे एम्बेड किया जाता है और भविष्य के अध्ययन के लिए मार्गदर्शन।",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "plan_id": "7d55e0ea-13fc-4947-923a-08b3b72f8bd3",
+  "topic_title": "DBMS",
+  "overview": "In five minutes you will build a vivid mental picture of a Database Management System and then connect that picture to its core operations. Visual analogies will turn abstract concepts into concrete images you can recall instantly.",
+  "student_profile": {
+    "grade_level": "undergraduate",
+    "language": "English",
+    "learning_goal": "deep_conceptual",
+    "time_budget_mins": 5,
+    "learning_style": "visual_analogies",
+    "teacher_persona": "Alex (Code & Engineering)"
+  },
+  "total_estimated_mins": 5,
+  "modules": [
+    {
+      "module_id": 1,
+      "title": "Foundations & Mental Model",
+      "description": "Establish a visual picture of what a DBMS does and why it matters.",
+      "steps": [
+        {
+          "step_id": 1,
+          "step_type": "introduction",
+          "title": "What is a DBMS?",
+          "concept_summary": "A DBMS is software that organizes, stores, and retrieves data, acting like a librarian for digital information.",
+          "estimated_duration_seconds": 75,
+          "is_completed": false,
+          "teacher_script": "Hey there! Today we’re diving into the heart of data management – the Database Management System, or DBMS for short. Imagine walking into a massive library. You could wander aisles, pull out any book, and hope you don’t lose it or damage it. That would be chaotic, right? A DBMS is like the diligent librarian who knows exactly where every book – or in our case, every piece of data – lives, how to fetch it quickly, and how to keep it safe and organized. It’s software that not only stores data but also provides powerful tools to insert, update, delete, and query that data efficiently. Beyond just storage, a DBMS handles multiple users at once, ensures data integrity, and enforces security rules, so you don’t end up with conflicting information. Think of it as the brain behind the scenes, translating your requests into precise actions on the data shelves. By the end of this step, you’ll see why a DBMS is essential for any modern application that needs reliable, fast, and secure data handling. Ready to meet the digital librarian?",
+          "visuals": [
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "DBMS = Digital Librarian:\n- Organizes data like books on shelves\n- Retrieves requested information instantly\n- Maintains order, prevents loss, and enforces borrowing rules",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "mermaid",
+              "title": "Concept Visual",
+              "content": "graph TD\n  User[User/Application] -->|Requests| DBMS[DBMS]\n  DBMS -->|Manages| Storage[Physical Storage]\n  DBMS -->|Ensures| Security[Security & Integrity]\n  DBMS -->|Handles| Concurrency[Concurrent Access]",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "- A DBMS is software that stores, organizes, and retrieves data.\n- It provides query processing, transaction management, and security.\n- Acts as an interface between users/applications and physical storage.",
+              "explanation": "",
+              "language": null
+            }
+          ],
+          "formative_question": {
+            "id": "d9e705eb",
+            "prompt": "In your own words, explain how a DBMS differs from simply storing data in flat files on a disk.",
+            "options": null,
+            "correct_answer": "A DBMS adds structure, query capability, transaction support, concurrency control, and security on top of raw file storage, whereas flat files are just unorganized collections of bytes without these management features.",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Understand",
+            "hints": [
+              "Think about how you would retrieve specific information quickly.",
+              "Consider what happens when multiple users try to modify the data at the same time."
+            ],
+            "common_misconceptions": [
+              "Believing a DBMS is just a fancy file system.",
+              "Assuming flat files automatically provide data integrity and security."
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_2bb833f56db1.mp3"
+        },
+        {
+          "step_id": 2,
+          "step_type": "visual_deep_dive",
+          "title": "The Library Analogy",
+          "concept_summary": "Imagine tables as bookshelves, rows as books, and queries as requests to fetch specific books; this analogy reveals indexing, relationships, and transaction safety.",
+          "estimated_duration_seconds": 75,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    },
+    {
+      "module_id": 2,
+      "title": "Core Operations & Integration",
+      "description": "Break down key DBMS concepts and synthesize them into a coherent mental schema.",
+      "steps": [
+        {
+          "step_id": 3,
+          "step_type": "concept_breakdown",
+          "title": "CRUD, ACID, and Normalization",
+          "concept_summary": "Explain Create‑Read‑Update‑Delete, the ACID guarantees for reliable transactions, and normalization as a method to eliminate redundancy.",
+          "estimated_duration_seconds": 75,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 4,
+          "step_type": "synthesis",
+          "title": "From Analogy to Architecture",
+          "concept_summary": "Combine the library picture with CRUD/ACID to visualize how a DBMS processes a query end‑to‑end, reinforcing the mental model.",
+          "estimated_duration_seconds": 75,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    }
+  ],
+  "all_steps_flattened": [
+    {
+      "step_id": 1,
+      "step_type": "introduction",
+      "title": "What is a DBMS?",
+      "concept_summary": "A DBMS is software that organizes, stores, and retrieves data, acting like a librarian for digital information.",
+      "estimated_duration_seconds": 75,
+      "is_completed": false,
+      "teacher_script": "Hey there! Today we’re diving into the heart of data management – the Database Management System, or DBMS for short. Imagine walking into a massive library. You could wander aisles, pull out any book, and hope you don’t lose it or damage it. That would be chaotic, right? A DBMS is like the diligent librarian who knows exactly where every book – or in our case, every piece of data – lives, how to fetch it quickly, and how to keep it safe and organized. It’s software that not only stores data but also provides powerful tools to insert, update, delete, and query that data efficiently. Beyond just storage, a DBMS handles multiple users at once, ensures data integrity, and enforces security rules, so you don’t end up with conflicting information. Think of it as the brain behind the scenes, translating your requests into precise actions on the data shelves. By the end of this step, you’ll see why a DBMS is essential for any modern application that needs reliable, fast, and secure data handling. Ready to meet the digital librarian?",
+      "visuals": [
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "DBMS = Digital Librarian:\n- Organizes data like books on shelves\n- Retrieves requested information instantly\n- Maintains order, prevents loss, and enforces borrowing rules",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "mermaid",
+          "title": "Concept Visual",
+          "content": "graph TD\n  User[User/Application] -->|Requests| DBMS[DBMS]\n  DBMS -->|Manages| Storage[Physical Storage]\n  DBMS -->|Ensures| Security[Security & Integrity]\n  DBMS -->|Handles| Concurrency[Concurrent Access]",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "- A DBMS is software that stores, organizes, and retrieves data.\n- It provides query processing, transaction management, and security.\n- Acts as an interface between users/applications and physical storage.",
+          "explanation": "",
+          "language": null
+        }
+      ],
+      "formative_question": {
+        "id": "d9e705eb",
+        "prompt": "In your own words, explain how a DBMS differs from simply storing data in flat files on a disk.",
+        "options": null,
+        "correct_answer": "A DBMS adds structure, query capability, transaction support, concurrency control, and security on top of raw file storage, whereas flat files are just unorganized collections of bytes without these management features.",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Understand",
+        "hints": [
+          "Think about how you would retrieve specific information quickly.",
+          "Consider what happens when multiple users try to modify the data at the same time."
+        ],
+        "common_misconceptions": [
+          "Believing a DBMS is just a fancy file system.",
+          "Assuming flat files automatically provide data integrity and security."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_2bb833f56db1.mp3"
+    },
+    {
+      "step_id": 2,
+      "step_type": "visual_deep_dive",
+      "title": "The Library Analogy",
+      "concept_summary": "Imagine tables as bookshelves, rows as books, and queries as requests to fetch specific books; this analogy reveals indexing, relationships, and transaction safety.",
+      "estimated_duration_seconds": 75,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 3,
+      "step_type": "concept_breakdown",
+      "title": "CRUD, ACID, and Normalization",
+      "concept_summary": "Explain Create‑Read‑Update‑Delete, the ACID guarantees for reliable transactions, and normalization as a method to eliminate redundancy.",
+      "estimated_duration_seconds": 75,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 4,
+      "step_type": "synthesis",
+      "title": "From Analogy to Architecture",
+      "concept_summary": "Combine the library picture with CRUD/ACID to visualize how a DBMS processes a query end‑to‑end, reinforcing the mental model.",
+      "estimated_duration_seconds": 75,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    }
+  ]
+}

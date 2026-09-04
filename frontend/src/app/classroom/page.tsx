@@ -32,7 +32,9 @@ import {
   Award,
   BookOpen,
   Volume2,
-  CheckCircle2
+  CheckCircle2,
+  AlertTriangle,
+  RotateCcw
 } from 'lucide-react';
 
 function ClassroomContent() {
@@ -53,40 +55,80 @@ function ClassroomContent() {
   const [finalQuiz, setFinalQuiz] = useState<FinalQuiz | null>(null);
   const [learningReport, setLearningReport] = useState<LearningReport | null>(null);
   const [docId, setDocId] = useState<string | undefined>(undefined);
+  const [planError, setPlanError] = useState<string | null>(null);
+  const [stepError, setStepError] = useState<string | null>(null);
 
   // Initialize Lesson Plan
   useEffect(() => {
-    const cachedPlan = sessionStorage.getItem('active_lesson_plan');
+    const cachedRaw = sessionStorage.getItem('active_lesson_plan');
     const cachedDocId = sessionStorage.getItem('active_doc_id') || undefined;
     setDocId(cachedDocId);
 
-    if (cachedPlan) {
+    let parsedCached: LessonPlan | null = null;
+    if (cachedRaw) {
       try {
-        const parsed = JSON.parse(cachedPlan);
-        setLessonPlan(parsed);
-        loadStep(parsed.plan_id, 1, cachedDocId);
-        return;
+        parsedCached = JSON.parse(cachedRaw);
       } catch (e) {}
     }
 
+    // Case 1: planId in URL parameter
     if (planId) {
+      // If sessionStorage has this exact plan, use it
+      if (parsedCached && parsedCached.plan_id === planId) {
+        setLessonPlan(parsedCached);
+        setPlanError(null);
+        loadStep(planId, 1, cachedDocId, parsedCached);
+        return;
+      }
+
+      // Otherwise fetch the requested plan from backend
+      setIsLoadingStep(true);
       getLessonPlan(planId)
         .then((plan) => {
           setLessonPlan(plan);
-          loadStep(plan.plan_id, 1, cachedDocId);
+          setPlanError(null);
+          try {
+            sessionStorage.setItem('active_lesson_plan', JSON.stringify(plan));
+          } catch (e) {}
+          loadStep(plan.plan_id, 1, cachedDocId, plan);
         })
         .catch((err) => {
           console.error('Failed to fetch plan:', err);
+          setPlanError(`Lesson plan "${planId}" could not be found or has expired. Please launch a new topic.`);
+          setIsLoadingStep(false);
         });
+      return;
     }
+
+    // Case 2: No planId in URL, but active cached plan in session
+    if (parsedCached && parsedCached.plan_id) {
+      setLessonPlan(parsedCached);
+      setPlanError(null);
+      loadStep(parsedCached.plan_id, 1, cachedDocId, parsedCached);
+      return;
+    }
+
+    // Case 3: Neither URL param nor session cache
+    setPlanError("No active lesson plan selected. Please return to the home page to start a new masterclass.");
   }, [planId]);
 
-  const loadStep = async (pId: string, sId: number, dId?: string) => {
+  const loadStep = async (pId: string, sId: number, dId?: string, currentPlan?: LessonPlan) => {
     setIsLoadingStep(true);
     setEvaluationResult(null);
     setActiveDoubt(null);
     setCurrentStepId(sId);
+    setStepError(null);
 
+    // 1. Check if step data is ALREADY present and populated in the plan
+    const activePlan = currentPlan || lessonPlan;
+    const existingStep = (activePlan?.all_steps_flattened || []).find((s) => s.step_id === sId);
+    if (existingStep && existingStep.teacher_script && existingStep.visuals && existingStep.visuals.length > 0) {
+      setCurrentStepData(existingStep);
+      setIsLoadingStep(false);
+      return;
+    }
+
+    // 2. Fetch or generate the teaching step from backend
     try {
       const step = await executeTeachingStep({
         plan_id: pId,
@@ -94,8 +136,19 @@ function ClassroomContent() {
         doc_id: dId,
       });
       setCurrentStepData(step);
-    } catch (err) {
+      // Persist step into active lesson plan so returning to it is instant
+      setLessonPlan((prev) => {
+        if (!prev) return prev;
+        const updatedSteps = (prev.all_steps_flattened || []).map((s) => s.step_id === sId ? step : s);
+        const updatedPlan = { ...prev, all_steps_flattened: updatedSteps };
+        try {
+          sessionStorage.setItem('active_lesson_plan', JSON.stringify(updatedPlan));
+        } catch (e) {}
+        return updatedPlan;
+      });
+    } catch (err: any) {
       console.error('Failed to load step:', err);
+      setStepError(err.message || 'Failed to generate step content. Please check backend connection.');
     } finally {
       setIsLoadingStep(false);
     }
@@ -103,7 +156,7 @@ function ClassroomContent() {
 
   const handleSelectStep = (sId: number) => {
     if (!lessonPlan) return;
-    loadStep(lessonPlan.plan_id, sId, docId);
+    loadStep(lessonPlan.plan_id, sId, docId, lessonPlan);
   };
 
   const handleSubmitAnswer = async (response: string, isAudio: boolean) => {
@@ -193,6 +246,27 @@ function ClassroomContent() {
       setIsLoadingStep(false);
     }
   };
+
+  if (planError) {
+    return (
+      <div className="min-h-screen bg-[#080c14] text-white flex flex-col items-center justify-center p-6 text-center">
+        <div className="w-16 h-16 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 mb-4">
+          <AlertTriangle className="w-8 h-8" />
+        </div>
+        <h3 className="text-xl font-bold text-white mb-2">Lesson Plan Not Available</h3>
+        <p className="text-xs text-slate-400 max-w-md mb-6 leading-relaxed">{planError}</p>
+        <button
+          onClick={() => {
+            try { sessionStorage.removeItem('active_lesson_plan'); } catch (e) {}
+            router.push('/');
+          }}
+          className="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-xs font-bold shadow-lg shadow-blue-500/25 transition-all cursor-pointer"
+        >
+          Return to Dashboard & Start Lesson →
+        </button>
+      </div>
+    );
+  }
 
   if (!lessonPlan) {
     return (
@@ -284,10 +358,11 @@ function ClassroomContent() {
           <TeacherAvatar
             persona={lessonPlan.student_profile.teacher_persona}
             language={lessonPlan.student_profile.language}
-            isSpeaking={isLoadingStep || Boolean(currentStepData?.audio_url)}
+            isSpeaking={isLoadingStep}
             audioUrl={currentStepData?.audio_url}
             teacherScript={currentStepData?.teacher_script}
             emotion={getTeacherEmotion()}
+            isLoading={isLoadingStep}
             onPersonaChange={(newPersona) => {
               setLessonPlan((prev) => prev ? {
                 ...prev,
@@ -308,12 +383,33 @@ function ClassroomContent() {
 
         {/* Center Column: Dynamic Blackboard & Socratic Interaction (6 Cols) */}
         <div className="lg:col-span-6 flex flex-col gap-6">
+          {/* Step Error Banner with Retry */}
+          {stepError && (
+            <div className="p-4 rounded-2xl bg-red-950/60 border border-red-500/40 text-red-200 flex items-center justify-between shadow-xl animate-in fade-in">
+              <div className="flex items-center gap-3">
+                <AlertTriangle className="w-5 h-5 text-red-400 shrink-0" />
+                <div>
+                  <h5 className="text-xs font-bold text-red-300">Teaching Step Issue</h5>
+                  <p className="text-xs text-slate-300">{stepError}</p>
+                </div>
+              </div>
+              <button
+                onClick={() => lessonPlan && loadStep(lessonPlan.plan_id, currentStepId, docId, lessonPlan)}
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs font-bold shadow-md transition-all shrink-0 cursor-pointer"
+              >
+                <RotateCcw className="w-3.5 h-3.5" />
+                Retry Step
+              </button>
+            </div>
+          )}
+
           <div className="flex-1 min-h-[380px]">
             <SmartWhiteboard
               stepTitle={currentStepData?.title || 'Interactive Blackboard'}
               stepType={currentStepData?.step_type || 'concept'}
               visuals={currentStepData?.visuals}
               topic={lessonPlan.topic_title}
+              isLoading={isLoadingStep}
             />
           </div>
 
@@ -356,6 +452,8 @@ function ClassroomContent() {
             onAskDoubt={handleAskDoubt}
             isEvaluating={isEvaluatingAnswer}
             activeDoubtAnswer={activeDoubt}
+            language={lessonPlan.student_profile.language}
+            isLoading={isLoadingStep}
           />
         </div>
 

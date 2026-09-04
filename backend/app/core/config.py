@@ -10,6 +10,7 @@ class Settings:
     DATA_DIR: Path = BASE_DIR / "data"
     UPLOADS_DIR: Path = DATA_DIR / "uploads"
     AUDIO_DIR: Path = DATA_DIR / "audio"
+    IMAGES_DIR: Path = DATA_DIR / "images"
 
     def __init__(self):
         # Auto-load .env from base directory or parent
@@ -30,6 +31,7 @@ class Settings:
         self.GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
         self.GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.6-flash")
         self.OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+        self.GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
     
     # TTS Voices
     VOICE_EN_FEMALE: str = "en-US-JennyNeural"
@@ -49,3 +51,4 @@ class Settings:
 settings = Settings()
 settings.UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
 settings.AUDIO_DIR.mkdir(parents=True, exist_ok=True)
+settings.IMAGES_DIR.mkdir(parents=True, exist_ok=True)

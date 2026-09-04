@@ -1,0 +1,183 @@
+{
+  "plan_id": "64ebbc31-c66f-421e-9112-7c9035471fa0",
+  "topic_title": "न्यूटन के गति के नियम",
+  "overview": "डॉ. नोवा के साथ हम गति के तीन मूलभूत नियमों को दृश्य रूपकों और छोटे प्रयोगों के माध्यम से समझेंगे। इस 15 मिनट के सफर में अवधारणा से अनुप्रयोग तक क्रमिक रूप से गहराई तक पहुँचेंगे।",
+  "student_profile": {
+    "grade_level": "undergraduate",
+    "language": "Hindi",
+    "learning_goal": "deep_conceptual",
+    "time_budget_mins": 15,
+    "learning_style": "visual_analogies",
+    "teacher_persona": "Dr. Nova (Intuitive & Warm)"
+  },
+  "total_estimated_mins": 15,
+  "modules": [
+    {
+      "module_id": 1,
+      "title": "बुनियादी अवधारणाएँ और अंतर्दृष्टि",
+      "description": "डॉ. नोवा के साथ गति के नियमों की मूलभूत समझ बनाना।",
+      "steps": [
+        {
+          "step_id": 1,
+          "step_type": "introduction",
+          "title": "न्यूटन का प्रथम नियम: जड़त्व",
+          "concept_summary": "वस्तु स्थिर या समान गति में रहती है जब तक बाहरी बल नहीं लगते।",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 2,
+          "step_type": "concept_breakdown",
+          "title": "द्वितीय नियम: बल, द्रव्यमान और त्वरण",
+          "concept_summary": "F = m·a का अर्थ और कैसे द्रव्यमान बदलने से त्वरण प्रभावित होता है।",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    },
+    {
+      "module_id": 2,
+      "title": "दृश्यात्मक गहराई और अनुप्रयोग",
+      "description": "दृश्य रूपकों से नियमों को स्पष्ट करना और सरल प्रयोग देखना।",
+      "steps": [
+        {
+          "step_id": 3,
+          "step_type": "visual_deep_dive",
+          "title": "दृश्य रूपक: सवारी पर बल और गति",
+          "concept_summary": "एक कार की गति को बल-समतुल्य तीरों से दर्शाना, जिससे जड़त्व और त्वरण स्पष्ट हों।",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 4,
+          "step_type": "practical_demo",
+          "title": "प्रायोगिक प्रदर्शन: टेबल पर गेंद का स्केटिंग",
+          "concept_summary": "समान सतह पर गेंद को धकेलना और रोकना, तृतीय नियम के क्रिया‑प्रतिक्रिया को देखना।",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    },
+    {
+      "module_id": 3,
+      "title": "जाँच और समेकन",
+      "description": "सीखे हुए को सुदृढ़ करना और समग्र समझ बनाना।",
+      "steps": [
+        {
+          "step_id": 5,
+          "step_type": "checkpoint",
+          "title": "त्वरण की गणना क्विज़",
+          "concept_summary": "छोटे प्रश्नों के माध्यम से F=ma लागू करना, त्वरित प्रतिक्रिया के साथ।",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 6,
+          "step_type": "synthesis",
+          "title": "समग्र सारांश और वास्तविक जीवन में उपयोग",
+          "concept_summary": "तीनों नियमों को जोड़कर रोज़मर्रा के उदाहरण जैसे साइकिल, रॉकेट आदि में समझना।",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    }
+  ],
+  "all_steps_flattened": [
+    {
+      "step_id": 1,
+      "step_type": "introduction",
+      "title": "न्यूटन का प्रथम नियम: जड़त्व",
+      "concept_summary": "वस्तु स्थिर या समान गति में रहती है जब तक बाहरी बल नहीं लगते।",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 2,
+      "step_type": "concept_breakdown",
+      "title": "द्वितीय नियम: बल, द्रव्यमान और त्वरण",
+      "concept_summary": "F = m·a का अर्थ और कैसे द्रव्यमान बदलने से त्वरण प्रभावित होता है।",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 3,
+      "step_type": "visual_deep_dive",
+      "title": "दृश्य रूपक: सवारी पर बल और गति",
+      "concept_summary": "एक कार की गति को बल-समतुल्य तीरों से दर्शाना, जिससे जड़त्व और त्वरण स्पष्ट हों।",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 4,
+      "step_type": "practical_demo",
+      "title": "प्रायोगिक प्रदर्शन: टेबल पर गेंद का स्केटिंग",
+      "concept_summary": "समान सतह पर गेंद को धकेलना और रोकना, तृतीय नियम के क्रिया‑प्रतिक्रिया को देखना।",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 5,
+      "step_type": "checkpoint",
+      "title": "त्वरण की गणना क्विज़",
+      "concept_summary": "छोटे प्रश्नों के माध्यम से F=ma लागू करना, त्वरित प्रतिक्रिया के साथ।",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 6,
+      "step_type": "synthesis",
+      "title": "समग्र सारांश और वास्तविक जीवन में उपयोग",
+      "concept_summary": "तीनों नियमों को जोड़कर रोज़मर्रा के उदाहरण जैसे साइकिल, रॉकेट आदि में समझना।",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    }
+  ]
+}

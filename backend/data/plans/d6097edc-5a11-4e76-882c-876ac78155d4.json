@@ -1,0 +1,281 @@
+{
+  "plan_id": "d6097edc-5a11-4e76-882c-876ac78155d4",
+  "topic_title": "प्रकाश संश्लेषण और लाइट रिएक्शन",
+  "overview": "इस पाठ में आप प्रकाश संश्लेषण के लाइट रिएक्शन को प्रथम सिद्धांतों से समझेंगे और दृश्य रूपकों के माध्यम से गहरी अंतर्दृष्टि प्राप्त करेंगे। प्रो. आर्यन के मार्गदर्शन में आप अवधारणाओं को लागू करके समेकित ज्ञान बनाएँगे।",
+  "student_profile": {
+    "grade_level": "undergraduate",
+    "language": "Hindi",
+    "learning_goal": "deep_conceptual",
+    "time_budget_mins": 15,
+    "learning_style": "visual_analogies",
+    "teacher_persona": "Prof. Aryan (Deep & Socratic)"
+  },
+  "total_estimated_mins": 15,
+  "modules": [
+    {
+      "module_id": 1,
+      "title": "बुनियादी अवधारणा और दृश्य अंतर्दृष्टि",
+      "description": "प्रकाश संश्लेषण के मूल सिद्धांत और लाइट रिएक्शन की संरचना को दृश्य रूपकों से समझना।",
+      "steps": [
+        {
+          "step_id": 1,
+          "step_type": "introduction",
+          "title": "प्रकाश संश्लेषण का परिचय",
+          "concept_summary": "प्रकाश संश्लेषण कैसे पौधों को सूर्य की ऊर्जा को रासायनिक ऊर्जा में बदलने की प्रक्रिया है, इसका संक्षिप्त परिचय।",
+          "estimated_duration_seconds": 120,
+          "is_completed": false,
+          "teacher_script": "नमस्ते! आज हम प्रकाश संश्लेषण की दुनिया में एक रोमांचक यात्रा शुरू करेंगे। आप कभी सोचे हैं कि पौधे कैसे सूरज की रोशनी को हमारे लिए खाने योग्य ऊर्जा में बदलते हैं? यही प्रक्रिया को हम प्रकाश संश्लेषण कहते हैं। सरल शब्दों में, यह वह जादू है जहाँ पौधे कार्बन डाइऑक्साइड, पानी और सूर्य के प्रकाश को मिलाकर ग्लूकोज़—एक प्रकार की रासायनिक ईंधन—और ऑक्सीजन बनाते हैं। इस प्रक्रिया के दो मुख्य चरण होते हैं: पहला है लाइट रिएक्शन, जहाँ प्रकाश ऊर्जा को ATP और NADPH जैसे ऊर्जा‑संचयकों में बदला जाता है, और दूसरा है कैल्विन चक्र, जहाँ इन ऊर्जा‑संचयकों का उपयोग करके कार्बन डाइऑक्साइड को ग्लूकोज़ में परिवर्तित किया जाता है। सोचिए, यह बिल्कुल हमारे घर में सौर पैनल की तरह है—सूरज की रोशनी को पकड़कर उसे उपयोगी ऊर्जा में बदलना। अब, इस मूलभूत परिचय को समझते हुए, हम आगे के चरणों में गहराई से उतरेंगे। क्या आप तैयार हैं इस प्राकृतिक ऊर्जा कारखाने को विस्तार से जानने के लिए?",
+          "visuals": [
+            {
+              "type": "latex",
+              "title": "Concept Visual",
+              "content": "6\\text{CO}_2 + 6\\text{H}_2\\text{O} \\xrightarrow{\\text{प्रकाश}} \\text{C}_6\\text{H}_{12}\\text{O}_6 + 6\\text{O}_2",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "mermaid",
+              "title": "Concept Visual",
+              "content": "graph LR\n    Sun[सूर्य का प्रकाश] -->|फ़ोटॉन| LightReaction[लाइट रिएक्शन]\n    LightReaction -->|ATP, NADPH| CalvinCycle[कैल्विन चक्र]\n    CO2[CO₂] --> CalvinCycle\n    CalvinCycle --> Glucose[ग्लूकोज़]",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "पौधा एक प्राकृतिक सौर पैनल है, जो सूरज की रोशनी को बैटरी (ATP, NADPH) में बदलता है और फिर उसे ऊर्जा‑समृद्ध भोजन (ग्लूकोज़) में स्टोर करता है।",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "- प्रकाश संश्लेषण में प्रकाश ऊर्जा को रासायनिक ऊर्जा में बदला जाता है।\n- दो मुख्य चरण: लाइट रिएक्शन और कैल्विन चक्र।\n- अंतिम उत्पाद ग्लूकोज़ और ऑक्सीजन है।",
+              "explanation": "",
+              "language": null
+            }
+          ],
+          "formative_question": {
+            "id": "83d3f654",
+            "prompt": "निम्नलिखित में से कौन-सा प्रक्रिया प्रकाश संश्लेषण का पहला चरण है?",
+            "options": [
+              "लाइट रिएक्शन",
+              "कैल्विन चक्र",
+              "श्वसन",
+              "गैस एक्सचेंज"
+            ],
+            "correct_answer": "लाइट रिएक्शन। यह वह चरण है जहाँ सूर्य के प्रकाश को इलेक्ट्रॉनिक ऊर्जा (ATP और NADPH) में परिवर्तित किया जाता है, जो बाद में कैल्विन चक्र को शक्ति देता है।",
+            "question_type": "multiple_choice",
+            "bloom_level": "Understand",
+            "hints": [
+              "पहला चरण प्रकाश की ऊर्जा को पकड़ता है।",
+              "यह चरण ATP और NADPH बनाता है।"
+            ],
+            "common_misconceptions": [
+              "कैल्विन चक्र पहले होता है क्योंकि उसका नाम पहले आता है।",
+              "लाइट रिएक्शन केवल प्रकाश को अवशोषित करता है, लेकिन ऊर्जा बनाता नहीं।"
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_16d6fbcd1741.mp3"
+        },
+        {
+          "step_id": 2,
+          "step_type": "visual_deep_dive",
+          "title": "लाइट रिएक्शन का दृश्य मॉडल",
+          "concept_summary": "फोटोसिस्टम II के भीतर इलेक्ट्रॉन प्रवाह को एनिमेटेड चित्रों के माध्यम से दर्शाते हुए, फोटोपिग्मेंट, एंटीना कॉम्प्लेक्स और क्विनोन की भूमिका को स्पष्ट किया गया है।",
+          "estimated_duration_seconds": 180,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    },
+    {
+      "module_id": 2,
+      "title": "रासायनिक चरणों का विश्लेषण",
+      "description": "लाइट रिएक्शन के प्रमुख रासायनिक चरणों को तोड़‑मरोड़ कर समझना और प्रयोगात्मक रूप से देखना।",
+      "steps": [
+        {
+          "step_id": 3,
+          "step_type": "concept_breakdown",
+          "title": "फोटोसिस्टम II की संरचना",
+          "concept_summary": "फोटोसिस्टम II के प्रमुख घटकों—पॉलीफेनॉल, प्लास्टिक, और एंजाइम कॉम्प्लेक्स—की विस्तृत व्याख्या और उनके बीच ऊर्जा स्थानांतरण।",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 4,
+          "step_type": "practical_demo",
+          "title": "प्रयोग: क्लोरोफिल फ्लोरेसेंस",
+          "concept_summary": "क्लोरोफिल के फ्लोरेसेंस को देख कर इलेक्ट्रॉन उत्तेजना और पुनरावृत्ति को वास्तविक समय में अवलोकित किया जाता है, जिससे सिद्धांत का प्रयोगात्मक प्रमाण मिलता है।",
+          "estimated_duration_seconds": 180,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    },
+    {
+      "module_id": 3,
+      "title": "समेकन और मूल्यांकन",
+      "description": "सीखे हुए अवधारणाओं को पुनःसमीक्षा, परीक्षण और अन्य जैविक प्रक्रियाओं से जोड़ना।",
+      "steps": [
+        {
+          "step_id": 5,
+          "step_type": "checkpoint",
+          "title": "संकल्पनात्मक प्रश्नोत्तरी",
+          "concept_summary": "लाइट रिएक्शन के प्रमुख चरणों, ऊर्जा प्रवाह और उत्पादों पर केंद्रित बहुविकल्पीय प्रश्नों के माध्यम से समझ की जाँच।",
+          "estimated_duration_seconds": 120,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 6,
+          "step_type": "synthesis",
+          "title": "लाइट रिएक्शन को अन्य प्रक्रियाओं से जोड़ना",
+          "concept_summary": "लाइट रिएक्शन को कैल्विन चक्र, श्वसन और पर्यावरणीय कारकों से जोड़ते हुए एक समग्र चित्र बनाना, जिससे ज्ञान का सृजनात्मक उपयोग संभव हो।",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    }
+  ],
+  "all_steps_flattened": [
+    {
+      "step_id": 1,
+      "step_type": "introduction",
+      "title": "प्रकाश संश्लेषण का परिचय",
+      "concept_summary": "प्रकाश संश्लेषण कैसे पौधों को सूर्य की ऊर्जा को रासायनिक ऊर्जा में बदलने की प्रक्रिया है, इसका संक्षिप्त परिचय।",
+      "estimated_duration_seconds": 120,
+      "is_completed": false,
+      "teacher_script": "नमस्ते! आज हम प्रकाश संश्लेषण की दुनिया में एक रोमांचक यात्रा शुरू करेंगे। आप कभी सोचे हैं कि पौधे कैसे सूरज की रोशनी को हमारे लिए खाने योग्य ऊर्जा में बदलते हैं? यही प्रक्रिया को हम प्रकाश संश्लेषण कहते हैं। सरल शब्दों में, यह वह जादू है जहाँ पौधे कार्बन डाइऑक्साइड, पानी और सूर्य के प्रकाश को मिलाकर ग्लूकोज़—एक प्रकार की रासायनिक ईंधन—और ऑक्सीजन बनाते हैं। इस प्रक्रिया के दो मुख्य चरण होते हैं: पहला है लाइट रिएक्शन, जहाँ प्रकाश ऊर्जा को ATP और NADPH जैसे ऊर्जा‑संचयकों में बदला जाता है, और दूसरा है कैल्विन चक्र, जहाँ इन ऊर्जा‑संचयकों का उपयोग करके कार्बन डाइऑक्साइड को ग्लूकोज़ में परिवर्तित किया जाता है। सोचिए, यह बिल्कुल हमारे घर में सौर पैनल की तरह है—सूरज की रोशनी को पकड़कर उसे उपयोगी ऊर्जा में बदलना। अब, इस मूलभूत परिचय को समझते हुए, हम आगे के चरणों में गहराई से उतरेंगे। क्या आप तैयार हैं इस प्राकृतिक ऊर्जा कारखाने को विस्तार से जानने के लिए?",
+      "visuals": [
+        {
+          "type": "latex",
+          "title": "Concept Visual",
+          "content": "6\\text{CO}_2 + 6\\text{H}_2\\text{O} \\xrightarrow{\\text{प्रकाश}} \\text{C}_6\\text{H}_{12}\\text{O}_6 + 6\\text{O}_2",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "mermaid",
+          "title": "Concept Visual",
+          "content": "graph LR\n    Sun[सूर्य का प्रकाश] -->|फ़ोटॉन| LightReaction[लाइट रिएक्शन]\n    LightReaction -->|ATP, NADPH| CalvinCycle[कैल्विन चक्र]\n    CO2[CO₂] --> CalvinCycle\n    CalvinCycle --> Glucose[ग्लूकोज़]",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "पौधा एक प्राकृतिक सौर पैनल है, जो सूरज की रोशनी को बैटरी (ATP, NADPH) में बदलता है और फिर उसे ऊर्जा‑समृद्ध भोजन (ग्लूकोज़) में स्टोर करता है।",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "- प्रकाश संश्लेषण में प्रकाश ऊर्जा को रासायनिक ऊर्जा में बदला जाता है।\n- दो मुख्य चरण: लाइट रिएक्शन और कैल्विन चक्र।\n- अंतिम उत्पाद ग्लूकोज़ और ऑक्सीजन है।",
+          "explanation": "",
+          "language": null
+        }
+      ],
+      "formative_question": {
+        "id": "83d3f654",
+        "prompt": "निम्नलिखित में से कौन-सा प्रक्रिया प्रकाश संश्लेषण का पहला चरण है?",
+        "options": [
+          "लाइट रिएक्शन",
+          "कैल्विन चक्र",
+          "श्वसन",
+          "गैस एक्सचेंज"
+        ],
+        "correct_answer": "लाइट रिएक्शन। यह वह चरण है जहाँ सूर्य के प्रकाश को इलेक्ट्रॉनिक ऊर्जा (ATP और NADPH) में परिवर्तित किया जाता है, जो बाद में कैल्विन चक्र को शक्ति देता है।",
+        "question_type": "multiple_choice",
+        "bloom_level": "Understand",
+        "hints": [
+          "पहला चरण प्रकाश की ऊर्जा को पकड़ता है।",
+          "यह चरण ATP और NADPH बनाता है।"
+        ],
+        "common_misconceptions": [
+          "कैल्विन चक्र पहले होता है क्योंकि उसका नाम पहले आता है।",
+          "लाइट रिएक्शन केवल प्रकाश को अवशोषित करता है, लेकिन ऊर्जा बनाता नहीं।"
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_16d6fbcd1741.mp3"
+    },
+    {
+      "step_id": 2,
+      "step_type": "visual_deep_dive",
+      "title": "लाइट रिएक्शन का दृश्य मॉडल",
+      "concept_summary": "फोटोसिस्टम II के भीतर इलेक्ट्रॉन प्रवाह को एनिमेटेड चित्रों के माध्यम से दर्शाते हुए, फोटोपिग्मेंट, एंटीना कॉम्प्लेक्स और क्विनोन की भूमिका को स्पष्ट किया गया है।",
+      "estimated_duration_seconds": 180,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 3,
+      "step_type": "concept_breakdown",
+      "title": "फोटोसिस्टम II की संरचना",
+      "concept_summary": "फोटोसिस्टम II के प्रमुख घटकों—पॉलीफेनॉल, प्लास्टिक, और एंजाइम कॉम्प्लेक्स—की विस्तृत व्याख्या और उनके बीच ऊर्जा स्थानांतरण।",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 4,
+      "step_type": "practical_demo",
+      "title": "प्रयोग: क्लोरोफिल फ्लोरेसेंस",
+      "concept_summary": "क्लोरोफिल के फ्लोरेसेंस को देख कर इलेक्ट्रॉन उत्तेजना और पुनरावृत्ति को वास्तविक समय में अवलोकित किया जाता है, जिससे सिद्धांत का प्रयोगात्मक प्रमाण मिलता है।",
+      "estimated_duration_seconds": 180,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 5,
+      "step_type": "checkpoint",
+      "title": "संकल्पनात्मक प्रश्नोत्तरी",
+      "concept_summary": "लाइट रिएक्शन के प्रमुख चरणों, ऊर्जा प्रवाह और उत्पादों पर केंद्रित बहुविकल्पीय प्रश्नों के माध्यम से समझ की जाँच।",
+      "estimated_duration_seconds": 120,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 6,
+      "step_type": "synthesis",
+      "title": "लाइट रिएक्शन को अन्य प्रक्रियाओं से जोड़ना",
+      "concept_summary": "लाइट रिएक्शन को कैल्विन चक्र, श्वसन और पर्यावरणीय कारकों से जोड़ते हुए एक समग्र चित्र बनाना, जिससे ज्ञान का सृजनात्मक उपयोग संभव हो।",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    }
+  ]
+}

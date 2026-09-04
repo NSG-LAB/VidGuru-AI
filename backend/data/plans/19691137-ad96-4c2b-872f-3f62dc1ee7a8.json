@@ -1,0 +1,202 @@
+{
+  "plan_id": "19691137-ad96-4c2b-872f-3f62dc1ee7a8",
+  "topic_title": "Dynamic Programming: 0/1 Knapsack",
+  "overview": "In five minutes, Maya guides you from the core intuition of choosing items to the concrete construction of a DP table, using vivid visual analogies that cement optimal substructure and overlapping subproblems.",
+  "student_profile": {
+    "grade_level": "undergraduate",
+    "language": "English",
+    "learning_goal": "deep_conceptual",
+    "time_budget_mins": 5,
+    "learning_style": "visual_analogies",
+    "teacher_persona": "Maya (Energetic & Visual)"
+  },
+  "total_estimated_mins": 5,
+  "modules": [
+    {
+      "module_id": 1,
+      "title": "Visual Intuition & Problem Framing",
+      "description": "Maya paints a picture of the knapsack as a treasure chest, revealing why greedy choices fail.",
+      "steps": [
+        {
+          "step_id": 1,
+          "step_type": "introduction",
+          "title": "The Treasure Chest Analogy",
+          "concept_summary": "Imagine a chest with limited capacity; each gem has weight and value. Selecting the best combination is like fitting the most glittering set without breaking the lid.",
+          "estimated_duration_seconds": 70,
+          "is_completed": false,
+          "teacher_script": "Hey there! Today we're diving into the classic 0/1 Knapsack problem, but I like to think of it as a magical treasure chest. Imagine you have a sturdy chest that can hold only a certain weight—say, 50 kilograms. Inside a room, there are dozens of glittering gems, each with its own weight and sparkle value. Your mission? Pick the combination of gems that maximizes total sparkle without overloading the chest. You can either take a gem whole or leave it behind—no cutting gems in half, just like the 0/1 rule. As we explore, we'll see how this intuitive story translates into a powerful dynamic programming table, where each cell answers the question: \"Given the first i gems and a remaining capacity w, what's the best sparkle we can achieve?\" We'll build the solution step by step, filling the table just like stacking gems carefully. By the end, you'll see how this analogy not only makes the math clearer but also gives you a mental picture to tackle real-world optimization challenges. Ready to unlock the chest together?",
+          "visuals": [
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "Treasure Chest Analogy: Chest capacity = knapsack weight limit; each gem = item with weight and value; goal = maximize total value without exceeding capacity.",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "latex",
+              "title": "Concept Visual",
+              "content": "V[i][w] = \\begin{cases} V[i-1][w] & \\text{if } w_i > w \\\\ \\max\\big(V[i-1][w],\\; v_i + V[i-1][w-w_i]\\big) & \\text{otherwise} \\end{cases}",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "• Dynamic programming breaks the problem into sub‑problems defined by items considered and remaining capacity.\n• The recurrence chooses between skipping an item or taking it, adding its value to the best of the reduced capacity.\n• The DP table is filled iteratively, yielding the optimal value in O(n·W) time.",
+              "explanation": "",
+              "language": null
+            }
+          ],
+          "formative_question": {
+            "id": "411da53d",
+            "prompt": "If you have three gems with (weight, value) pairs (10,60), (20,100), (30,120) and a chest capacity of 50, which combination gives the maximum total value?",
+            "options": null,
+            "correct_answer": "Choosing the 20‑weight and 30‑weight gems (total weight 50) gives the maximum value of 220.",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Apply",
+            "hints": [
+              "Calculate the total value for each feasible combination that does not exceed capacity.",
+              "Remember you cannot split a gem; you either take it whole or leave it."
+            ],
+            "common_misconceptions": [
+              "Assuming the highest individual value gem always leads to the optimal total.",
+              "Overlooking that two smaller gems together may fit the capacity better than one large gem."
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_94342eed3213.mp3"
+        },
+        {
+          "step_id": 2,
+          "step_type": "concept_breakdown",
+          "title": "Optimal Substructure & Overlap",
+          "concept_summary": "Show how the best solution for capacity C either includes or excludes the current item, creating two smaller sub‑problems that recur across items.",
+          "estimated_duration_seconds": 80,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    },
+    {
+      "module_id": 2,
+      "title": "DP Table Construction & Insightful Synthesis",
+      "description": "Maya builds the memoization table step‑by‑step, then ties it back to the visual story.",
+      "steps": [
+        {
+          "step_id": 3,
+          "step_type": "visual_deep_dive",
+          "title": "Filling the DP Grid",
+          "concept_summary": "Treat the table as a map of chest capacities (rows) vs. items (columns); each cell visualizes the maximum glitter achievable, highlighting how previous cells are reused.",
+          "estimated_duration_seconds": 70,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 4,
+          "step_type": "synthesis",
+          "title": "From Table to Strategy",
+          "concept_summary": "Trace back from the filled grid to reconstruct the chosen items, reinforcing why memoization eliminates redundant work and guarantees the optimal loot.",
+          "estimated_duration_seconds": 80,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    }
+  ],
+  "all_steps_flattened": [
+    {
+      "step_id": 1,
+      "step_type": "introduction",
+      "title": "The Treasure Chest Analogy",
+      "concept_summary": "Imagine a chest with limited capacity; each gem has weight and value. Selecting the best combination is like fitting the most glittering set without breaking the lid.",
+      "estimated_duration_seconds": 70,
+      "is_completed": false,
+      "teacher_script": "Hey there! Today we're diving into the classic 0/1 Knapsack problem, but I like to think of it as a magical treasure chest. Imagine you have a sturdy chest that can hold only a certain weight—say, 50 kilograms. Inside a room, there are dozens of glittering gems, each with its own weight and sparkle value. Your mission? Pick the combination of gems that maximizes total sparkle without overloading the chest. You can either take a gem whole or leave it behind—no cutting gems in half, just like the 0/1 rule. As we explore, we'll see how this intuitive story translates into a powerful dynamic programming table, where each cell answers the question: \"Given the first i gems and a remaining capacity w, what's the best sparkle we can achieve?\" We'll build the solution step by step, filling the table just like stacking gems carefully. By the end, you'll see how this analogy not only makes the math clearer but also gives you a mental picture to tackle real-world optimization challenges. Ready to unlock the chest together?",
+      "visuals": [
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "Treasure Chest Analogy: Chest capacity = knapsack weight limit; each gem = item with weight and value; goal = maximize total value without exceeding capacity.",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "latex",
+          "title": "Concept Visual",
+          "content": "V[i][w] = \\begin{cases} V[i-1][w] & \\text{if } w_i > w \\\\ \\max\\big(V[i-1][w],\\; v_i + V[i-1][w-w_i]\\big) & \\text{otherwise} \\end{cases}",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "• Dynamic programming breaks the problem into sub‑problems defined by items considered and remaining capacity.\n• The recurrence chooses between skipping an item or taking it, adding its value to the best of the reduced capacity.\n• The DP table is filled iteratively, yielding the optimal value in O(n·W) time.",
+          "explanation": "",
+          "language": null
+        }
+      ],
+      "formative_question": {
+        "id": "411da53d",
+        "prompt": "If you have three gems with (weight, value) pairs (10,60), (20,100), (30,120) and a chest capacity of 50, which combination gives the maximum total value?",
+        "options": null,
+        "correct_answer": "Choosing the 20‑weight and 30‑weight gems (total weight 50) gives the maximum value of 220.",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Apply",
+        "hints": [
+          "Calculate the total value for each feasible combination that does not exceed capacity.",
+          "Remember you cannot split a gem; you either take it whole or leave it."
+        ],
+        "common_misconceptions": [
+          "Assuming the highest individual value gem always leads to the optimal total.",
+          "Overlooking that two smaller gems together may fit the capacity better than one large gem."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_94342eed3213.mp3"
+    },
+    {
+      "step_id": 2,
+      "step_type": "concept_breakdown",
+      "title": "Optimal Substructure & Overlap",
+      "concept_summary": "Show how the best solution for capacity C either includes or excludes the current item, creating two smaller sub‑problems that recur across items.",
+      "estimated_duration_seconds": 80,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 3,
+      "step_type": "visual_deep_dive",
+      "title": "Filling the DP Grid",
+      "concept_summary": "Treat the table as a map of chest capacities (rows) vs. items (columns); each cell visualizes the maximum glitter achievable, highlighting how previous cells are reused.",
+      "estimated_duration_seconds": 70,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 4,
+      "step_type": "synthesis",
+      "title": "From Table to Strategy",
+      "concept_summary": "Trace back from the filled grid to reconstruct the chosen items, reinforcing why memoization eliminates redundant work and guarantees the optimal loot.",
+      "estimated_duration_seconds": 80,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    }
+  ]
+}

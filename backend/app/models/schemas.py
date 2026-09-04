@@ -51,11 +51,22 @@ class TopicInputRequest(BaseModel):
 # Visual Content for Dynamic Whiteboard
 # ----------------------------------------------------
 class VisualContent(BaseModel):
-    type: Literal["latex", "mermaid", "code", "concept_card", "key_takeaways", "chart_data", "analogy_box"]
+    type: Literal["latex", "mermaid", "code", "concept_card", "key_takeaways", "chart_data", "analogy_box", "image"]
     title: str
     content: str
     explanation: Optional[str] = None
     language: Optional[str] = None  # for code: python, javascript, etc.
+    image_url: Optional[str] = None  # populated after DALL-E generation for type='image'
+    image_prompt: Optional[str] = None  # descriptive prompt from LLM for image generation
+
+    @field_validator("content", mode="before")
+    @classmethod
+    def normalize_visual_content(cls, v: Any) -> str:
+        if isinstance(v, list):
+            return "\n".join(f"• {str(item)}" for item in v)
+        elif isinstance(v, dict):
+            return json.dumps(v, ensure_ascii=False)
+        return str(v) if v is not None else ""
 
     @field_validator("type", mode="before")
     @classmethod
@@ -73,6 +84,8 @@ class VisualContent(BaseModel):
             return "key_takeaways"
         elif val in ["chart_data", "chart", "plot"]:
             return "chart_data"
+        elif val in ["image", "illustration", "picture", "photo", "visual", "figure"]:
+            return "image"
         return "concept_card"
 
 
@@ -88,6 +101,18 @@ class FormativeQuestion(BaseModel):
     bloom_level: str = "Apply"  # Remember, Understand, Apply, Analyze, Evaluate
     hints: List[str] = Field(default_factory=list)
     common_misconceptions: List[str] = Field(default_factory=list)
+
+    @field_validator("question_type", mode="before")
+    @classmethod
+    def normalize_question_type(cls, v: Any) -> str:
+        val = str(v).lower().replace("-", "_").strip()
+        if "choice" in val or "mcq" in val:
+            return "multiple_choice"
+        elif "true" in val or "false" in val:
+            return "true_false"
+        elif "code" in val:
+            return "code_puzzle"
+        return "open_ended_voice_or_text"
 
 # ----------------------------------------------------
 # Lesson Plan & Steps

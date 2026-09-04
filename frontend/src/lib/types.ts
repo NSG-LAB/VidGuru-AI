@@ -8,11 +8,13 @@ export interface StudentProfile {
 }
 
 export interface VisualContent {
-  type: 'latex' | 'mermaid' | 'code' | 'concept_card' | 'key_takeaways' | 'chart_data' | 'analogy_box';
+  type: 'latex' | 'mermaid' | 'code' | 'concept_card' | 'key_takeaways' | 'chart_data' | 'analogy_box' | 'image';
   title: string;
   content: string;
   explanation?: string;
   language?: string;
+  image_url?: string;
+  image_prompt?: string;
 }
 
 export interface FormativeQuestion {

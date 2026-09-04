@@ -9,6 +9,7 @@ from app.api.classroom import router as classroom_router
 from app.api.voice import router as voice_router
 from app.api.assessment import router as assessment_router
 from app.api.health import router as health_router
+from app.api.images import router as images_router
 
 app = FastAPI(
     title="VidGuru AI API",
@@ -33,6 +34,7 @@ app.include_router(lesson_plan_router, prefix=api_prefix)
 app.include_router(classroom_router, prefix=api_prefix)
 app.include_router(voice_router, prefix=api_prefix)
 app.include_router(assessment_router, prefix=api_prefix)
+app.include_router(images_router, prefix=api_prefix)
 
 if __name__ == "__main__":
     uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)

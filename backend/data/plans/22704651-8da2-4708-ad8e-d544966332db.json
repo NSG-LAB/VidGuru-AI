@@ -1,0 +1,355 @@
+{
+  "plan_id": "22704651-8da2-4708-ad8e-d544966332db",
+  "topic_title": "Database Management Systems (DBMS): Foundations & Visual Intuition",
+  "overview": "In 15 minutes, Maya guides you through the core ideas of DBMS using vivid visual analogies, from data storage basics to query processing, ending with a quick hands‑on demo and a synthesis activity.",
+  "student_profile": {
+    "grade_level": "undergraduate",
+    "language": "English",
+    "learning_goal": "exam_cram",
+    "time_budget_mins": 15,
+    "learning_style": "visual_analogies",
+    "teacher_persona": "Maya (Energetic & Visual)"
+  },
+  "total_estimated_mins": 15,
+  "modules": [
+    {
+      "module_id": 1,
+      "title": "Data Foundations & Structure",
+      "description": "Visualizing how data is organized and stored.",
+      "steps": [
+        {
+          "step_id": 1,
+          "step_type": "introduction",
+          "title": "What is a DBMS? The Library Analogy",
+          "concept_summary": "Imagine a DBMS as a smart librarian who catalogs, stores, and retrieves books (data) efficiently.",
+          "estimated_duration_seconds": 90,
+          "is_completed": false,
+          "teacher_script": "Hello! Today we're diving into the heart of any modern application: the Database Management System, or DBMS. Imagine walking into a massive library where every book, magazine, and manuscript is perfectly organized. The DBMS is the smart librarian who not only knows exactly where each item lives but also checks it out, returns it, and keeps track of who borrowed what—all in a split second. Just as the librarian shields you from the chaos of endless shelves, the DBMS hides the complex details of how data is stored on disks, letting you focus on asking questions like “Which customers bought product X last month?” Instead of rummaging through piles, you simply issue a query, and the librarian—our DBMS—fetches the answer instantly. This abstraction gives us consistency, security, and speed. Throughout this module, we'll explore how that librarian works behind the scenes, from cataloging (metadata) to indexing (quick look‑ups) and transaction management (making sure every operation is safe). Ready to meet your digital librarian? Let’s get started!",
+          "visuals": [
+            {
+              "type": "concept_card",
+              "title": "Concept Visual",
+              "content": "",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "concept_card",
+              "title": "Concept Visual",
+              "content": "",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "concept_card",
+              "title": "Concept Visual",
+              "content": "",
+              "explanation": "",
+              "language": null
+            }
+          ],
+          "formative_question": {
+            "id": "ccb96ee0",
+            "prompt": "If you think of a DBMS as a librarian, which of the following library tasks corresponds to the DBMS's 'query processor'?",
+            "options": [
+              "Shelving new books",
+              "Helping a patron find a specific book",
+              "Keeping a record of overdue books",
+              "Ordering new books from suppliers"
+            ],
+            "correct_answer": "Helping a patron find a specific book",
+            "question_type": "multiple_choice",
+            "bloom_level": "Understand",
+            "hints": [
+              "The query processor interprets user requests",
+              "It translates a question into actions to locate data"
+            ],
+            "common_misconceptions": [
+              "Confusing query processing with data storage",
+              "Thinking the DBMS only stores data without handling requests"
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_6e5cf79ccf77.mp3"
+        },
+        {
+          "step_id": 2,
+          "step_type": "concept_breakdown",
+          "title": "Tables, Rows, and Columns: The Grid Blueprint",
+          "concept_summary": "Break down the relational model: tables are grids, rows are records, columns are attributes, like a spreadsheet of information.",
+          "estimated_duration_seconds": 120,
+          "is_completed": false,
+          "teacher_script": "Hey there! Imagine you’re looking at a spreadsheet on your laptop – rows and columns neatly arranged, each cell holding a piece of data. In the world of databases, that very spreadsheet is called a table, and it’s the fundamental building block of the relational model. Each column represents an attribute – think of it as a property like \"Student Name\" or \"Course ID\" – while each row is a record, a single, complete entry that ties all those attributes together, like one student’s full profile. This grid layout lets us store massive amounts of structured information in a way that’s both human‑readable and machine‑efficient. As we dive deeper, you’ll see how primary keys uniquely identify rows, and how foreign keys link tables together, forming a powerful web of relationships. So, picture a library catalog: the table is the catalog, columns are the fields like title, author, and ISBN, and each row is a specific book. Ready to explore how this simple grid becomes the backbone of complex data systems?",
+          "visuals": [
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "A relational table is like an Excel sheet: columns = attributes (e.g., Name, Age), rows = individual records (e.g., one person’s data).",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "mermaid",
+              "title": "Concept Visual",
+              "content": "graph LR\n    Table[Table: Students]\n    Column1[Column: StudentID]\n    Column2[Column: Name]\n    Column3[Column: Major]\n    Row1[Row: (101, \"Alice\", \"CS\")]\n    Row2[Row: (102, \"Bob\", \"EE\")]\n    Table --> Column1\n    Table --> Column2\n    Table --> Column3\n    Table --> Row1\n    Table --> Row2",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "code",
+              "title": "Concept Visual",
+              "content": "CREATE TABLE Students (\n    StudentID INT PRIMARY KEY,\n    Name VARCHAR(50),\n    Major VARCHAR(30)\n);",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "- A table = a grid of rows (records) and columns (attributes).\n- Columns define the data type and meaning of each field.\n- Each row uniquely represents one entity, identified by a primary key.",
+              "explanation": "",
+              "language": null
+            }
+          ],
+          "formative_question": {
+            "id": "a238325a",
+            "prompt": "If you look at a table of employee data, which part of the grid would you point to in order to find the employee's salary for a specific person?",
+            "options": null,
+            "correct_answer": "You would locate the column labeled 'Salary' and then move to the row that corresponds to that specific employee; the intersecting cell gives the salary.",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Understand",
+            "hints": [
+              "First, identify what a column represents in a table.",
+              "Then, think about how you locate a particular individual's information."
+            ],
+            "common_misconceptions": [
+              "Confusing the column (attribute) with the entire row (record).",
+              "Assuming the salary is stored in a separate table without a clear relationship."
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_ed681de21fdb.mp3"
+        }
+      ]
+    },
+    {
+      "module_id": 2,
+      "title": "Operations & Queries",
+      "description": "Seeing how we interact with the data.",
+      "steps": [
+        {
+          "step_id": 3,
+          "step_type": "visual_deep_dive",
+          "title": "SQL as a Recipe: SELECT, FROM, WHERE",
+          "concept_summary": "Visualize a SQL query as a cooking recipe where SELECT picks ingredients, FROM chooses the pantry, and WHERE applies filters.",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 4,
+          "step_type": "practical_demo",
+          "title": "Live Query Walkthrough",
+          "concept_summary": "Maya runs a quick demo: creating a table, inserting rows, and retrieving specific records, reinforcing the recipe analogy.",
+          "estimated_duration_seconds": 180,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    },
+    {
+      "module_id": 3,
+      "title": "Integrity, Transactions & Reflection",
+      "description": "Ensuring data reliability and consolidating learning.",
+      "steps": [
+        {
+          "step_id": 5,
+          "step_type": "checkpoint",
+          "title": "Quick Quiz: Spot the Anomaly",
+          "concept_summary": "A visual multiple‑choice snapshot asks you to identify violations of primary key or foreign key rules.",
+          "estimated_duration_seconds": 120,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 6,
+          "step_type": "synthesis",
+          "title": "Design Your Mini‑DB",
+          "concept_summary": "You sketch a tiny database schema for a personal movie collection, applying tables, keys, and a simple SELECT query.",
+          "estimated_duration_seconds": 240,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    }
+  ],
+  "all_steps_flattened": [
+    {
+      "step_id": 1,
+      "step_type": "introduction",
+      "title": "What is a DBMS? The Library Analogy",
+      "concept_summary": "Imagine a DBMS as a smart librarian who catalogs, stores, and retrieves books (data) efficiently.",
+      "estimated_duration_seconds": 90,
+      "is_completed": false,
+      "teacher_script": "Hello! Today we're diving into the heart of any modern application: the Database Management System, or DBMS. Imagine walking into a massive library where every book, magazine, and manuscript is perfectly organized. The DBMS is the smart librarian who not only knows exactly where each item lives but also checks it out, returns it, and keeps track of who borrowed what—all in a split second. Just as the librarian shields you from the chaos of endless shelves, the DBMS hides the complex details of how data is stored on disks, letting you focus on asking questions like “Which customers bought product X last month?” Instead of rummaging through piles, you simply issue a query, and the librarian—our DBMS—fetches the answer instantly. This abstraction gives us consistency, security, and speed. Throughout this module, we'll explore how that librarian works behind the scenes, from cataloging (metadata) to indexing (quick look‑ups) and transaction management (making sure every operation is safe). Ready to meet your digital librarian? Let’s get started!",
+      "visuals": [
+        {
+          "type": "concept_card",
+          "title": "Concept Visual",
+          "content": "",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "concept_card",
+          "title": "Concept Visual",
+          "content": "",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "concept_card",
+          "title": "Concept Visual",
+          "content": "",
+          "explanation": "",
+          "language": null
+        }
+      ],
+      "formative_question": {
+        "id": "ccb96ee0",
+        "prompt": "If you think of a DBMS as a librarian, which of the following library tasks corresponds to the DBMS's 'query processor'?",
+        "options": [
+          "Shelving new books",
+          "Helping a patron find a specific book",
+          "Keeping a record of overdue books",
+          "Ordering new books from suppliers"
+        ],
+        "correct_answer": "Helping a patron find a specific book",
+        "question_type": "multiple_choice",
+        "bloom_level": "Understand",
+        "hints": [
+          "The query processor interprets user requests",
+          "It translates a question into actions to locate data"
+        ],
+        "common_misconceptions": [
+          "Confusing query processing with data storage",
+          "Thinking the DBMS only stores data without handling requests"
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_6e5cf79ccf77.mp3"
+    },
+    {
+      "step_id": 2,
+      "step_type": "concept_breakdown",
+      "title": "Tables, Rows, and Columns: The Grid Blueprint",
+      "concept_summary": "Break down the relational model: tables are grids, rows are records, columns are attributes, like a spreadsheet of information.",
+      "estimated_duration_seconds": 120,
+      "is_completed": false,
+      "teacher_script": "Hey there! Imagine you’re looking at a spreadsheet on your laptop – rows and columns neatly arranged, each cell holding a piece of data. In the world of databases, that very spreadsheet is called a table, and it’s the fundamental building block of the relational model. Each column represents an attribute – think of it as a property like \"Student Name\" or \"Course ID\" – while each row is a record, a single, complete entry that ties all those attributes together, like one student’s full profile. This grid layout lets us store massive amounts of structured information in a way that’s both human‑readable and machine‑efficient. As we dive deeper, you’ll see how primary keys uniquely identify rows, and how foreign keys link tables together, forming a powerful web of relationships. So, picture a library catalog: the table is the catalog, columns are the fields like title, author, and ISBN, and each row is a specific book. Ready to explore how this simple grid becomes the backbone of complex data systems?",
+      "visuals": [
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "A relational table is like an Excel sheet: columns = attributes (e.g., Name, Age), rows = individual records (e.g., one person’s data).",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "mermaid",
+          "title": "Concept Visual",
+          "content": "graph LR\n    Table[Table: Students]\n    Column1[Column: StudentID]\n    Column2[Column: Name]\n    Column3[Column: Major]\n    Row1[Row: (101, \"Alice\", \"CS\")]\n    Row2[Row: (102, \"Bob\", \"EE\")]\n    Table --> Column1\n    Table --> Column2\n    Table --> Column3\n    Table --> Row1\n    Table --> Row2",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "code",
+          "title": "Concept Visual",
+          "content": "CREATE TABLE Students (\n    StudentID INT PRIMARY KEY,\n    Name VARCHAR(50),\n    Major VARCHAR(30)\n);",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "- A table = a grid of rows (records) and columns (attributes).\n- Columns define the data type and meaning of each field.\n- Each row uniquely represents one entity, identified by a primary key.",
+          "explanation": "",
+          "language": null
+        }
+      ],
+      "formative_question": {
+        "id": "a238325a",
+        "prompt": "If you look at a table of employee data, which part of the grid would you point to in order to find the employee's salary for a specific person?",
+        "options": null,
+        "correct_answer": "You would locate the column labeled 'Salary' and then move to the row that corresponds to that specific employee; the intersecting cell gives the salary.",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Understand",
+        "hints": [
+          "First, identify what a column represents in a table.",
+          "Then, think about how you locate a particular individual's information."
+        ],
+        "common_misconceptions": [
+          "Confusing the column (attribute) with the entire row (record).",
+          "Assuming the salary is stored in a separate table without a clear relationship."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_ed681de21fdb.mp3"
+    },
+    {
+      "step_id": 3,
+      "step_type": "visual_deep_dive",
+      "title": "SQL as a Recipe: SELECT, FROM, WHERE",
+      "concept_summary": "Visualize a SQL query as a cooking recipe where SELECT picks ingredients, FROM chooses the pantry, and WHERE applies filters.",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 4,
+      "step_type": "practical_demo",
+      "title": "Live Query Walkthrough",
+      "concept_summary": "Maya runs a quick demo: creating a table, inserting rows, and retrieving specific records, reinforcing the recipe analogy.",
+      "estimated_duration_seconds": 180,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 5,
+      "step_type": "checkpoint",
+      "title": "Quick Quiz: Spot the Anomaly",
+      "concept_summary": "A visual multiple‑choice snapshot asks you to identify violations of primary key or foreign key rules.",
+      "estimated_duration_seconds": 120,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 6,
+      "step_type": "synthesis",
+      "title": "Design Your Mini‑DB",
+      "concept_summary": "You sketch a tiny database schema for a personal movie collection, applying tables, keys, and a simple SELECT query.",
+      "estimated_duration_seconds": 240,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    }
+  ]
+}

@@ -1,0 +1,300 @@
+{
+  "plan_id": "470641e3-983f-4609-a84c-8dd85b391e35",
+  "topic_title": "Quantum Superposition & Qubits",
+  "overview": "In this rapid 5‑minute masterclass, Prof. Aryan guides you through the visual heart of quantum superposition and the geometry of qubits. You’ll build intuition using the Bloch sphere, then synthesize how measurement collapses these states.",
+  "student_profile": {
+    "grade_level": "undergraduate",
+    "language": "English",
+    "learning_goal": "deep_conceptual",
+    "time_budget_mins": 5,
+    "learning_style": "visual_analogies",
+    "teacher_persona": "Prof. Aryan (Deep & Socratic)"
+  },
+  "total_estimated_mins": 5,
+  "modules": [
+    {
+      "module_id": 1,
+      "title": "Seeing Superposition",
+      "description": "Establish a visual foundation for quantum superposition using everyday analogies.",
+      "steps": [
+        {
+          "step_id": 1,
+          "step_type": "introduction",
+          "title": "Superposition: The Core Idea",
+          "concept_summary": "Prof. Aryan asks: what does it mean for a quantum system to be in multiple states at once? The answer links wave functions to overlapping possibilities.",
+          "estimated_duration_seconds": 60,
+          "is_completed": false,
+          "teacher_script": "Hey there! I’m Prof. Aryan, and today we’re diving into the heart of quantum mechanics: superposition. Imagine you have a quantum system—say, an electron or a qubit. In classical physics, it would be in one definite state: spin up or spin down, heads or tails. But in the quantum world, the system’s wavefunction — that mathematical object that encodes all possible outcomes — can be a weighted blend of multiple basis states. Think of it like a song that’s a mash‑up of two tracks: until you hit play, you’re hearing a superposition of both melodies. When you measure, the wavefunction “collapses” to one of the basis states, and the probabilities of each outcome are given by the squared magnitudes of the coefficients. So, superposition isn’t a classical mixture; it’s a genuine overlap of possibilities that only resolves upon observation. Ready to see this idea in action? Let’s sketch it out!",
+          "visuals": [
+            {
+              "type": "latex",
+              "title": "Concept Visual",
+              "content": "\\psi = \\alpha |0\\rangle + \\beta |1\\rangle",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "mermaid",
+              "title": "Concept Visual",
+              "content": "graph TD\n  A[Quantum State]\n  A --> B[Superposition]\n  B --> C[Measurement]\n  C --> D[Collapse to |0\\rangle or |1\\rangle]",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "Imagine a spinning coin that is both heads and tails until you look. The act of looking (measurement) forces it to settle on one side.",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "- A quantum system’s wavefunction can be a linear combination of basis states.\n- The coefficients (\\alpha, \\beta) are probability amplitudes.\n- Measurement collapses the superposition to a single outcome, with probabilities |\\alpha|^2 and |\\beta|^2.",
+              "explanation": "",
+              "language": null
+            }
+          ],
+          "formative_question": {
+            "id": "d59c8211",
+            "prompt": "Explain in your own words what it means for a quantum system to be in a superposition of states. Why does measurement collapse the wavefunction?",
+            "options": null,
+            "correct_answer": "A superposition means the system’s wavefunction is a linear combination of multiple basis states, each weighted by a complex amplitude. The system does not have a definite state until measured; measurement forces the wavefunction to collapse to one of the basis states, with probabilities given by the squared magnitudes of the amplitudes.",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Understand",
+            "hints": [
+              "Think of probability amplitudes as weights in a weighted average.\nConsider the double-slit experiment where a particle goes through both slits simultaneously until observed."
+            ],
+            "common_misconceptions": [
+              "Believing superposition is the same as a classical mixture where the system secretly chooses one state.\nAssuming measurement reveals a pre‑existing hidden state rather than causing collapse."
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_7735e5ccc062.mp3"
+        },
+        {
+          "step_id": 2,
+          "step_type": "visual_deep_dive",
+          "title": "Bloch Sphere as a 3‑D Analogy",
+          "concept_summary": "Using a sphere, we map the north and south poles to |0⟩ and |1⟩, and any point on the surface to a superposed state, visualizing amplitudes as angles.",
+          "estimated_duration_seconds": 90,
+          "is_completed": false,
+          "teacher_script": "Welcome back! Today we’ll bring the abstract idea of quantum superposition to life using the Bloch sphere – think of it as a 3‑D globe for a single qubit. Imagine the north pole representing the basis state |0⟩ and the south pole representing |1⟩. Any point on the surface corresponds to a superposed state, where the latitude tells you the relative probabilities and the longitude encodes the relative phase between the amplitudes. Mathematically we write the state as |ψ⟩ = cos(θ/2) |0⟩ + e^{iφ} sin(θ/2) |1⟩, where θ is the polar angle from the north pole and φ is the azimuthal angle around the equator. Visualizing this, a point on the equator (θ = 90°) gives equal probabilities for |0⟩ and |1⟩, but the phase φ determines how the qubit will interfere with others later. Think of the sphere like a globe: moving north‑south changes the ‘weight’ of each outcome, while rotating east‑west twists the quantum phase. This picture helps us intuit operations like the Hadamard gate, which simply rotates the state from a pole to the equator. Keep this mental model handy – it’s a powerful compass for navigating quantum algorithms.",
+          "visuals": [
+            {
+              "type": "latex",
+              "title": "Concept Visual",
+              "content": "|\\psi\\rangle = \\cos\\frac{\\theta}{2}\\,|0\\rangle + e^{i\\phi}\\sin\\frac{\\theta}{2}\\,|1\\rangle",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "mermaid",
+              "title": "Concept Visual",
+              "content": "graph LR\n    A[|0\\rangle (North Pole)] -->|θ rotation| B[General State]\n    C[|1\\rangle (South Pole)] -->|θ rotation| B\n    B -->|φ rotation| D[Phase Twist]",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "Think of the Bloch sphere as Earth: latitude (θ) tells you how much land (|0⟩) vs water (|1⟩) you see, while longitude (φ) tells you which time zone (phase) you’re in.",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "• North/South poles = pure basis states |0⟩ and |1⟩.\n• Polar angle θ sets the probability amplitudes.\n• Azimuthal angle φ encodes the relative quantum phase.",
+              "explanation": "",
+              "language": null
+            }
+          ],
+          "formative_question": {
+            "id": "8aa5558d",
+            "prompt": "If a qubit is located at the point with θ = 60° and φ = 180°, what are the probabilities of measuring |0⟩ and |1⟩?",
+            "options": null,
+            "correct_answer": "The probability of |0⟩ is cos²(θ/2) = cos²(30°) = (√3/2)² = 3/4, and the probability of |1⟩ is sin²(θ/2) = sin²(30°) = (1/2)² = 1/4. The phase φ does not affect measurement probabilities.",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Understand",
+            "hints": [
+              "Recall the Bloch sphere formula for amplitudes.",
+              "Convert θ to radians if needed, but degrees work with standard trig values."
+            ],
+            "common_misconceptions": [
+              "Thinking the phase φ changes the measurement probabilities.",
+              "Confusing θ with the full angle rather than the half‑angle in the formula."
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_f39605a4793f.mp3"
+        }
+      ]
+    },
+    {
+      "module_id": 2,
+      "title": "Qubits on the Bloch Sphere",
+      "description": "Translate the intuition into the formal qubit representation and its measurement.",
+      "steps": [
+        {
+          "step_id": 3,
+          "step_type": "concept_breakdown",
+          "title": "Mathematical Form of a Qubit",
+          "concept_summary": "Break down the state vector ψ = α|0⟩ + β|1⟩, where α and β are complex numbers constrained by |α|²+|β|²=1, linking back to sphere coordinates.",
+          "estimated_duration_seconds": 90,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 4,
+          "step_type": "synthesis",
+          "title": "Measurement Collapse and Entanglement Hint",
+          "concept_summary": "Socratic dialogue: after visualizing the qubit, we synthesize how observing forces the point to snap to a pole, foreshadowing entanglement concepts.",
+          "estimated_duration_seconds": 60,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    }
+  ],
+  "all_steps_flattened": [
+    {
+      "step_id": 1,
+      "step_type": "introduction",
+      "title": "Superposition: The Core Idea",
+      "concept_summary": "Prof. Aryan asks: what does it mean for a quantum system to be in multiple states at once? The answer links wave functions to overlapping possibilities.",
+      "estimated_duration_seconds": 60,
+      "is_completed": false,
+      "teacher_script": "Hey there! I’m Prof. Aryan, and today we’re diving into the heart of quantum mechanics: superposition. Imagine you have a quantum system—say, an electron or a qubit. In classical physics, it would be in one definite state: spin up or spin down, heads or tails. But in the quantum world, the system’s wavefunction — that mathematical object that encodes all possible outcomes — can be a weighted blend of multiple basis states. Think of it like a song that’s a mash‑up of two tracks: until you hit play, you’re hearing a superposition of both melodies. When you measure, the wavefunction “collapses” to one of the basis states, and the probabilities of each outcome are given by the squared magnitudes of the coefficients. So, superposition isn’t a classical mixture; it’s a genuine overlap of possibilities that only resolves upon observation. Ready to see this idea in action? Let’s sketch it out!",
+      "visuals": [
+        {
+          "type": "latex",
+          "title": "Concept Visual",
+          "content": "\\psi = \\alpha |0\\rangle + \\beta |1\\rangle",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "mermaid",
+          "title": "Concept Visual",
+          "content": "graph TD\n  A[Quantum State]\n  A --> B[Superposition]\n  B --> C[Measurement]\n  C --> D[Collapse to |0\\rangle or |1\\rangle]",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "Imagine a spinning coin that is both heads and tails until you look. The act of looking (measurement) forces it to settle on one side.",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "- A quantum system’s wavefunction can be a linear combination of basis states.\n- The coefficients (\\alpha, \\beta) are probability amplitudes.\n- Measurement collapses the superposition to a single outcome, with probabilities |\\alpha|^2 and |\\beta|^2.",
+          "explanation": "",
+          "language": null
+        }
+      ],
+      "formative_question": {
+        "id": "d59c8211",
+        "prompt": "Explain in your own words what it means for a quantum system to be in a superposition of states. Why does measurement collapse the wavefunction?",
+        "options": null,
+        "correct_answer": "A superposition means the system’s wavefunction is a linear combination of multiple basis states, each weighted by a complex amplitude. The system does not have a definite state until measured; measurement forces the wavefunction to collapse to one of the basis states, with probabilities given by the squared magnitudes of the amplitudes.",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Understand",
+        "hints": [
+          "Think of probability amplitudes as weights in a weighted average.\nConsider the double-slit experiment where a particle goes through both slits simultaneously until observed."
+        ],
+        "common_misconceptions": [
+          "Believing superposition is the same as a classical mixture where the system secretly chooses one state.\nAssuming measurement reveals a pre‑existing hidden state rather than causing collapse."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_7735e5ccc062.mp3"
+    },
+    {
+      "step_id": 2,
+      "step_type": "visual_deep_dive",
+      "title": "Bloch Sphere as a 3‑D Analogy",
+      "concept_summary": "Using a sphere, we map the north and south poles to |0⟩ and |1⟩, and any point on the surface to a superposed state, visualizing amplitudes as angles.",
+      "estimated_duration_seconds": 90,
+      "is_completed": false,
+      "teacher_script": "Welcome back! Today we’ll bring the abstract idea of quantum superposition to life using the Bloch sphere – think of it as a 3‑D globe for a single qubit. Imagine the north pole representing the basis state |0⟩ and the south pole representing |1⟩. Any point on the surface corresponds to a superposed state, where the latitude tells you the relative probabilities and the longitude encodes the relative phase between the amplitudes. Mathematically we write the state as |ψ⟩ = cos(θ/2) |0⟩ + e^{iφ} sin(θ/2) |1⟩, where θ is the polar angle from the north pole and φ is the azimuthal angle around the equator. Visualizing this, a point on the equator (θ = 90°) gives equal probabilities for |0⟩ and |1⟩, but the phase φ determines how the qubit will interfere with others later. Think of the sphere like a globe: moving north‑south changes the ‘weight’ of each outcome, while rotating east‑west twists the quantum phase. This picture helps us intuit operations like the Hadamard gate, which simply rotates the state from a pole to the equator. Keep this mental model handy – it’s a powerful compass for navigating quantum algorithms.",
+      "visuals": [
+        {
+          "type": "latex",
+          "title": "Concept Visual",
+          "content": "|\\psi\\rangle = \\cos\\frac{\\theta}{2}\\,|0\\rangle + e^{i\\phi}\\sin\\frac{\\theta}{2}\\,|1\\rangle",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "mermaid",
+          "title": "Concept Visual",
+          "content": "graph LR\n    A[|0\\rangle (North Pole)] -->|θ rotation| B[General State]\n    C[|1\\rangle (South Pole)] -->|θ rotation| B\n    B -->|φ rotation| D[Phase Twist]",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "Think of the Bloch sphere as Earth: latitude (θ) tells you how much land (|0⟩) vs water (|1⟩) you see, while longitude (φ) tells you which time zone (phase) you’re in.",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "• North/South poles = pure basis states |0⟩ and |1⟩.\n• Polar angle θ sets the probability amplitudes.\n• Azimuthal angle φ encodes the relative quantum phase.",
+          "explanation": "",
+          "language": null
+        }
+      ],
+      "formative_question": {
+        "id": "8aa5558d",
+        "prompt": "If a qubit is located at the point with θ = 60° and φ = 180°, what are the probabilities of measuring |0⟩ and |1⟩?",
+        "options": null,
+        "correct_answer": "The probability of |0⟩ is cos²(θ/2) = cos²(30°) = (√3/2)² = 3/4, and the probability of |1⟩ is sin²(θ/2) = sin²(30°) = (1/2)² = 1/4. The phase φ does not affect measurement probabilities.",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Understand",
+        "hints": [
+          "Recall the Bloch sphere formula for amplitudes.",
+          "Convert θ to radians if needed, but degrees work with standard trig values."
+        ],
+        "common_misconceptions": [
+          "Thinking the phase φ changes the measurement probabilities.",
+          "Confusing θ with the full angle rather than the half‑angle in the formula."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_f39605a4793f.mp3"
+    },
+    {
+      "step_id": 3,
+      "step_type": "concept_breakdown",
+      "title": "Mathematical Form of a Qubit",
+      "concept_summary": "Break down the state vector ψ = α|0⟩ + β|1⟩, where α and β are complex numbers constrained by |α|²+|β|²=1, linking back to sphere coordinates.",
+      "estimated_duration_seconds": 90,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 4,
+      "step_type": "synthesis",
+      "title": "Measurement Collapse and Entanglement Hint",
+      "concept_summary": "Socratic dialogue: after visualizing the qubit, we synthesize how observing forces the point to snap to a pole, foreshadowing entanglement concepts.",
+      "estimated_duration_seconds": 60,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    }
+  ]
+}

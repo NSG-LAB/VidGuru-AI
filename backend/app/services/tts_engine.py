@@ -65,7 +65,13 @@ class TTSEngine:
         output_path = self.audio_dir / file_id
 
         primary_voice = self._get_voice_for_persona(persona, language)
-        fallback_voices = [primary_voice, "en-US-JennyNeural", "en-US-GuyNeural"]
+        lang_lower = language.lower()
+        if lang_lower in ["hindi", "hinglish"]:
+            fallback_voices = [primary_voice, "hi-IN-SwaraNeural", "hi-IN-MadhurNeural"]
+        elif lang_lower == "spanish":
+            fallback_voices = [primary_voice, "es-ES-ElviraNeural", "es-ES-AlvaroNeural"]
+        else:
+            fallback_voices = [primary_voice, "en-US-JennyNeural", "en-US-GuyNeural"]
         
         # Deduplicate while preserving order
         voices_to_try = []

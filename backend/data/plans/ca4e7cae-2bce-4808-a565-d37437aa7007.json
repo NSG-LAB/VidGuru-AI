@@ -1,0 +1,287 @@
+{
+  "plan_id": "ca4e7cae-2bce-4808-a565-d37437aa7007",
+  "topic_title": "Photosynthesis",
+  "overview": "In this 10‑minute journey, Dr. Nova guides you through the visual story of how plants turn sunlight into chemical energy, building intuition step by step. You’ll see the process as a series of connected analogies, then apply it in a quick virtual demo.",
+  "student_profile": {
+    "grade_level": "high_school",
+    "language": "English",
+    "learning_goal": "deep_conceptual",
+    "time_budget_mins": 10,
+    "learning_style": "visual_analogies",
+    "teacher_persona": "Dr. Nova (Intuitive & Warm)"
+  },
+  "total_estimated_mins": 10,
+  "modules": [
+    {
+      "module_id": 1,
+      "title": "Light Capture & Energy Flow",
+      "description": "Establish the foundational picture of how plants harvest light.",
+      "steps": [
+        {
+          "step_id": 1,
+          "step_type": "introduction",
+          "title": "What is Photosynthesis?",
+          "concept_summary": "A warm overview of the overall reaction: light energy + CO₂ + H₂O → glucose + O₂.",
+          "estimated_duration_seconds": 90,
+          "is_completed": false,
+          "teacher_script": "Hey there! Let’s dive into the magical world of photosynthesis – the plant’s very own solar-powered kitchen. Imagine a green leaf as a tiny factory that captures sunlight, pulls in carbon dioxide from the air, and sips water from the roots. Using the energy from light, it mixes these ingredients to whip up glucose, a sugary fuel, and releases oxygen as a by‑product. In simple terms, the overall reaction looks like this: light energy + CO₂ + H₂O → glucose + O₂. Think of it as nature’s way of turning sunlight into food and fresh air for us. As we explore further, you’ll see how chlorophyll, chloroplasts, and the thylakoid membranes play starring roles in this process. Stay curious, and let’s uncover how every leaf is a little powerhouse converting light into life!",
+          "visuals": [
+            {
+              "type": "concept_card",
+              "title": "Concept Visual",
+              "content": "",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": "A detailed, labeled illustration of the photosynthesis process showing a green leaf under sunlight, chloroplasts with thylakoid membranes, CO₂ entering through stomata, water traveling from roots to leaf, and arrows indicating conversion to glucose inside the chloroplast and release of O₂ into the atmosphere."
+            },
+            {
+              "type": "latex",
+              "title": "Concept Visual",
+              "content": "6\\,\\text{CO}_2 + 6\\,\\text{H}_2\\text{O} \\xrightarrow{\\text{light}} C_6H_{12}O_6 + 6\\,\\text{O}_2",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            },
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "Photosynthesis is like a solar‑powered bakery: sunlight is the oven’s heat, CO₂ and water are the raw ingredients, glucose is the freshly baked bread, and oxygen is the fragrant steam that fills the kitchen.",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "• Plants use light energy, carbon dioxide, and water to produce glucose and oxygen.\n• Chlorophyll in chloroplasts captures sunlight and drives the chemical reactions.\n• The overall balanced equation is: 6 CO₂ + 6 H₂O → C₆H₁₂O₆ + 6 O₂.",
+              "explanation": "",
+              "language": null,
+              "image_url": null,
+              "image_prompt": null
+            }
+          ],
+          "formative_question": {
+            "id": "7fe3adb2",
+            "prompt": "In your own words, list the raw materials plants need for photosynthesis and the main products they create.",
+            "options": null,
+            "correct_answer": "Plants need carbon dioxide (CO₂), water (H₂O), and light energy; they produce glucose (C₆H₁₂O₆) and oxygen (O₂).",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Understand",
+            "hints": [
+              "Think about what the plant takes in from the air and soil.",
+              "Remember the two main outputs of the overall reaction."
+            ],
+            "common_misconceptions": [
+              "Believing that plants only need sunlight and ignore CO₂ and H₂O.",
+              "Thinking that oxygen is a reactant rather than a product."
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_530c092aab04.mp3"
+        },
+        {
+          "step_id": 2,
+          "step_type": "concept_breakdown",
+          "title": "The Light‑Dependent Reactions",
+          "concept_summary": "Break down how chlorophyll pigments act like solar panels, exciting electrons that travel through the thylakoid membrane to produce ATP and NADPH.",
+          "estimated_duration_seconds": 120,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    },
+    {
+      "module_id": 2,
+      "title": "Turning Light into Sugar",
+      "description": "Visualize the carbon‑fixing engine that builds glucose.",
+      "steps": [
+        {
+          "step_id": 3,
+          "step_type": "visual_deep_dive",
+          "title": "The Calvin Cycle as a Factory Assembly Line",
+          "concept_summary": "Use a factory‑floor analogy to show carbon fixation, reduction, carbohydrate formation, and regeneration of the CO₂‑acceptor molecule.",
+          "estimated_duration_seconds": 100,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 4,
+          "step_type": "checkpoint",
+          "title": "Quick Visual Quiz",
+          "concept_summary": "A brief interactive slide where the student matches each Calvin‑Cycle step to its visual icon, reinforcing the analogy.",
+          "estimated_duration_seconds": 80,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    },
+    {
+      "module_id": 3,
+      "title": "Putting It All Together",
+      "description": "Apply the concepts in a hands‑on mental experiment and synthesize the big picture.",
+      "steps": [
+        {
+          "step_id": 5,
+          "step_type": "practical_demo",
+          "title": "Leaf Model Experiment (Virtual)",
+          "concept_summary": "Guided simulation where the student toggles light intensity and CO₂ levels to see real‑time effects on glucose output, visualizing the flow from photons to sugar.",
+          "estimated_duration_seconds": 110,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 6,
+          "step_type": "synthesis",
+          "title": "From Sunlight to Growth – Big Picture",
+          "concept_summary": "Dr. Nova ties together light capture, energy carriers, and the Calvin cycle, highlighting how the produced glucose fuels plant growth and the ecosystem.",
+          "estimated_duration_seconds": 100,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    }
+  ],
+  "all_steps_flattened": [
+    {
+      "step_id": 1,
+      "step_type": "introduction",
+      "title": "What is Photosynthesis?",
+      "concept_summary": "A warm overview of the overall reaction: light energy + CO₂ + H₂O → glucose + O₂.",
+      "estimated_duration_seconds": 90,
+      "is_completed": false,
+      "teacher_script": "Hey there! Let’s dive into the magical world of photosynthesis – the plant’s very own solar-powered kitchen. Imagine a green leaf as a tiny factory that captures sunlight, pulls in carbon dioxide from the air, and sips water from the roots. Using the energy from light, it mixes these ingredients to whip up glucose, a sugary fuel, and releases oxygen as a by‑product. In simple terms, the overall reaction looks like this: light energy + CO₂ + H₂O → glucose + O₂. Think of it as nature’s way of turning sunlight into food and fresh air for us. As we explore further, you’ll see how chlorophyll, chloroplasts, and the thylakoid membranes play starring roles in this process. Stay curious, and let’s uncover how every leaf is a little powerhouse converting light into life!",
+      "visuals": [
+        {
+          "type": "concept_card",
+          "title": "Concept Visual",
+          "content": "",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": "A detailed, labeled illustration of the photosynthesis process showing a green leaf under sunlight, chloroplasts with thylakoid membranes, CO₂ entering through stomata, water traveling from roots to leaf, and arrows indicating conversion to glucose inside the chloroplast and release of O₂ into the atmosphere."
+        },
+        {
+          "type": "latex",
+          "title": "Concept Visual",
+          "content": "6\\,\\text{CO}_2 + 6\\,\\text{H}_2\\text{O} \\xrightarrow{\\text{light}} C_6H_{12}O_6 + 6\\,\\text{O}_2",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "Photosynthesis is like a solar‑powered bakery: sunlight is the oven’s heat, CO₂ and water are the raw ingredients, glucose is the freshly baked bread, and oxygen is the fragrant steam that fills the kitchen.",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "• Plants use light energy, carbon dioxide, and water to produce glucose and oxygen.\n• Chlorophyll in chloroplasts captures sunlight and drives the chemical reactions.\n• The overall balanced equation is: 6 CO₂ + 6 H₂O → C₆H₁₂O₆ + 6 O₂.",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        }
+      ],
+      "formative_question": {
+        "id": "7fe3adb2",
+        "prompt": "In your own words, list the raw materials plants need for photosynthesis and the main products they create.",
+        "options": null,
+        "correct_answer": "Plants need carbon dioxide (CO₂), water (H₂O), and light energy; they produce glucose (C₆H₁₂O₆) and oxygen (O₂).",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Understand",
+        "hints": [
+          "Think about what the plant takes in from the air and soil.",
+          "Remember the two main outputs of the overall reaction."
+        ],
+        "common_misconceptions": [
+          "Believing that plants only need sunlight and ignore CO₂ and H₂O.",
+          "Thinking that oxygen is a reactant rather than a product."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_530c092aab04.mp3"
+    },
+    {
+      "step_id": 2,
+      "step_type": "concept_breakdown",
+      "title": "The Light‑Dependent Reactions",
+      "concept_summary": "Break down how chlorophyll pigments act like solar panels, exciting electrons that travel through the thylakoid membrane to produce ATP and NADPH.",
+      "estimated_duration_seconds": 120,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 3,
+      "step_type": "visual_deep_dive",
+      "title": "The Calvin Cycle as a Factory Assembly Line",
+      "concept_summary": "Use a factory‑floor analogy to show carbon fixation, reduction, carbohydrate formation, and regeneration of the CO₂‑acceptor molecule.",
+      "estimated_duration_seconds": 100,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 4,
+      "step_type": "checkpoint",
+      "title": "Quick Visual Quiz",
+      "concept_summary": "A brief interactive slide where the student matches each Calvin‑Cycle step to its visual icon, reinforcing the analogy.",
+      "estimated_duration_seconds": 80,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 5,
+      "step_type": "practical_demo",
+      "title": "Leaf Model Experiment (Virtual)",
+      "concept_summary": "Guided simulation where the student toggles light intensity and CO₂ levels to see real‑time effects on glucose output, visualizing the flow from photons to sugar.",
+      "estimated_duration_seconds": 110,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 6,
+      "step_type": "synthesis",
+      "title": "From Sunlight to Growth – Big Picture",
+      "concept_summary": "Dr. Nova ties together light capture, energy carriers, and the Calvin cycle, highlighting how the produced glucose fuels plant growth and the ecosystem.",
+      "estimated_duration_seconds": 100,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    }
+  ]
+}

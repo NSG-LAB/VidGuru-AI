@@ -1,0 +1,549 @@
+{
+  "plan_id": "bca452bf-8ba7-4829-8609-413b8a0a7b56",
+  "topic_title": "Transformer Architecture & Self-Attention",
+  "overview": "In 15 minutes Dr. Nova guides you from the intuition behind attention to building a tiny transformer layer, using vivid visual analogies and hands‑on calculations.",
+  "student_profile": {
+    "grade_level": "undergraduate",
+    "language": "English",
+    "learning_goal": "deep_conceptual",
+    "time_budget_mins": 15,
+    "learning_style": "visual_analogies",
+    "teacher_persona": "Dr. Nova (Intuitive & Warm)"
+  },
+  "total_estimated_mins": 15,
+  "modules": [
+    {
+      "module_id": 1,
+      "title": "Foundations & Intuition",
+      "description": "Set the stage with why attention matters and unpack the Query‑Key‑Value trio.",
+      "steps": [
+        {
+          "step_id": 1,
+          "step_type": "introduction",
+          "title": "Why Transformers? The Sequence Challenge",
+          "concept_summary": "Explains the limitation of recurrent models and the need for a mechanism that looks at all tokens at once.",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": "Hey there! Imagine you’re reading a story one word at a time, and each time you turn the page, you try to remember everything you’ve read so far. That’s exactly how traditional recurrent models, like RNNs and LSTMs, work—they process tokens sequentially, passing a hidden state forward. While this mimics how we read, it creates two big challenges. First, the hidden state has to carry information across potentially hundreds of steps, which often leads to forgetting or vanishing gradients. Second, because the computation is strictly left‑to‑right, you can’t look ahead to future words while processing the current one, limiting context. Think of trying to understand a joke without hearing the punchline—you miss crucial meaning. This is where Transformers step in. Instead of a single chain, they introduce self‑attention, a mechanism that lets every token simultaneously consider every other token in the sequence. It’s like giving each word a super‑powered spotlight that can shine on any other word, regardless of position. This parallel, global view solves the sequence bottleneck and opens the door to massive scaling and richer representations.",
+          "visuals": [
+            {
+              "type": "latex",
+              "title": "Concept Visual",
+              "content": "h_t = \\sigma(W_h h_{t-1} + W_x x_t + b)",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "mermaid",
+              "title": "Concept Visual",
+              "content": "graph LR\n    A[Input Sequence] --> B[RNN/LSTM]\n    B --> C[Hidden State]\n    C --> D[Output]\n    style B fill:#f9f,stroke:#333,stroke-width:2px",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "Reading a novel sequentially is like walking through a dark tunnel with a flashlight that only illuminates the path behind you; self‑attention is like turning on a 360° lantern that lights up the entire tunnel at once.",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "• Recurrent models process tokens one‑by‑one, causing long‑range dependency issues.\n• Hidden states must carry all past information, leading to forgetting.\n• Self‑attention enables each token to attend to all others simultaneously, removing the sequential bottleneck.",
+              "explanation": "",
+              "language": null
+            }
+          ],
+          "formative_question": {
+            "id": "d1f099b3",
+            "prompt": "Why do recurrent models struggle with long‑range dependencies, and how does self‑attention address this limitation?",
+            "options": null,
+            "correct_answer": "Recurrent models rely on a single hidden state that must propagate information across many steps, causing gradients to vanish or explode and leading to loss of distant context. Self‑attention lets each token directly weigh and combine information from every other token in the sequence, providing a direct path for long‑range interactions and eliminating the sequential bottleneck.",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Understand",
+            "hints": [
+              "Consider how information flows in an RNN versus a Transformer.",
+              "Think about the role of the hidden state versus attention weights."
+            ],
+            "common_misconceptions": [
+              "Self‑attention completely discards any notion of order.",
+              "Recurrent models cannot capture any long‑range dependencies at all."
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_f6019732f060.mp3"
+        },
+        {
+          "step_id": 2,
+          "step_type": "concept_breakdown",
+          "title": "Query, Key, Value: The Core Trio",
+          "concept_summary": "Defines Q, K, V vectors, their dimensions, and how they are derived from token embeddings.",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": "Welcome back! In this segment, we’ll demystify the three pillars of self‑attention: Query, Key, and Value vectors—often abbreviated as Q, K, and V. Imagine each token in our sentence as a curious reader holding a tiny notebook. The notebook’s content is the token’s embedding, a dense numeric representation. To let these readers interact, we linearly transform each embedding three times, using learned weight matrices W_Q, W_K, and W_V. The result are three new vectors: the Query (what the token is looking for), the Key (what the token offers), and the Value (the actual information it can share). Mathematically, for a token embedding x_i, we compute q_i = x_i W_Q, k_i = x_i W_K, and v_i = x_i W_V. All Q, K, and V matrices share the same batch dimension—one row per token—so we can efficiently compare every query against every key using a dot‑product. The dimensions are crucial: if our model’s hidden size is d_model and we split it into h heads, each head works with d_k = d_v = d_model / h dimensions. This uniform sizing lets us concatenate the heads later and keep the overall shape consistent. Think of Q, K, V as the language of attention, translating raw token meanings into a common dialect that the model can reason over. Ready to see how these vectors dance together?",
+          "visuals": [
+            {
+              "type": "latex",
+              "title": "Concept Visual",
+              "content": "q_i = x_i W_{Q},\\quad k_i = x_i W_{K},\\quad v_i = x_i W_{V}",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "latex",
+              "title": "Concept Visual",
+              "content": "\\text{dim}(Q) = \\text{dim}(K) = \\text{dim}(V) = (\\text{seq\\_len}, d_{model})",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "mermaid",
+              "title": "Concept Visual",
+              "content": "graph LR\n    X[Token Embeddings] -->|W_Q| Q[Queries]\n    X -->|W_K| K[Keys]\n    X -->|W_V| V[Values]",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "Think of each token as a librarian. The Query is the librarian's request for a book, the Key is the label on each book shelf, and the Value is the actual book content that can be handed over.",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "• Q, K, V are linear projections of the same token embedding.\n• All three share the same sequence length dimension, enabling pairwise dot‑product attention.\n• Each head uses a reduced dimension d_k = d_v = d_model / h for computational efficiency.",
+              "explanation": "",
+              "language": null
+            }
+          ],
+          "formative_question": {
+            "id": "7451fa67",
+            "prompt": "If a token embedding has dimension 512 and we use 8 attention heads, what is the dimension of each Query vector within a single head?",
+            "options": null,
+            "correct_answer": "Each head’s Query dimension d_k = 512 / 8 = 64.",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Apply",
+            "hints": [
+              "Recall the relationship d_k = d_model / h.",
+              "Divide the model dimension by the number of heads."
+            ],
+            "common_misconceptions": [
+              "Confusing the total model dimension with the per‑head dimension.",
+              "Assuming the Query dimension changes across heads."
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_09df97097ffe.mp3"
+        }
+      ]
+    },
+    {
+      "module_id": 2,
+      "title": "Visual Deep Dive & Application",
+      "description": "Use concrete visual metaphors and a step‑by‑step demo of scaled dot‑product attention.",
+      "steps": [
+        {
+          "step_id": 3,
+          "step_type": "visual_deep_dive",
+          "title": "Attention as a Spotlight: Visual Analogy",
+          "concept_summary": "Compares attention scores to a theater spotlight that brightens relevant words while dimming others.",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": "Hey there! Let’s bring the magic of self‑attention to life with a simple visual analogy. Imagine you’re watching a stage play. The director uses a spotlight to highlight the actor delivering the crucial line, while the rest of the cast stays in the shadows. In a Transformer, each word in a sentence acts like an actor, and the attention scores are the intensity of the spotlight shining on them. When the model computes the dot‑product between a query and all keys, it’s essentially deciding how bright each spotlight should be. The softmax step then normalizes these intensities so they sum to one, ensuring the total light is conserved. The higher the score, the brighter the spotlight on that word, meaning the model will pay more heed to its information when forming the new representation. Conversely, dimmer spots mean the word contributes less. This dynamic lighting lets the model focus on the most relevant context, just like a director guides our eyes to the story’s heart. Keep this theater in mind as we dive deeper into the math behind the scenes!",
+          "visuals": [
+            {
+              "type": "latex",
+              "title": "Concept Visual",
+              "content": "\\text{Attention}(Q,K,V)=\\text{softmax}\\left(\\frac{QK^{T}}{\\sqrt{d_k}}\\right)V",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "Spotlight Analogy: \\n- Words = actors on stage \\n- Attention scores = spotlight brightness \\n- Softmax = dimmer switch that balances total light",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "mermaid",
+              "title": "Concept Visual",
+              "content": "graph LR\n    Q[Query] -->|dot‑product| K[Keys]\n    K -->|softmax| S[Spotlight Intensities]\n    S -->|weight| V[Values]\n    V --> Output[New Word Representation]",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "• Attention scores act like spotlight brightness on each word.\n• Softmax normalizes scores so the total attention is conserved.\n• Higher scores = more influence in the resulting representation.",
+              "explanation": "",
+              "language": null
+            }
+          ],
+          "formative_question": {
+            "id": "9a5966f8",
+            "prompt": "If a word receives a low attention score, what does that imply about the spotlight analogy?",
+            "options": null,
+            "correct_answer": "It means the spotlight is dim on that word, so the model gives it little influence when constructing the new representation.",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Understand",
+            "hints": [
+              "Think about how bright or dim a spotlight appears.",
+              "Consider the role of softmax in distributing light."
+            ],
+            "common_misconceptions": [
+              "A low score means the word is completely ignored.",
+              "The spotlight can only highlight one word at a time."
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_616cb247fc1a.mp3"
+        },
+        {
+          "step_id": 4,
+          "step_type": "practical_demo",
+          "title": "Hands‑On: Compute Scaled Dot‑Product Attention",
+          "concept_summary": "Walks through a numeric example with three tokens, showing Q·Kᵀ, scaling, softmax, and weighting of V.",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": "Hey there! Today we’ll roll up our sleeves and actually compute the scaled dot‑product attention for a tiny example with three tokens. Imagine we have query, key, and value vectors for each token – let’s call them Q, K, and V – each of dimension two for simplicity. First, we multiply the query matrix Q by the transpose of the key matrix Kᵀ to get raw attention scores. These scores tell us how much each token should pay attention to every other token. Next, we scale the scores by dividing by the square root of the key dimension – that’s the √dₖ term – which keeps the softmax gradients stable. Then we apply the softmax function row‑wise, turning those scaled scores into probabilities that sum to one. Finally, we weight the value matrix V by those probabilities, summing across the columns to produce the output representations. I’ll walk through each step with concrete numbers, show the intermediate matrices, and highlight why each operation matters. By the end, you’ll see how a single attention head transforms three simple token vectors into richer contextual embeddings. Ready? Let’s dive in!",
+          "visuals": [
+            {
+              "type": "latex",
+              "title": "Concept Visual",
+              "content": "\\text{Attention}(Q,K,V) = \\text{softmax}\\left(\\frac{QK^{T}}{\\sqrt{d_k}}\\right)V",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "code",
+              "title": "Concept Visual",
+              "content": "import numpy as np\nQ = np.array([[1,0],[0,1],[1,1]])   # 3x2\nK = np.array([[1,0],[0,1],[1,1]])   # 3x2\nV = np.array([[1,2],[3,4],[5,6]])   # 3x2\nscores = Q @ K.T                     # 3x3 raw scores\nscaled = scores / np.sqrt(2)         # scale by sqrt(d_k)\nweights = np.exp(scaled) / np.exp(scaled).sum(axis=1, keepdims=True)\noutput = weights @ V                 # final attention output",
+              "explanation": "",
+              "language": "python"
+            },
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "Think of attention like a spotlight on stage: each token (actor) shines a light (query) onto other actors (keys). The brighter the spotlight (higher score), the more of the other actor's performance (value) gets absorbed into the scene.",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "• Scaled dot‑product attention converts similarity scores into probabilities via softmax.\n• Scaling by √dₖ prevents extreme values that could saturate the softmax.\n• The final output is a weighted sum of value vectors, where weights reflect relevance.",
+              "explanation": "",
+              "language": null
+            }
+          ],
+          "formative_question": {
+            "id": "3cd63a91",
+            "prompt": "Using the Q, K, V matrices from the code snippet, what is the attention weight (softmax probability) that token 2 assigns to token 3?",
+            "options": null,
+            "correct_answer": "First compute the raw score between token 2’s query [0,1] and token 3’s key [1,1]: 0*1 + 1*1 = 1. Scale by √2 ≈ 1.414 → 1/1.414 ≈ 0.707. Compute the other two scaled scores for token 2: with token 1 (0*1+1*0=0 → 0) and token 2 itself (0*0+1*1=1 → 0.707). Apply softmax: exp(0)=1, exp(0.707)≈2.028. Sum = 1+2.028+2.028≈5.056. Probability for token 3 = 2.028/5.056 ≈ 0.401 (≈40%).",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Apply",
+            "hints": [
+              "Calculate the dot product between the query of token 2 and each key.",
+              "Remember to scale by √2 before applying softmax."
+            ],
+            "common_misconceptions": [
+              "Forgetting to scale the scores before softmax, which leads to overly sharp probabilities.",
+              "Using the unscaled scores directly in the softmax denominator."
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_d929bc62aeba.mp3"
+        }
+      ]
+    },
+    {
+      "module_id": 3,
+      "title": "Synthesis & Mini‑Transformer",
+      "description": "Check understanding, then assemble the pieces into a single transformer layer.",
+      "steps": [
+        {
+          "step_id": 5,
+          "step_type": "checkpoint",
+          "title": "Quick Check: Decode the Attention Matrix",
+          "concept_summary": "A short interactive quiz where the student predicts the attention distribution for a new sentence.",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 6,
+          "step_type": "synthesis",
+          "title": "Building a Mini Transformer Layer",
+          "concept_summary": "Guides the student to stack multi‑head attention, add residual connection and feed‑forward, completing a functional layer.",
+          "estimated_duration_seconds": 150,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    }
+  ],
+  "all_steps_flattened": [
+    {
+      "step_id": 1,
+      "step_type": "introduction",
+      "title": "Why Transformers? The Sequence Challenge",
+      "concept_summary": "Explains the limitation of recurrent models and the need for a mechanism that looks at all tokens at once.",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": "Hey there! Imagine you’re reading a story one word at a time, and each time you turn the page, you try to remember everything you’ve read so far. That’s exactly how traditional recurrent models, like RNNs and LSTMs, work—they process tokens sequentially, passing a hidden state forward. While this mimics how we read, it creates two big challenges. First, the hidden state has to carry information across potentially hundreds of steps, which often leads to forgetting or vanishing gradients. Second, because the computation is strictly left‑to‑right, you can’t look ahead to future words while processing the current one, limiting context. Think of trying to understand a joke without hearing the punchline—you miss crucial meaning. This is where Transformers step in. Instead of a single chain, they introduce self‑attention, a mechanism that lets every token simultaneously consider every other token in the sequence. It’s like giving each word a super‑powered spotlight that can shine on any other word, regardless of position. This parallel, global view solves the sequence bottleneck and opens the door to massive scaling and richer representations.",
+      "visuals": [
+        {
+          "type": "latex",
+          "title": "Concept Visual",
+          "content": "h_t = \\sigma(W_h h_{t-1} + W_x x_t + b)",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "mermaid",
+          "title": "Concept Visual",
+          "content": "graph LR\n    A[Input Sequence] --> B[RNN/LSTM]\n    B --> C[Hidden State]\n    C --> D[Output]\n    style B fill:#f9f,stroke:#333,stroke-width:2px",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "Reading a novel sequentially is like walking through a dark tunnel with a flashlight that only illuminates the path behind you; self‑attention is like turning on a 360° lantern that lights up the entire tunnel at once.",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "• Recurrent models process tokens one‑by‑one, causing long‑range dependency issues.\n• Hidden states must carry all past information, leading to forgetting.\n• Self‑attention enables each token to attend to all others simultaneously, removing the sequential bottleneck.",
+          "explanation": "",
+          "language": null
+        }
+      ],
+      "formative_question": {
+        "id": "d1f099b3",
+        "prompt": "Why do recurrent models struggle with long‑range dependencies, and how does self‑attention address this limitation?",
+        "options": null,
+        "correct_answer": "Recurrent models rely on a single hidden state that must propagate information across many steps, causing gradients to vanish or explode and leading to loss of distant context. Self‑attention lets each token directly weigh and combine information from every other token in the sequence, providing a direct path for long‑range interactions and eliminating the sequential bottleneck.",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Understand",
+        "hints": [
+          "Consider how information flows in an RNN versus a Transformer.",
+          "Think about the role of the hidden state versus attention weights."
+        ],
+        "common_misconceptions": [
+          "Self‑attention completely discards any notion of order.",
+          "Recurrent models cannot capture any long‑range dependencies at all."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_f6019732f060.mp3"
+    },
+    {
+      "step_id": 2,
+      "step_type": "concept_breakdown",
+      "title": "Query, Key, Value: The Core Trio",
+      "concept_summary": "Defines Q, K, V vectors, their dimensions, and how they are derived from token embeddings.",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": "Welcome back! In this segment, we’ll demystify the three pillars of self‑attention: Query, Key, and Value vectors—often abbreviated as Q, K, and V. Imagine each token in our sentence as a curious reader holding a tiny notebook. The notebook’s content is the token’s embedding, a dense numeric representation. To let these readers interact, we linearly transform each embedding three times, using learned weight matrices W_Q, W_K, and W_V. The result are three new vectors: the Query (what the token is looking for), the Key (what the token offers), and the Value (the actual information it can share). Mathematically, for a token embedding x_i, we compute q_i = x_i W_Q, k_i = x_i W_K, and v_i = x_i W_V. All Q, K, and V matrices share the same batch dimension—one row per token—so we can efficiently compare every query against every key using a dot‑product. The dimensions are crucial: if our model’s hidden size is d_model and we split it into h heads, each head works with d_k = d_v = d_model / h dimensions. This uniform sizing lets us concatenate the heads later and keep the overall shape consistent. Think of Q, K, V as the language of attention, translating raw token meanings into a common dialect that the model can reason over. Ready to see how these vectors dance together?",
+      "visuals": [
+        {
+          "type": "latex",
+          "title": "Concept Visual",
+          "content": "q_i = x_i W_{Q},\\quad k_i = x_i W_{K},\\quad v_i = x_i W_{V}",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "latex",
+          "title": "Concept Visual",
+          "content": "\\text{dim}(Q) = \\text{dim}(K) = \\text{dim}(V) = (\\text{seq\\_len}, d_{model})",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "mermaid",
+          "title": "Concept Visual",
+          "content": "graph LR\n    X[Token Embeddings] -->|W_Q| Q[Queries]\n    X -->|W_K| K[Keys]\n    X -->|W_V| V[Values]",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "Think of each token as a librarian. The Query is the librarian's request for a book, the Key is the label on each book shelf, and the Value is the actual book content that can be handed over.",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "• Q, K, V are linear projections of the same token embedding.\n• All three share the same sequence length dimension, enabling pairwise dot‑product attention.\n• Each head uses a reduced dimension d_k = d_v = d_model / h for computational efficiency.",
+          "explanation": "",
+          "language": null
+        }
+      ],
+      "formative_question": {
+        "id": "7451fa67",
+        "prompt": "If a token embedding has dimension 512 and we use 8 attention heads, what is the dimension of each Query vector within a single head?",
+        "options": null,
+        "correct_answer": "Each head’s Query dimension d_k = 512 / 8 = 64.",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Apply",
+        "hints": [
+          "Recall the relationship d_k = d_model / h.",
+          "Divide the model dimension by the number of heads."
+        ],
+        "common_misconceptions": [
+          "Confusing the total model dimension with the per‑head dimension.",
+          "Assuming the Query dimension changes across heads."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_09df97097ffe.mp3"
+    },
+    {
+      "step_id": 3,
+      "step_type": "visual_deep_dive",
+      "title": "Attention as a Spotlight: Visual Analogy",
+      "concept_summary": "Compares attention scores to a theater spotlight that brightens relevant words while dimming others.",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": "Hey there! Let’s bring the magic of self‑attention to life with a simple visual analogy. Imagine you’re watching a stage play. The director uses a spotlight to highlight the actor delivering the crucial line, while the rest of the cast stays in the shadows. In a Transformer, each word in a sentence acts like an actor, and the attention scores are the intensity of the spotlight shining on them. When the model computes the dot‑product between a query and all keys, it’s essentially deciding how bright each spotlight should be. The softmax step then normalizes these intensities so they sum to one, ensuring the total light is conserved. The higher the score, the brighter the spotlight on that word, meaning the model will pay more heed to its information when forming the new representation. Conversely, dimmer spots mean the word contributes less. This dynamic lighting lets the model focus on the most relevant context, just like a director guides our eyes to the story’s heart. Keep this theater in mind as we dive deeper into the math behind the scenes!",
+      "visuals": [
+        {
+          "type": "latex",
+          "title": "Concept Visual",
+          "content": "\\text{Attention}(Q,K,V)=\\text{softmax}\\left(\\frac{QK^{T}}{\\sqrt{d_k}}\\right)V",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "Spotlight Analogy: \\n- Words = actors on stage \\n- Attention scores = spotlight brightness \\n- Softmax = dimmer switch that balances total light",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "mermaid",
+          "title": "Concept Visual",
+          "content": "graph LR\n    Q[Query] -->|dot‑product| K[Keys]\n    K -->|softmax| S[Spotlight Intensities]\n    S -->|weight| V[Values]\n    V --> Output[New Word Representation]",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "• Attention scores act like spotlight brightness on each word.\n• Softmax normalizes scores so the total attention is conserved.\n• Higher scores = more influence in the resulting representation.",
+          "explanation": "",
+          "language": null
+        }
+      ],
+      "formative_question": {
+        "id": "9a5966f8",
+        "prompt": "If a word receives a low attention score, what does that imply about the spotlight analogy?",
+        "options": null,
+        "correct_answer": "It means the spotlight is dim on that word, so the model gives it little influence when constructing the new representation.",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Understand",
+        "hints": [
+          "Think about how bright or dim a spotlight appears.",
+          "Consider the role of softmax in distributing light."
+        ],
+        "common_misconceptions": [
+          "A low score means the word is completely ignored.",
+          "The spotlight can only highlight one word at a time."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_616cb247fc1a.mp3"
+    },
+    {
+      "step_id": 4,
+      "step_type": "practical_demo",
+      "title": "Hands‑On: Compute Scaled Dot‑Product Attention",
+      "concept_summary": "Walks through a numeric example with three tokens, showing Q·Kᵀ, scaling, softmax, and weighting of V.",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": "Hey there! Today we’ll roll up our sleeves and actually compute the scaled dot‑product attention for a tiny example with three tokens. Imagine we have query, key, and value vectors for each token – let’s call them Q, K, and V – each of dimension two for simplicity. First, we multiply the query matrix Q by the transpose of the key matrix Kᵀ to get raw attention scores. These scores tell us how much each token should pay attention to every other token. Next, we scale the scores by dividing by the square root of the key dimension – that’s the √dₖ term – which keeps the softmax gradients stable. Then we apply the softmax function row‑wise, turning those scaled scores into probabilities that sum to one. Finally, we weight the value matrix V by those probabilities, summing across the columns to produce the output representations. I’ll walk through each step with concrete numbers, show the intermediate matrices, and highlight why each operation matters. By the end, you’ll see how a single attention head transforms three simple token vectors into richer contextual embeddings. Ready? Let’s dive in!",
+      "visuals": [
+        {
+          "type": "latex",
+          "title": "Concept Visual",
+          "content": "\\text{Attention}(Q,K,V) = \\text{softmax}\\left(\\frac{QK^{T}}{\\sqrt{d_k}}\\right)V",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "code",
+          "title": "Concept Visual",
+          "content": "import numpy as np\nQ = np.array([[1,0],[0,1],[1,1]])   # 3x2\nK = np.array([[1,0],[0,1],[1,1]])   # 3x2\nV = np.array([[1,2],[3,4],[5,6]])   # 3x2\nscores = Q @ K.T                     # 3x3 raw scores\nscaled = scores / np.sqrt(2)         # scale by sqrt(d_k)\nweights = np.exp(scaled) / np.exp(scaled).sum(axis=1, keepdims=True)\noutput = weights @ V                 # final attention output",
+          "explanation": "",
+          "language": "python"
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "Think of attention like a spotlight on stage: each token (actor) shines a light (query) onto other actors (keys). The brighter the spotlight (higher score), the more of the other actor's performance (value) gets absorbed into the scene.",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "• Scaled dot‑product attention converts similarity scores into probabilities via softmax.\n• Scaling by √dₖ prevents extreme values that could saturate the softmax.\n• The final output is a weighted sum of value vectors, where weights reflect relevance.",
+          "explanation": "",
+          "language": null
+        }
+      ],
+      "formative_question": {
+        "id": "3cd63a91",
+        "prompt": "Using the Q, K, V matrices from the code snippet, what is the attention weight (softmax probability) that token 2 assigns to token 3?",
+        "options": null,
+        "correct_answer": "First compute the raw score between token 2’s query [0,1] and token 3’s key [1,1]: 0*1 + 1*1 = 1. Scale by √2 ≈ 1.414 → 1/1.414 ≈ 0.707. Compute the other two scaled scores for token 2: with token 1 (0*1+1*0=0 → 0) and token 2 itself (0*0+1*1=1 → 0.707). Apply softmax: exp(0)=1, exp(0.707)≈2.028. Sum = 1+2.028+2.028≈5.056. Probability for token 3 = 2.028/5.056 ≈ 0.401 (≈40%).",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Apply",
+        "hints": [
+          "Calculate the dot product between the query of token 2 and each key.",
+          "Remember to scale by √2 before applying softmax."
+        ],
+        "common_misconceptions": [
+          "Forgetting to scale the scores before softmax, which leads to overly sharp probabilities.",
+          "Using the unscaled scores directly in the softmax denominator."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_d929bc62aeba.mp3"
+    },
+    {
+      "step_id": 5,
+      "step_type": "checkpoint",
+      "title": "Quick Check: Decode the Attention Matrix",
+      "concept_summary": "A short interactive quiz where the student predicts the attention distribution for a new sentence.",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 6,
+      "step_type": "synthesis",
+      "title": "Building a Mini Transformer Layer",
+      "concept_summary": "Guides the student to stack multi‑head attention, add residual connection and feed‑forward, completing a functional layer.",
+      "estimated_duration_seconds": 150,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    }
+  ]
+}

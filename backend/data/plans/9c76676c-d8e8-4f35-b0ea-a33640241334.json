@@ -1,0 +1,202 @@
+{
+  "plan_id": "9c76676c-d8e8-4f35-b0ea-a33640241334",
+  "topic_title": "सौर मंडल और ग्रह",
+  "overview": "इस पाठ में हम सौर मंडल की मूल संरचना और उसके ग्रहों की प्रमुख विशेषताओं को समझेंगे। दृश्य रूपकों के माध्यम से अवधारणाओं को स्पष्ट किया जाएगा।",
+  "student_profile": {
+    "grade_level": "Middle School (EL5)",
+    "language": "Hindi",
+    "learning_goal": "Deep Conceptual Mastery",
+    "time_budget_mins": 5,
+    "learning_style": "visual_analogies",
+    "teacher_persona": "Prof. Aryan (Deep & Socratic)"
+  },
+  "total_estimated_mins": 5,
+  "modules": [
+    {
+      "module_id": 1,
+      "title": "सौर मंडल का परिचय",
+      "description": "सौर मंडल की संरचना और मुख्य घटकों की रूपरेखा",
+      "steps": [
+        {
+          "step_id": 1,
+          "step_type": "introduction",
+          "title": "सौर मंडल क्या है?",
+          "concept_summary": "सौर मंडल सूर्य, ग्रह, उपग्रह, क्षुद्रग्रह आदि का समूह है, जो गुरुत्वाकर्षण से बंधा है।",
+          "estimated_duration_seconds": 75,
+          "is_completed": false,
+          "teacher_script": "नमस्ते! आज हम बात करेंगे सौर मंडल के बारे में – यानी वह विशाल परिवार जिसमें हमारा सूर्य, आठ ग्रह, उनके उपग्रह, क्षुद्रग्रह और बहुत कुछ शामिल है। कल्पना करो कि सूर्य एक बड़ा, गर्म पिता है जो अपने बच्चों को अपनी गुरुत्वाकर्षण की बाँहों में कसकर पकड़ कर रखता है। ये बच्चे – यानी ग्रह – अपने-अपने कक्षाओं (orbits) में घूमते हैं, जैसे आप अपने कमरे में घूमते हो लेकिन एक निश्चित रास्ता तय करते हुए। कुछ ग्रहों के पास छोटे भाई‑बहन, यानी उपग्रह होते हैं, जैसे चंद्रमा पृथ्वी का छोटा साथी है। और बीच‑बीच में बिखरे हुए छोटे‑छोटे पत्थर, जिन्हें हम क्षुद्रग्रह कहते हैं, भी इस परिवार का हिस्सा हैं। इस पूरे समूह को हम सौर मंडल कहते हैं, जो गुरुत्वाकर्षण के कारण एक साथ बंधा रहता है। तो चलिए, इस अद्भुत ब्रह्मांडीय परिवार को समझते हैं और देखते हैं कि कैसे सब कुछ एक-दूसरे से जुड़ा है।",
+          "visuals": [
+            {
+              "type": "mermaid",
+              "title": "Concept Visual",
+              "content": "graph LR\n    Sun[सूर्य] --> Mercury[बुध]\n    Sun --> Venus[शुक्र]\n    Sun --> Earth[पृथ्वी]\n    Sun --> Mars[मंगल]\n    Sun --> Jupiter[बृहस्पति]\n    Sun --> Saturn[शनि]\n    Sun --> Uranus[अरुण]\n    Sun --> Neptune[वरुण]\n    Earth --> Moon[चंद्रमा]\n    Jupiter --> Io[इओ]\n    Jupiter --> Europa[यूरोपा]\n    Jupiter --> Ganymede[गैनिमीड]\n    Jupiter --> Callisto[कैलिस्टो]",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "analogy_box",
+              "title": "Concept Visual",
+              "content": "सौर मंडल = एक बड़ा परिवार\n• सूर्य = पिता (गुरुत्वाकर्षण का स्रोत)\n• ग्रह = बच्चे (सूर्य के चारों ओर घूमते हैं)\n• उपग्रह = छोटे भाई‑बहन (ग्रहों के साथ बंधे)\n• क्षुद्रग्रह = परिवार के छोटे‑छोटे खिलौने",
+              "explanation": "",
+              "language": null
+            },
+            {
+              "type": "key_takeaways",
+              "title": "Concept Visual",
+              "content": "• सौर मंडल सूर्य, ग्रह, उपग्रह, क्षुद्रग्रह आदि का समूह है।\n• सभी वस्तुएँ गुरुत्वाकर्षण के कारण सूर्य के चारों ओर बंधी रहती हैं।\n• ग्रहों के अपने-अपने उपग्रह होते हैं, जैसे पृथ्वी का चंद्रमा।",
+              "explanation": "",
+              "language": null
+            }
+          ],
+          "formative_question": {
+            "id": "a8feb68a",
+            "prompt": "सौर मंडल में सूर्य को केंद्र में रखने का मुख्य कारण क्या है?",
+            "options": null,
+            "correct_answer": "सूर्य का द्रव्यमान बहुत अधिक है, जिससे उसकी गुरुत्वाकर्षण शक्ति सबसे अधिक होती है और वह सभी ग्रहों को अपनी कक्षा में बांधे रखता है।",
+            "question_type": "open_ended_voice_or_text",
+            "bloom_level": "Understand",
+            "hints": [
+              "गुरुत्वाकर्षण शक्ति द्रव्यमान पर निर्भर करती है।",
+              "सूर्य का द्रव्यमान बाकी सभी वस्तुओं से कितना बड़ा है, इसे याद करो।"
+            ],
+            "common_misconceptions": [
+              "सभी ग्रह समान दूरी पर होते हैं।",
+              "सूर्य केवल रोशनी देता है, इसलिए ही केंद्र है।"
+            ]
+          },
+          "audio_url": "/api/v1/voice/audio/speech_7031a725945f.mp3"
+        },
+        {
+          "step_id": 2,
+          "step_type": "visual_deep_dive",
+          "title": "सौर मंडल का दृश्य मानचित्र",
+          "concept_summary": "एक चित्र के माध्यम से सूर्य के चारों ओर ग्रहों की कक्षाओं और उनके आकार-आकार को समझें।",
+          "estimated_duration_seconds": 75,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    },
+    {
+      "module_id": 2,
+      "title": "ग्रहों की विशेषताएँ",
+      "description": "प्रत्येक ग्रह के प्रमुख गुण और अंतरिक्ष में उनका स्थान",
+      "steps": [
+        {
+          "step_id": 3,
+          "step_type": "concept_breakdown",
+          "title": "ग्रहों का वर्गीकरण",
+          "concept_summary": "ग्रहों को पृथ्वी जैसे चट्टानी ग्रह और बृहस्पति जैसे गैस दानवों में विभाजित किया जाता है, उनके आकार, सतह और वायुमंडल के आधार पर।",
+          "estimated_duration_seconds": 75,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        },
+        {
+          "step_id": 4,
+          "step_type": "synthesis",
+          "title": "सौर मंडल की समग्र समझ",
+          "concept_summary": "सभी ग्रहों और उनके संबंधों को जोड़कर सौर मंडल की गतिशीलता और जीवन के लिए सूर्य की भूमिका को संक्षेप में प्रस्तुत करें।",
+          "estimated_duration_seconds": 75,
+          "is_completed": false,
+          "teacher_script": null,
+          "visuals": null,
+          "formative_question": null,
+          "audio_url": null
+        }
+      ]
+    }
+  ],
+  "all_steps_flattened": [
+    {
+      "step_id": 1,
+      "step_type": "introduction",
+      "title": "सौर मंडल क्या है?",
+      "concept_summary": "सौर मंडल सूर्य, ग्रह, उपग्रह, क्षुद्रग्रह आदि का समूह है, जो गुरुत्वाकर्षण से बंधा है।",
+      "estimated_duration_seconds": 75,
+      "is_completed": false,
+      "teacher_script": "नमस्ते! आज हम बात करेंगे सौर मंडल के बारे में – यानी वह विशाल परिवार जिसमें हमारा सूर्य, आठ ग्रह, उनके उपग्रह, क्षुद्रग्रह और बहुत कुछ शामिल है। कल्पना करो कि सूर्य एक बड़ा, गर्म पिता है जो अपने बच्चों को अपनी गुरुत्वाकर्षण की बाँहों में कसकर पकड़ कर रखता है। ये बच्चे – यानी ग्रह – अपने-अपने कक्षाओं (orbits) में घूमते हैं, जैसे आप अपने कमरे में घूमते हो लेकिन एक निश्चित रास्ता तय करते हुए। कुछ ग्रहों के पास छोटे भाई‑बहन, यानी उपग्रह होते हैं, जैसे चंद्रमा पृथ्वी का छोटा साथी है। और बीच‑बीच में बिखरे हुए छोटे‑छोटे पत्थर, जिन्हें हम क्षुद्रग्रह कहते हैं, भी इस परिवार का हिस्सा हैं। इस पूरे समूह को हम सौर मंडल कहते हैं, जो गुरुत्वाकर्षण के कारण एक साथ बंधा रहता है। तो चलिए, इस अद्भुत ब्रह्मांडीय परिवार को समझते हैं और देखते हैं कि कैसे सब कुछ एक-दूसरे से जुड़ा है।",
+      "visuals": [
+        {
+          "type": "mermaid",
+          "title": "Concept Visual",
+          "content": "graph LR\n    Sun[सूर्य] --> Mercury[बुध]\n    Sun --> Venus[शुक्र]\n    Sun --> Earth[पृथ्वी]\n    Sun --> Mars[मंगल]\n    Sun --> Jupiter[बृहस्पति]\n    Sun --> Saturn[शनि]\n    Sun --> Uranus[अरुण]\n    Sun --> Neptune[वरुण]\n    Earth --> Moon[चंद्रमा]\n    Jupiter --> Io[इओ]\n    Jupiter --> Europa[यूरोपा]\n    Jupiter --> Ganymede[गैनिमीड]\n    Jupiter --> Callisto[कैलिस्टो]",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "सौर मंडल = एक बड़ा परिवार\n• सूर्य = पिता (गुरुत्वाकर्षण का स्रोत)\n• ग्रह = बच्चे (सूर्य के चारों ओर घूमते हैं)\n• उपग्रह = छोटे भाई‑बहन (ग्रहों के साथ बंधे)\n• क्षुद्रग्रह = परिवार के छोटे‑छोटे खिलौने",
+          "explanation": "",
+          "language": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "• सौर मंडल सूर्य, ग्रह, उपग्रह, क्षुद्रग्रह आदि का समूह है।\n• सभी वस्तुएँ गुरुत्वाकर्षण के कारण सूर्य के चारों ओर बंधी रहती हैं।\n• ग्रहों के अपने-अपने उपग्रह होते हैं, जैसे पृथ्वी का चंद्रमा।",
+          "explanation": "",
+          "language": null
+        }
+      ],
+      "formative_question": {
+        "id": "a8feb68a",
+        "prompt": "सौर मंडल में सूर्य को केंद्र में रखने का मुख्य कारण क्या है?",
+        "options": null,
+        "correct_answer": "सूर्य का द्रव्यमान बहुत अधिक है, जिससे उसकी गुरुत्वाकर्षण शक्ति सबसे अधिक होती है और वह सभी ग्रहों को अपनी कक्षा में बांधे रखता है।",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Understand",
+        "hints": [
+          "गुरुत्वाकर्षण शक्ति द्रव्यमान पर निर्भर करती है।",
+          "सूर्य का द्रव्यमान बाकी सभी वस्तुओं से कितना बड़ा है, इसे याद करो।"
+        ],
+        "common_misconceptions": [
+          "सभी ग्रह समान दूरी पर होते हैं।",
+          "सूर्य केवल रोशनी देता है, इसलिए ही केंद्र है।"
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_7031a725945f.mp3"
+    },
+    {
+      "step_id": 2,
+      "step_type": "visual_deep_dive",
+      "title": "सौर मंडल का दृश्य मानचित्र",
+      "concept_summary": "एक चित्र के माध्यम से सूर्य के चारों ओर ग्रहों की कक्षाओं और उनके आकार-आकार को समझें।",
+      "estimated_duration_seconds": 75,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 3,
+      "step_type": "concept_breakdown",
+      "title": "ग्रहों का वर्गीकरण",
+      "concept_summary": "ग्रहों को पृथ्वी जैसे चट्टानी ग्रह और बृहस्पति जैसे गैस दानवों में विभाजित किया जाता है, उनके आकार, सतह और वायुमंडल के आधार पर।",
+      "estimated_duration_seconds": 75,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    },
+    {
+      "step_id": 4,
+      "step_type": "synthesis",
+      "title": "सौर मंडल की समग्र समझ",
+      "concept_summary": "सभी ग्रहों और उनके संबंधों को जोड़कर सौर मंडल की गतिशीलता और जीवन के लिए सूर्य की भूमिका को संक्षेप में प्रस्तुत करें।",
+      "estimated_duration_seconds": 75,
+      "is_completed": false,
+      "teacher_script": null,
+      "visuals": null,
+      "formative_question": null,
+      "audio_url": null
+    }
+  ]
+}

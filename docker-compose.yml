@@ -18,6 +18,7 @@ services:
       - GROQ_API_KEY=${GROQ_API_KEY:-}
       - GEMINI_MODEL=${GEMINI_MODEL:-gemini-3.6-flash}
       - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4o-mini}
+      - GROQ_MODEL=${GROQ_MODEL:-openai/gpt-oss-120b}
     volumes:
       - ./backend/data:/app/data
     healthcheck:

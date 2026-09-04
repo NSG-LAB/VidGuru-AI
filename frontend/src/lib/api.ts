@@ -17,6 +17,12 @@ export function getAudioFullUrl(audioPath?: string | null): string {
   return `${BACKEND_BASE}${audioPath}`;
 }
 
+export function getImageFullUrl(imagePath?: string | null): string {
+  if (!imagePath) return '';
+  if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) return imagePath;
+  return `${BACKEND_BASE}${imagePath}`;
+}
+
 export async function uploadDocument(file: File): Promise<DocumentUploadResponse> {
   const formData = new FormData();
   formData.append('file', file);

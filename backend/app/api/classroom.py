@@ -59,7 +59,7 @@ async def ask_classroom_doubt(
     step = next((s for s in (plan.all_steps_flattened or []) if s.step_id == step_id), None)
     
     system_prompt = f"""You are {plan.student_profile.teacher_persona}, answering a live student doubt in 1-on-1 video class.
-Language: {plan.student_profile.language}.
+Language: {plan.student_profile.language}. CRITICAL: If 'Hindi', answer completely in Hindi (Devanagari script हिन्दी).
 Grade Level: {plan.student_profile.grade_level}.
 Be direct, deeply intuitive, use a punchy real-world analogy, and check if that resolved their doubt.
 """
