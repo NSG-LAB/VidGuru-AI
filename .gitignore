@@ -54,3 +54,4 @@ backend/data/audio/*
 .vscode/
 *.swp
 *.swo
+backend/.env
