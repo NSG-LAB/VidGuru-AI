@@ -104,5 +104,37 @@ def run_tests():
 
     print("\n🎉 ALL 7 END-TO-END PEDAGOGICAL PIPELINE TESTS PASSED PERFECTLY!\n")
 
+def ensure_server():
+    import subprocess
+    import sys
+    try:
+        r = requests.get(f"{BASE_URL}/health", timeout=2)
+        if r.status_code == 200:
+            return None
+    except Exception:
+        pass
+
+    print("⚡ Starting background FastAPI server on port 8005...")
+    proc = subprocess.Popen(
+        [sys.executable, "-m", "uvicorn", "app.main:app", "--app-dir", "backend", "--host", "127.0.0.1", "--port", "8005"],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
+    for _ in range(20):
+        time.sleep(0.5)
+        try:
+            r = requests.get(f"{BASE_URL}/health", timeout=1)
+            if r.status_code == 200:
+                print("✅ Background FastAPI server is ready!")
+                return proc
+        except Exception:
+            pass
+    return proc
+
 if __name__ == "__main__":
-    run_tests()
+    proc = ensure_server()
+    try:
+        run_tests()
+    finally:
+        if proc:
+            proc.terminate()
