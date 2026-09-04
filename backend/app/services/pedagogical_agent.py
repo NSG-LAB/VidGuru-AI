@@ -431,6 +431,14 @@ Format:
         quiz_data = llm_service.generate_json(system_prompt, user_prompt)
         questions = []
         for idx, q in enumerate(quiz_data.get("questions", [])):
+            diff_raw = str(q.get("difficulty", "medium")).lower()
+            if "easy" in diff_raw or "basic" in diff_raw:
+                clean_diff = "easy"
+            elif "hard" in diff_raw or "adv" in diff_raw or "difficult" in diff_raw:
+                clean_diff = "hard"
+            else:
+                clean_diff = "medium"
+
             questions.append(QuizQuestion(
                 id=q.get("id", f"q{idx+1}"),
                 question=q.get("question", f"Question {idx+1}"),
@@ -438,7 +446,7 @@ Format:
                 correct_option_index=q.get("correct_option_index", 0),
                 explanation=q.get("explanation", ""),
                 concept_tested=q.get("concept_tested", plan.topic_title),
-                difficulty=q.get("difficulty", "medium")
+                difficulty=clean_diff
             ))
 
         if not questions:
