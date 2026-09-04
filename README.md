@@ -126,11 +126,35 @@ VidGuru AI
 - Python 3.10+
 - Node.js 18+
 
-### One-Command Start
+### One-Command Start (Local)
 ```bash
 ./start.sh
 ```
 This boots both the FastAPI backend (port `8005`) and the Next.js frontend (port `3000`).
+
+---
+
+### 🐳 Containerized Production Deployment (Docker & Compose)
+
+To build and run the entire stack with Docker Compose:
+
+```bash
+# Build and launch all services in the background
+docker compose up --build -d
+
+# Check service logs
+docker compose logs -f
+
+# Check health status
+docker compose ps
+
+# Stop all services
+docker compose down
+```
+
+* Backend API & docs: `http://localhost:8005/docs`
+* Classroom interface: `http://localhost:3000` (or set `FRONTEND_PORT=3001` in your environment)
+* Data persistence: Automatically mounts `./backend/data` for uploads, lesson plans, and audio caches.
 
 ---
 
