@@ -16,6 +16,10 @@ venv/
 .venv/
 backend/venv/
 backend/.venv/
+fastapi
+starlette
+backend/fastapi
+backend/starlette
 build/
 develop-eggs/
 dist/
