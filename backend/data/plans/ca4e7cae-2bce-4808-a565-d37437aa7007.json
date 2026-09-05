@@ -230,10 +230,71 @@
       "concept_summary": "Break down how chlorophyll pigments act like solar panels, exciting electrons that travel through the thylakoid membrane to produce ATP and NADPH.",
       "estimated_duration_seconds": 120,
       "is_completed": false,
-      "teacher_script": null,
-      "visuals": null,
-      "formative_question": null,
-      "audio_url": null
+      "teacher_script": "Hey there! Let’s dive into the light‑dependent reactions – the solar‑panel part of photosynthesis. Imagine chlorophyll pigments as tiny solar panels embedded in the thylakoid membrane. When sunlight hits them, photons excite electrons, just like a solar cell kicks electrons into motion. These high‑energy electrons zip from Photosystem II to Photosystem I through an electron transport chain, pumping protons into the thylakoid lumen and creating a gradient. Think of that gradient as water stored behind a dam – it’s ready to rush out. The enzyme ATP synthase acts like a turbine, letting protons flow back and spinning to forge ATP from ADP and Pi. Meanwhile, the electrons that reach Photosystem I get a second boost of light energy and reduce NADP⁺ to NADPH. So, in a nutshell, sunlight → excited electrons → proton pump → ATP and NADPH, the energy‑rich molecules that fuel the Calvin cycle. Visualize it as a cascade of energy conversions, each step tightly coordinated. Ready to see how it all fits together?",
+      "visuals": [
+        {
+          "type": "concept_card",
+          "title": "Concept Visual",
+          "content": "",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": "A detailed illustration of a chloroplast thylakoid membrane showing photosystem II, photosystem I, the electron transport chain, ATP synthase, and labeled chlorophyll pigments, with arrows indicating electron flow, proton pumping, and the direction of ATP synthesis."
+        },
+        {
+          "type": "latex",
+          "title": "Concept Visual",
+          "content": "\\text{ADP} + \\text{P}_i + \\text{light energy} \\rightarrow \\text{ATP}",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        },
+        {
+          "type": "mermaid",
+          "title": "Concept Visual",
+          "content": "graph TD\n  Sunlight --> PSII[Photosystem II]\n  PSII --> ET[Electron Transport Chain]\n  ET --> PSI[Photosystem I]\n  ET --> ProtonPump[Proton Pump]\n  ProtonPump --> ATPsynth[ATP Synthase]\n  PSI --> NADP[Reduce NADP⁺ to NADPH]",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "Chlorophyll pigments act like rooftop solar panels: sunlight excites electrons, which travel through wiring (the electron transport chain) to power devices (ATP synthase) and store energy (NADPH).",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "• Photon absorption excites electrons in chlorophyll (Photosystem II).\n• Excited electrons travel through the electron transport chain, creating a proton gradient.\n• ATP synthase uses the proton gradient to make ATP; NADP⁺ is reduced to NADPH.",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        }
+      ],
+      "formative_question": {
+        "id": "28008cff",
+        "prompt": "Explain how the excitation of chlorophyll electrons leads to the synthesis of ATP in the thylakoid membrane.",
+        "options": null,
+        "correct_answer": "Excited electrons from chlorophyll flow through the electron transport chain, pumping protons into the thylakoid lumen. The resulting proton gradient drives ATP synthase, allowing protons to flow back into the stroma and catalyze the conversion of ADP and Pi into ATP.",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Understand",
+        "hints": [
+          "Recall what creates the proton gradient.",
+          "Think about the role of ATP synthase."
+        ],
+        "common_misconceptions": [
+          "Believing ATP is made directly by chlorophyll, not by ATP synthase.",
+          "Confusing the direction of electron flow with proton flow."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_10a44c83f902.mp3"
     },
     {
       "step_id": 3,
@@ -242,10 +303,62 @@
       "concept_summary": "Use a factory‑floor analogy to show carbon fixation, reduction, carbohydrate formation, and regeneration of the CO₂‑acceptor molecule.",
       "estimated_duration_seconds": 100,
       "is_completed": false,
-      "teacher_script": null,
-      "visuals": null,
-      "formative_question": null,
-      "audio_url": null
+      "teacher_script": "Hey there! Imagine the Calvin Cycle as a bustling factory floor inside a chloroplast. First, CO₂ molecules roll in like raw materials on a conveyor belt, and the enzyme Rubisco is the skilled worker that grabs them and attaches them to a five‑carbon carrier called RuBP – that’s our carbon fixation step. Next, ATP and NADPH, the energy tools delivered by the light reactions, power the assembly line: they reduce the captured carbon, turning it into a three‑carbon sugar called G3P – think of it as the product coming off the line. Some of that G3P is packaged into glucose, while the rest is recycled to rebuild RuBP, ready for the next batch of CO₂. So, just like a factory needs raw inputs, workers, energy, and a way to reset the machinery, the Calvin Cycle orchestrates these steps to turn light energy into chemical energy we can use. Visualize each stage as a station on the line, and you’ll see how elegantly nature engineers this process!",
+      "visuals": [
+        {
+          "type": "concept_card",
+          "title": "Concept Visual",
+          "content": "",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": "A detailed illustration of the Calvin Cycle depicted as a factory assembly line inside a chloroplast, showing CO2 entering as raw material, Rubisco as a worker, ATP and NADPH as energy tools, with labeled stations: carbon fixation, reduction, carbohydrate formation, regeneration of RuBP, and arrows indicating the flow of molecules."
+        },
+        {
+          "type": "latex",
+          "title": "Concept Visual",
+          "content": "3\\,\\text{CO}_2 + 6\\,\\text{NADPH} + 9\\,\\text{ATP} \\rightarrow G3P + 6\\,\\text{NADP}^+ + 9\\,\\text{ADP} + 8\\,\\text{P_i}",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        },
+        {
+          "type": "analogy_box",
+          "title": "Concept Visual",
+          "content": "Factory Floor Analogy: CO₂ = raw material, Rubisco = worker, ATP/NADPH = power tools, G3P = finished product, RuBP regeneration = resetting the assembly line.",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        },
+        {
+          "type": "key_takeaways",
+          "title": "Concept Visual",
+          "content": "• Carbon fixation attaches CO₂ to RuBP via Rubisco.\n• ATP and NADPH reduce the fixed carbon to G3P.\n• Part of G3P leaves to form sugars; the rest regenerates RuBP for the next cycle.",
+          "explanation": "",
+          "language": null,
+          "image_url": null,
+          "image_prompt": null
+        }
+      ],
+      "formative_question": {
+        "id": "ade60256",
+        "prompt": "If one molecule of CO₂ is fixed, how many ATP and NADPH molecules are consumed in the Calvin Cycle to eventually produce one G3P?",
+        "options": null,
+        "correct_answer": "3 ATP and 2 NADPH are used per CO₂ fixed (overall, fixing 3 CO₂ consumes 9 ATP and 6 NADPH to make one G3P).",
+        "question_type": "open_ended_voice_or_text",
+        "bloom_level": "Apply",
+        "hints": [
+          "Recall the stoichiometry of the Calvin Cycle per CO₂ molecule.",
+          "Think about the energy carriers supplied by the light reactions."
+        ],
+        "common_misconceptions": [
+          "Confusing the total ATP/NADPH for the whole cycle with the amount needed per CO₂.",
+          "Assuming G3P is produced directly from CO₂ without the intermediate steps."
+        ]
+      },
+      "audio_url": "/api/v1/voice/audio/speech_f30d54a426c5.mp3"
     },
     {
       "step_id": 4,
